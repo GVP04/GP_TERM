@@ -1,0 +1,9 @@
+open 10.100.0.7
+tstftp
+tst1
+bin
+get
+/usr/pickvm/ListMaker/bin/ListMaker
+ListMaker.exe
+close
+bye

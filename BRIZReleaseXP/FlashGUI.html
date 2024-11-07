@@ -1,0 +1,3063 @@
+<html>
+<head>
+<title>Функции FlashGUI. Версия 2.2.7.1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<style type="text/css">
+
+.desc {
+    margin-top: 4px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+}
+
+pre {
+    font-family: "Courier New", Courier, mono;
+    font-size: 12px;
+    color: #000000;
+    margin-left: 20px;
+}
+
+h1 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    font-weight: bold;
+}
+
+body {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.copy {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #999999;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+table { 
+ border-collapse:collapse;
+ border-color: #cccccc;
+ border-width: 1px; 
+ border-style: solid;
+}
+
+table tr td {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ padding: 5px;
+ border-color: #cccccc;
+ border-width: 1px;
+ border-style: solid;
+}
+
+table.list { 
+ border-collapse:collapse;
+ border-width: 0px; 
+}
+
+table.list tr td {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ padding: 5px;
+ border-color: #ffffff;
+ border-width: 0px;
+ border-style: solid;
+ border-bottom-color: #cccccc;
+ border-bottom-width: 1px;
+ border-bottom-style: dotted;
+}
+
+
+</style>
+</head>
+<body>
+<h1>Функции FlashGUI. Версия 2.2.7.1</h1>
+<h2>Объекты<h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#browser">browser</a></td><td>создает объект-браузер для отображения html-файлов</td></tr>
+<tr><td><a href="FlashGUI.html#button">button</a></td><td>создает кнопку</td></tr>
+<tr><td><a href="FlashGUI.html#checkbox">checkbox</a></td><td>создает кнопку-флажок</td></tr>
+<tr><td><a href="FlashGUI.html#cmenu">cmenu</a></td><td>создает контекстное меню (для мыши)</td></tr>
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+<tr><td><a href="FlashGUI.html#entry">entry</a></td><td>создает поле ввода</td></tr>
+<tr><td><a href="FlashGUI.html#frame">frame</a></td><td>создает объект-прямоугольник для размещения в нем других объектов</td></tr>
+<tr><td><a href="FlashGUI.html#image">image</a></td><td>создает объект-изображение</td></tr>
+<tr><td><a href="FlashGUI.html#label">label</a></td><td>создает заголовок (просто текст)</td></tr>
+<tr><td><a href="FlashGUI.html#labelbox">labelbox</a></td><td>создает рамку с заголовком</td></tr>
+<tr><td><a href="FlashGUI.html#line">line</a></td><td>создает объект line (линия)</td></tr>
+<tr><td><a href="FlashGUI.html#menu">menu</a></td><td>создает меню для последующего заполнения с помощью menuitem</td></tr>
+<tr><td><a href="FlashGUI.html#pbar">pbar</a></td><td>создает индикатор выполнения процесса</td></tr>
+<tr><td><a href="FlashGUI.html#play">play</a></td><td>создает область, в которой проигрывается AVI-файл</td></tr>
+<tr><td><a href="FlashGUI.html#radio">radio</a></td><td>создает радиокнопку</td></tr>
+<tr><td><a href="FlashGUI.html#rtfbox">rtfbox</a></td><td>создает объект для редактирования RTF-файла</td></tr>
+<tr><td><a href="FlashGUI.html#scrollbar">scrollbar</a></td><td>создает полосу прокрутки (скроллер)</td></tr>
+<tr><td><a href="FlashGUI.html#stbar">stbar</a></td><td>создает статус-строку</td></tr>
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+<tr><td><a href="FlashGUI.html#textbox">textbox</a></td><td>создает поле ввода текста (многострочное)</td></tr>
+<tr><td><a href="FlashGUI.html#timer">timer</a></td><td>создает таймер</td></tr>
+<tr><td><a href="FlashGUI.html#toolbar">toolbar</a></td><td>создает панель кнопок</td></tr>
+<tr><td><a href="FlashGUI.html#treebox">treebox</a></td><td>создает объект для отображения дерева</td></tr>
+<tr><td><a href="FlashGUI.html#winbox">winbox</a></td><td>создает объект, имеющий форму и поведение окна</td></tr>
+<tr><td><a href="FlashGUI.html#window">window</a></td><td>создает главное окно приложения</td></tr>
+</table>
+<h2>Функции объектов<h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#addline">addline</a></td><td>добавляет элемент списка в combo</td></tr>
+<tr><td><a href="FlashGUI.html#bkg">bkg</a></td><td>устанавливает фон</td></tr>
+<tr><td><a href="FlashGUI.html#checkrow">checkrow</a></td><td>помечает галочкой строку таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#clearall">clearall</a></td><td>удаляет данные из всех объектов</td></tr>
+<tr><td><a href="FlashGUI.html#csort">csort</a></td><td>сортирует колонку таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#delbtn">delbtn</a></td><td>удаляет кнопку из тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#delcol">delcol</a></td><td>удаляет колонку из таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#delhotkey">delhotkey</a></td><td>удаляет горячую клавишу окна или объекта</td></tr>
+<tr><td><a href="FlashGUI.html#dellines">dellines</a></td><td>удаляет все строки из объекта combo</td></tr>
+<tr><td><a href="FlashGUI.html#delnode">delnode</a></td><td>удаляет узел дерева</td></tr>
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#delrow">delrow</a></td><td>удаляет строку из таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#deltab">deltab</a></td><td>удаляет закладку</td></tr>
+<tr><td><a href="FlashGUI.html#delwin">delwin</a></td><td>удаляет текущее окно</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#dropdown">dropdown</a></td><td>раскрывает список в объекте combo</td></tr>
+<tr><td><a href="FlashGUI.html#font">font</a></td><td>устанавливает шрифт</td></tr>
+<tr><td><a href="FlashGUI.html#fontfor">fontfor</a></td><td>предустанавливает шрифт для объектов окна</td></tr>
+<tr><td><a href="FlashGUI.html#getbtn">getbtn</a></td><td>получает информацию о кнопке тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#getcell">getcell</a></td><td>возвращает содержимое ячейки таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#getcheck">getcheck</a></td><td>возвращает состояние кнопки checkbox или radio</td></tr>
+<tr><td><a href="FlashGUI.html#getchecks">getchecks</a></td><td>возвращает метки всех строк в таблице</td></tr>
+<tr><td><a href="FlashGUI.html#getcode">getcode</a></td><td>возвращает код строки, отображаемой в combo</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#getmark">getmark</a></td><td>возвращает номера помеченных строк и позиций</td></tr>
+<tr><td><a href="FlashGUI.html#getnodetext">getnodetext</a></td><td>возвращает текст узла в дереве</td></tr>
+<tr><td><a href="FlashGUI.html#getrow">getrow</a></td><td>возвращает содержимое строки таблицы (всех ячеек строки)</td></tr>
+<tr><td><a href="FlashGUI.html#getrows">getrows</a></td><td>возвращает количество строк в таблице</td></tr>
+<tr><td><a href="FlashGUI.html#getselect">getselect</a></td><td>возвращает номер выделенной строки или закладки</td></tr>
+<tr><td><a href="FlashGUI.html#gettext">gettext</a></td><td>возвращает текст из объектов entry, textbox, соmbo</td></tr>
+<tr><td><a href="FlashGUI.html#goback">goback</a></td><td>возращается к предыдущей ссылке в объекте browser</td></tr>
+<tr><td><a href="FlashGUI.html#hotkey">hotkey</a></td><td>назначает горячую клавишу окну или объекту</td></tr>
+<tr><td><a href="FlashGUI.html#insbtn">insbtn</a></td><td>вставляет кнопку в тулбар</td></tr>
+<tr><td><a href="FlashGUI.html#inscol">inscol</a></td><td>вставляет колонку в таблицу</td></tr>
+<tr><td><a href="FlashGUI.html#insnode">insnode</a></td><td>вставляет узел в дерево</td></tr>
+<tr><td><a href="FlashGUI.html#insrow">insrow</a></td><td>вставляет строку в таблицу</td></tr>
+<tr><td><a href="FlashGUI.html#insrows">insrows</a></td><td>вставляет строки в таблицу</td></tr>
+<tr><td><a href="FlashGUI.html#inssep">inssep</a></td><td>вставляет разделитель в тулбар</td></tr>
+<tr><td><a href="FlashGUI.html#instab">instab</a></td><td>вставляет закладку в tabbox</td></tr>
+<tr><td><a href="FlashGUI.html#instext">instext</a></td><td>вставляет текст в textbox</td></tr>
+<tr><td><a href="FlashGUI.html#markline">markline</a></td><td>помечает строку в объекте textbox</td></tr>
+<tr><td><a href="FlashGUI.html#marktext">marktext</a></td><td>помечает текст в объекте textbox</td></tr>
+<tr><td><a href="FlashGUI.html#menuitem">menuitem</a></td><td>создает пункт меню</td></tr>
+<tr><td><a href="FlashGUI.html#menusep">menusep</a></td><td>создает разделительную черту в меню</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#modifybtn">modifybtn</a></td><td>изменяет кнопку тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#modifymenu">modifymenu</a></td><td>производит действие со строкой меню</td></tr>
+<tr><td><a href="FlashGUI.html#notab">notab</a></td><td>сброс режима размещения создаваемых объектов на закладке</td></tr>
+<tr><td><a href="FlashGUI.html#openlink">openlink</a></td><td>отображает гиперссылку в объекте browser</td></tr>
+<tr><td><a href="FlashGUI.html#parent">parent</a></td><td>устанавливает номер родительского объекта</td></tr>
+<tr><td><a href="FlashGUI.html#pbarcount">pbarcount</a></td><td>устанавливает количество шагов в pbar</td></tr>
+<tr><td><a href="FlashGUI.html#pbarpos">pbarpos</a></td><td>устанавливает pbar в заданную позицию</td></tr>
+<tr><td><a href="FlashGUI.html#replcell">replcell</a></td><td>заменяет текст одной или нескольких ячеек</td></tr>
+<tr><td><a href="FlashGUI.html#replrow">replrow</a></td><td>заменяет текст строки таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#rtfload">rtfload</a></td><td>загружает RTF-код из переменной</td></tr>
+<tr><td><a href="FlashGUI.html#rtfopen">rtfopen</a></td><td>открывает RTF-файл</td></tr>
+<tr><td><a href="FlashGUI.html#rtfsave">rtfsave</a></td><td>сохраняет RTF-файл</td></tr>
+<tr><td><a href="FlashGUI.html#selnode">selnode</a></td><td>выделяет узел дерева</td></tr>
+<tr><td><a href="FlashGUI.html#selrow">selrow</a></td><td>выделяет строку таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#setcheck">setcheck</a></td><td>устанавливает состояние checkbox или radio</td></tr>
+<tr><td><a href="FlashGUI.html#setcode">setcode</a></td><td>вставляет строку в combo по ее коду</td></tr>
+<tr><td><a href="FlashGUI.html#setdrop">setdrop</a></td><td>связывает источник и приемник drag-n-drop</td></tr>
+<tr><td><a href="FlashGUI.html#setdropmenu">setdropmenu</a></td><td>вставляет меню в кнопку тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#seticon">seticon</a></td><td>устанавливает значок для строки таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#setimage">setimage</a></td><td>отображает гр. файл в объекте image</td></tr>
+<tr><td><a href="FlashGUI.html#setnodetext">setnodetext</a></td><td>устанавливает новый текст узла в дереве</td></tr>
+<tr><td><a href="FlashGUI.html#setscroll">setscroll</a></td><td>устанавливает параметры скроллера</td></tr>
+<tr><td><a href="FlashGUI.html#setscrollpos">setscrollpos</a></td><td>устанавливает скроллер в заданное положение</td></tr>
+<tr><td><a href="FlashGUI.html#settabtext">settabtext</a></td><td>устанавливает новый текст закладки</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+<tr><td><a href="FlashGUI.html#showmenu">showmenu</a></td><td>отображает клик-меню (или обычное меню)</td></tr>
+<tr><td><a href="FlashGUI.html#showtab">showtab</a></td><td>показывает закладку tabbox</td></tr>
+<tr><td><a href="FlashGUI.html#sizing">sizing</a></td><td>устанавливает правила масштабирования объекта</td></tr>
+<tr><td><a href="FlashGUI.html#stbarimage">stbarimage</a></td><td>устанавливает изображение статус-строке</td></tr>
+<tr><td><a href="FlashGUI.html#stbartext">stbartext</a></td><td>устанавливает текст в статус-строке</td></tr>
+<tr><td><a href="FlashGUI.html#tab">tab</a></td><td>устанавливает закладку для создаваемых объектов</td></tr>
+<tr><td><a href="FlashGUI.html#tooltip">tooltip</a></td><td>создает всплывающую подсказку</td></tr>
+<tr><td><a href="FlashGUI.html#unbind">unbind</a></td><td>отключает генерацию сообщений для события</td></tr>
+</table>
+<h2>Другие функции<h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#autowaitcursor">autowaitcursor</a></td><td>режим автоблокировки окна по любому событию</td></tr>
+<tr><td><a href="FlashGUI.html#brizversion">brizversion</a></td><td>возвращает версию BRIZ</td></tr>
+<tr><td><a href="FlashGUI.html#clearmsg">clearmsg</a></td><td>удаляет все сообщения из очереди</td></tr>
+<tr><td><a href="FlashGUI.html#csvdump">csvdump</a></td><td>выгружает файл D3 в csv-файл Windows</td></tr>
+<tr><td><a href="FlashGUI.html#csvload">csvload</a></td><td>загружает csv-файл Windows в файл D3</td></tr>
+<tr><td><a href="FlashGUI.html#errbox">errbox</a></td><td>сообщение об ошибке (кнопка OK и значок X)</td></tr>
+<tr><td><a href="FlashGUI.html#fdump">fdump</a></td><td>выгружает данные в файлы MS Windows</td></tr>
+<tr><td><a href="FlashGUI.html#flashgui.version">flashgui.version</a></td><td>возвращает версию и имя установочного счета</td></tr>
+<tr><td><a href="FlashGUI.html#fload">fload</a></td><td>загружает данные из файлов MS Windows</td></tr>
+<tr><td><a href="FlashGUI.html#getdir">getdir</a></td><td>возвращает рабочую директорию</td></tr>
+<tr><td><a href="FlashGUI.html#getmsg">getmsg</a></td><td>ожидает наступления события и возвращает его параметры</td></tr>
+<tr><td><a href="FlashGUI.html#getwin">getwin</a></td><td>возвращает номер активного окна</td></tr>
+<tr><td><a href="FlashGUI.html#grid">grid</a></td><td>устанавливает режим размещения объектов в сетке</td></tr>
+<tr><td><a href="FlashGUI.html#hideall">hideall</a></td><td>делает невидимыми все окна</td></tr>
+<tr><td><a href="FlashGUI.html#homedir">homedir</a></td><td>делает директорию BRIZ.exe рабочей директорией</td></tr>
+<tr><td><a href="FlashGUI.html#ibox">ibox</a></td><td>информационное сообщение (кнопка OK и значок i)</td></tr>
+<tr><td><a href="FlashGUI.html#insmsg">insmsg</a></td><td>эмулирует наступление события с указанными параметрами</td></tr>
+<tr><td><a href="FlashGUI.html#mbox">mbox</a></td><td>отображает окно сообщения с кнопками</td></tr>
+<tr><td><a href="FlashGUI.html#mkdir">mkdir</a></td><td>создает директорию</td></tr>
+<tr><td><a href="FlashGUI.html#mmbox">mmbox</a></td><td>окно сообщения с произвольными кнопками</td></tr>
+<tr><td><a href="FlashGUI.html#msgoff">msgoff</a></td><td>выключает выдачу сообщений</td></tr>
+<tr><td><a href="FlashGUI.html#msgon">msgon</a></td><td>включает выдачу сообщений</td></tr>
+<tr><td><a href="FlashGUI.html#nogrid">nogrid</a></td><td>отключает режим grid</td></tr>
+<tr><td><a href="FlashGUI.html#objtype">objtype</a></td><td>возвращает тип объекта</td></tr>
+<tr><td><a href="FlashGUI.html#okbox">okbox</a></td><td>сообщение с кнопкой OK и значком !</td></tr>
+<tr><td><a href="FlashGUI.html#pickwin">pickwin</a></td><td>копирует запись D3 в файл Windows</td></tr>
+<tr><td><a href="FlashGUI.html#restoremsg">restoremsg</a></td><td>повторяет последнее событие</td></tr>
+<tr><td><a href="FlashGUI.html#rmdir">rmdir</a></td><td>удаляет директорию</td></tr>
+<tr><td><a href="FlashGUI.html#rtftab">rtftab</a></td><td>формирует код таблицы rtf</td></tr>
+<tr><td><a href="FlashGUI.html#session">session</a></td><td>управляет окном сессии</td></tr>
+<tr><td><a href="FlashGUI.html#setcoord">setcoord</a></td><td>задает размеры координатной сетки окна</td></tr>
+<tr><td><a href="FlashGUI.html#setdir">setdir</a></td><td>устанавливает рабочую директорию</td></tr>
+<tr><td><a href="FlashGUI.html#setwin">setwin</a></td><td>устанавливает номер текущего активнго окна</td></tr>
+<tr><td><a href="FlashGUI.html#showall">showall</a></td><td>делает видимыми все окна</td></tr>
+<tr><td><a href="FlashGUI.html#skip">skip</a></td><td>пропускает n ячеек grid</td></tr>
+<tr><td><a href="FlashGUI.html#skiprow">skiprow</a></td><td>пропускает заданное число строк grid</td></tr>
+<tr><td><a href="FlashGUI.html#waitcursor">waitcursor</a></td><td>включает/выключает отображение песочных часов</td></tr>
+<tr><td><a href="FlashGUI.html#wcolor">wcolor</a></td><td>вызывает диалог выбора цвета</td></tr>
+<tr><td><a href="FlashGUI.html#wfile">wfile</a></td><td>вызывает диалог выбора файла Windows</td></tr>
+<tr><td><a href="FlashGUI.html#wfolder">wfolder</a></td><td>вызывает Windows-диалог выбора папки</td></tr>
+<tr><td><a href="FlashGUI.html#wfont">wfont</a></td><td>вызывает диалог выбора шрифта</td></tr>
+<tr><td><a href="FlashGUI.html#wincmd">wincmd</a></td><td>выполняет команду Windows</td></tr>
+<tr><td><a href="FlashGUI.html#winpick">winpick</a></td><td>копирует файл Windows в запись D3</td></tr>
+<tr><td><a href="FlashGUI.html#winstart">winstart</a></td><td>открывает или печатает файл Windows</td></tr>
+</table>
+<h1 id="browser">browser</h2>
+<p class="syntax">browser(objnum,coord,option)</p>
+<p class="desc">создает объект-браузер для отображения html-файлов</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота<br>через запятую или @am.<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnLinkOpen</td><td>Нажата гиперссылка<br><br>Данные:<br>dt<1> - url</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#goback">goback</a></td><td>возращается к предыдущей ссылке в объекте browser</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#openlink">openlink</a></td><td>отображает гиперссылку в объекте browser</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+</table>
+<h1 id="button">button</h2>
+<p class="syntax">button(objnum,coord,text,option)</p>
+<p class="desc">создает кнопку</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота (не обязательна)<br>через запятую или @am.<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>text</td><td>текст кнопки</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bold</td><td>жирный шрифт</td></tr>
+<tr><td>disable</td><td>недоступно</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидимо</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>notab</td><td>не делать остановку на этом поле ко клавише TAB</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+<tr><td>tooltip</td><td>всплывающая подсказка</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnClick</td><td>Кнопка нажата<br><br>Данные не приходят</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+</table>
+<h1 id="checkbox">checkbox</h2>
+<p class="syntax">checkbox(objnum,coord,text,option)</p>
+<p class="desc">создает кнопку-флажок</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина (через запятую или @am).<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>text</td><td>текст</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>disable</td><td>недоступна</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидима</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>left</td><td>текст слева</td></tr>
+<tr><td>notab</td><td>не делать остановку на этом поле по клавише TAB</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+<tr><td>tooltip</td><td>всплывающая подсказка</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnCheck</td><td>Кнопка помечена<br><br>Данные не приходят</td></tr>
+<tr><td>OnEnter</td><td>Нажата клавиша Enter<br><br>Данные:<br>dt<1> - текст</td></tr>
+<tr><td>OnUncheck</td><td>С кнопки снята метка<br><br>Данные не приходят</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getcheck">getcheck</a></td><td>возвращает состояние кнопки checkbox или radio</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setcheck">setcheck</a></td><td>устанавливает состояние checkbox или radio</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+</table>
+<h1 id="cmenu">cmenu</h2>
+<p class="syntax">cmenu(menu.id,option)</p>
+<p class="desc">создает контекстное меню (для мыши)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>menu.id</td><td>идентификатор меню (число)</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#menuitem">menuitem</a></td><td>создает пункт меню</td></tr>
+<tr><td><a href="FlashGUI.html#menusep">menusep</a></td><td>создает разделительную черту в меню</td></tr>
+<tr><td><a href="FlashGUI.html#modifymenu">modifymenu</a></td><td>производит действие со строкой меню</td></tr>
+<tr><td><a href="FlashGUI.html#showmenu">showmenu</a></td><td>отображает клик-меню (или обычное меню)</td></tr>
+</table>
+<h1 id="combo">combo</h2>
+<p class="syntax">combo(objnum,coord,option)</p>
+<p class="desc">создает выпадающий список (combobox)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота через запятую или @am<br>В режиме grid колонка и строка не указываются,<br>ширина не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>edit</td><td>с возможностью клавиатурного ввода</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnSetFocus</td><td>Объект получил фокус<br><br>Данные:<br>dt<1> - номер окна, откуда ушел фокус<br>dt<2> - номер объекта, откуда ушел фокус</td></tr>
+<tr><td>OnEnter</td><td>Нажата клавиша Enter<br><br>Данные:<br>dt<1> - текст</td></tr>
+<tr><td>OnSelchange</td><td>Выбрано новое значение из списка<br><br>dt<1> - значение поля code<br>dt<2> - значение поля text</td></tr>
+<tr><td>OnValChange</td><td>Ввод завершен, текст изменился<br><br>Данные:<br>dt<1> - текст</td></tr>
+</table>
+<h2>Горячие клавиши</h2>
+<table>
+<tr><td>VK_ESCAPE</td><td>Нажата клавиша Esc</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#addline">addline</a></td><td>добавляет элемент списка в combo</td></tr>
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#dellines">dellines</a></td><td>удаляет все строки из объекта combo</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#dropdown">dropdown</a></td><td>раскрывает список в объекте combo</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#gettext">gettext</a></td><td>возвращает текст из объектов entry, textbox, соmbo</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setcode">setcode</a></td><td>вставляет строку в combo по ее коду</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+</table>
+<h1 id="entry">entry</h2>
+<p class="syntax">entry(objnum,coord,option)</p>
+<p class="desc">создает поле ввода</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота через запятую или @am,<br>высота - необязательна.<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>bold</td><td>жирный шрифт</td></tr>
+<tr><td>center</td><td>выравнивание по центру</td></tr>
+<tr><td>disable</td><td>недоступно</td></tr>
+<tr><td>flat</td><td>без контура</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидимо</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>limit len</td><td>ограничивает длину вводимого значения</td></tr>
+<tr><td>mvtext</td><td>для многозначных полей, содержщих простой текст</td></tr>
+<tr><td>noscroll</td><td>без прокрутки по вертикали</td></tr>
+<tr><td>notab</td><td>не делать остановку на этом поле по клавише TAB</td></tr>
+<tr><td>noupdown</td><td>не переводить автоматически фокус по стрелкам вверх/вниз</td></tr>
+<tr><td>num</td><td>только для чисел</td></tr>
+<tr><td>number</td><td>только для чисел</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>onchange</td><td>получение события при вводе каждого символа</td></tr>
+<tr><td>password</td><td>для ввода пароля</td></tr>
+<tr><td>readonly</td><td>недоступно для ввода</td></tr>
+<tr><td>right</td><td>правое выравнивание</td></tr>
+<tr><td>tooltip</td><td>всплывающая подсказка</td></tr>
+<tr><td>white</td><td>белый фон (для readonly)</td></tr>
+<tr><td>wrap</td><td>с переносом длинных строк</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnSetFocus</td><td>Объект получил фокус<br><br>Данные:<br>dt<1> - номер окна, откуда ушел фокус<br>dt<2> - номер объекта, откуда ушел фокус</td></tr>
+<tr><td>OnEnter</td><td>Нажата клавиша Enter<br><br>Данные:<br>dt<1> - текст</td></tr>
+<tr><td>OnChange</td><td>Введен очередной символ<br><br>Данные:<br>dt<1> - текст</td></tr>
+<tr><td>OnValChange</td><td>Ввод завершен, текст изменился<br><br>Данные:<br>dt<1> - текст</td></tr>
+<tr><td>OnDrop</td><td>Перетаскиваемые строки отпущены<br><br>Данные:<br>dt<1> - номер объекта-источника (table или treebox)<br>dt<2> - номер позиции, в которой строки были отпущены<br>dt<3,linepos,text> - массив перетаскиваемых строк</td></tr>
+</table>
+<h2>Горячие клавиши</h2>
+<table>
+<tr><td>VK_ESCAPE</td><td>Нажата клавиша Esc</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#gettext">gettext</a></td><td>возвращает текст из объектов entry, textbox, соmbo</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+</table>
+<h1 id="frame">frame</h2>
+<p class="syntax">frame(objnum,coord,option)</p>
+<p class="desc">создает объект-прямоугольник для размещения в нем других объектов</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота через запятую или @am<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>margin</td><td>с полями, как у окна</td></tr>
+<tr><td>raised</td><td>выпуклой формы</td></tr>
+<tr><td>scroll-in num</td><td>скроллировать данный фрейм во фрейме num</td></tr>
+<tr><td>sizer CODE</td><td>перемещение пользователем</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+<tr><td>sunken</td><td>вдавленной формы</td></tr>
+</table>
+<p>Опция sizer дает возможность пользователю перемещать<br>фрейм по экрану с помощью мыши.</p>
+<h2>Коды перемещения</h2>
+<table>
+<tr><td>С</td><td>перемещение всего объекта (с точкой посередине)</td></tr>
+<tr><td>L</td><td>перемещение левой границы</td></tr>
+<tr><td>R</td><td>перемещение правой границы</td></tr>
+<tr><td>T</td><td>перемещение верхней границы</td></tr>
+<tr><td>B</td><td>перемещение нижней границы</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+</table>
+<h1 id="image">image</h2>
+<p class="syntax">image(objnum,coord,path,option)</p>
+<p class="desc">создает объект-изображение</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина,высота</td></tr>
+<tr><td>через запятую или @am.</td><td></td></tr>
+<tr><td>path</td><td>путь к графическому файлу</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>bottom</td><td>выравнивать по нижней стороне прямоугольника</td></tr>
+<tr><td>center</td><td>выравнивать по центру (горизонтально и вертикально)</td></tr>
+<tr><td>hcenter</td><td>выравнивать горизонтально по центру</td></tr>
+<tr><td>left</td><td>выравнивать по левой стороне прямоугольника (по умолчанию)</td></tr>
+<tr><td>raised</td><td>выпуклой формы</td></tr>
+<tr><td>right</td><td>выравнивать по правой стороне прямоугольника</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+<tr><td>sunken</td><td>вдавленной формы</td></tr>
+<tr><td>top</td><td>выравнивать по верхней стороне прямоугольника (по умолчанию)</td></tr>
+<tr><td>vcenter</td><td>выравнивать вертикально по центру</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>WM_LBUTTONDBLCLK</td><td>Двойной щелчок левой кнопкой мыши<br><br>Данные:<br>dt<1> - 1<br>dt<2> - координаты мыши</td></tr>
+<tr><td>WM_LBUTTONDOWN</td><td>Нажата левая кнопка мыши<br><br>Данные:<br>dt<1> - 1<br>dt<2> - координаты мыши</td></tr>
+<tr><td>WM_RBUTTONDOWN</td><td>Нажата правая кнопка мыши<br><br>Данные:<br>dt<1> - 2<br>dt<2> - координаты мыши</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setimage">setimage</a></td><td>отображает гр. файл в объекте image</td></tr>
+</table>
+<h1 id="label">label</h2>
+<p class="syntax">label(objnum,coord,text,option)</p>
+<p class="desc">создает заголовок (просто текст)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота через запятую или @am,<br>высота - не обязательна<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>text</td><td>текст</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>bold</td><td>жирный шрифт</td></tr>
+<tr><td>center</td><td>выравнивание по центру</td></tr>
+<tr><td>disable</td><td>неактивен (серый цвет)</td></tr>
+<tr><td>event</td><td>имеет события WM_LBUTTONDOWN, LBUTTONUP, WM_LBUTTONDBLCLK</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>nowrap</td><td>не переносится на следующую строку</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>raised</td><td>выпуклой формы</td></tr>
+<tr><td>right</td><td>правое выравнивание</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+<tr><td>sunken</td><td>вдавленной формы</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+</table>
+<h1 id="labelbox">labelbox</h2>
+<p class="syntax">labelbox(objnum,coord,text,option)</p>
+<p class="desc">создает рамку с заголовком</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота через запятую или @am</td></tr>
+<tr><td>text</td><td>заголовок (не обязателен)</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>disable</td><td>недоступна</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>) *</td></tr>
+<tr><td>hide</td><td>невидима</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<ul>
+<li>Цвет заголовка в объекте labelbox не изменяется.</li>
+</ul>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+</table>
+<h1 id="line">line</h2>
+<p class="syntax">line(objnum,coord,option)</p>
+<p class="desc">создает объект line (линия)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота (через запятую или @am)<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>hide</td><td>невидима</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+<tr><td>vert</td><td>вертикальная</td></tr>
+</table>
+<h2>Внимание</h2>
+<ul>
+<li>Линия выравнивается относительно середины прямоугольника.</li>
+</ul>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+</table>
+<h1 id="menu">menu</h2>
+<p class="syntax">menu(owner.id,menu.id,text,option)</p>
+<p class="desc">создает меню для последующего заполнения с помощью menuitem</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>owner.id</td><td>идентификатор вышестоящего меню (число)<br><br>При создании корневого горизонтального меню<br>owner.id = 0.</td></tr>
+<tr><td>menu.id</td><td>идентификатор меню (число от 1 до 900)</td></tr>
+<tr><td>text</td><td>название пункта меню</td></tr>
+<tr><td>option</td><td>опции через запятую</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>disable</td><td>сделать неактивным</td></tr>
+<tr><td>group</td><td>является началом радиогруппы</td></tr>
+<tr><td>icon name num</td><td>добавить изображение num из файла NAME.gil</td></tr>
+<tr><td>radio</td><td>является продолжением радиогруппы</td></tr>
+<tr><td>pos num</td><td>позиция вставки в родительком меню</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#menuitem">menuitem</a></td><td>создает пункт меню</td></tr>
+<tr><td><a href="FlashGUI.html#menusep">menusep</a></td><td>создает разделительную черту в меню</td></tr>
+<tr><td><a href="FlashGUI.html#modifymenu">modifymenu</a></td><td>производит действие со строкой меню</td></tr>
+<tr><td><a href="FlashGUI.html#showmenu">showmenu</a></td><td>отображает клик-меню (или обычное меню)</td></tr>
+</table>
+<h1 id="pbar">pbar</h2>
+<p class="syntax">pbar(objnum,coord,count,option)</p>
+<p class="desc">создает индикатор выполнения процесса</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота через запятую или @am,<br>высота - не обязательна<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>count</td><td>количество шагов</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона</td></tr>
+<tr><td>frg color</td><td>устанавливает заливки</td></tr>
+<tr><td>disable</td><td>неактивен</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#pbarcount">pbarcount</a></td><td>устанавливает количество шагов в pbar</td></tr>
+<tr><td><a href="FlashGUI.html#pbarpos">pbarpos</a></td><td>устанавливает pbar в заданную позицию</td></tr>
+</table>
+<h1 id="play">play</h2>
+<p class="syntax">play(objnum,coord,filename,option)</p>
+<p class="desc">создает область, в которой проигрывается AVI-файл</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка (через запятую или @am) или пусто.<br>Ширина и высота устанавливаются автоматически.<br>Если не указаны колонка, строка, объект<br>центрируется относительно родителя.</td></tr>
+<tr><td>filename</td><td>имя файла или путь</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+</table>
+<h1 id="radio">radio</h2>
+<p class="syntax">radio(objnum,coord,text,option)</p>
+<p class="desc">создает радиокнопку</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота<br>через запятую или @am<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>text</td><td>заголовок</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>disable</td><td>недоступна</td></tr>
+<tr><td>group</td><td>начало группы</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидима</td></tr>
+<tr><td>left</td><td>текст слева</td></tr>
+<tr><td>notab</td><td>не делать остановку на этом поле ко клавише TAB</td></tr>
+<tr><td>off</td><td>недоступна</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+<tr><td>tooltip</td><td>всплывающая подсказка</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnCheck</td><td>Кнопка помечена<br><br>Данные не приходят</td></tr>
+<tr><td>OnEnter</td><td>Нажата клавиша Enter<br><br>Данные:<br>dt<1> - текст</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#getcheck">getcheck</a></td><td>возвращает состояние кнопки checkbox или radio</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setcheck">setcheck</a></td><td>устанавливает состояние checkbox или radio</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+</table>
+<h1 id="rtfbox">rtfbox</h2>
+<p class="syntax">rtfbox(objnum,coord,option)</p>
+<p class="desc">создает объект для редактирования RTF-файла</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота через запятую или @am,<br>высота - не обязательна<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>disable</td><td>неактивен (серый цвет)</td></tr>
+<tr><td>flat</td><td>без рамки</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>hscroll</td><td>горизонтальный скроллер вместо переноса строк</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>readonly</td><td>нередактируемый</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#rtfload">rtfload</a></td><td>загружает RTF-код из переменной</td></tr>
+<tr><td><a href="FlashGUI.html#rtfopen">rtfopen</a></td><td>открывает RTF-файл</td></tr>
+<tr><td><a href="FlashGUI.html#rtfsave">rtfsave</a></td><td>сохраняет RTF-файл</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+</table>
+<ul>
+<li>Данный объект позволяет обрабатывать только RTF-текст.<br>Он не поддерживает таблицы и т.п., только разного стиля абзацы.</li>
+</ul>
+<h1 id="scrollbar">scrollbar</h2>
+<p class="syntax">scrollbar(objnum,coord,option)</p>
+<p class="desc">создает полосу прокрутки (скроллер)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, длина<br>через запятую или @am.<br>Длина - число строк для вертикального расположения<br>или число колонок для горизонтального расположения.<br>По умолчанию расположение - вертикальное.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>drag</td><td>выдача сообщений во время перетаскивания движка</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>horz</td><td>горизонтальное направление</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>WM_VSCROLL</td><td>Произведена прокрутка по вертикали<br><br>Данные:<br><br>dt<1> - действие:<br><br>LINEUP - нажата кнопка мыши на стрелке вверх<br>LINEDOWN - нажата кнопка мыши на стрелке вниз<br>PAGEUP - нажата кнопка мыши над движком<br>PAGEDOWN - нажата кнопка мыши под движком<br>DRAG - движок перемещается<br>ENDSCROLL - отпущена кнопка мыши<br><br>dt<2> - текущая позиция<br><br>dt<3> - параметры скроллера в виде значений:<br><br>1 - общее количество позиций<br>2 - количество позиций в странице<br>3 - позиция, в которую перемещен движок</td></tr>
+<tr><td>WM_HSCROLL</td><td>Произведена прокрутка по горизонтали<br><br>Данные:<br><br>dt<1> - действие:<br><br>LINELEFT - нажата кнопка мыши на стрелке влево<br>LINERIGHT - нажата кнопка мыши на стрелке вправо<br>PAGELEFT - нажата кнопка мыши слева от движка<br>PAGERIGHT - нажата кнопка мыши справа от движка<br>DRAG - движок перемещается<br>ENDSCROLL - отпущена кнопка мыши<br><br>dt<2> - текущая позиция<br><br>dt<3> - параметры скроллера в виде значений:<br><br>1 - общее количество позиций<br>2 - количество позиций в странице<br>3 - позиция, в которую перемещен движок</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setscroll">setscroll</a></td><td>устанавливает параметры скроллера</td></tr>
+<tr><td><a href="FlashGUI.html#setscrollpos">setscrollpos</a></td><td>устанавливает скроллер в заданное положение</td></tr>
+</table>
+<h1 id="stbar">stbar</h2>
+<p class="syntax">stbar(objnum,parts,option)</p>
+<p class="desc">создает статус-строку</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>parts</td><td>ширины секторов</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#stbarimage">stbarimage</a></td><td>устанавливает изображение статус-строке</td></tr>
+<tr><td><a href="FlashGUI.html#stbartext">stbartext</a></td><td>устанавливает текст в статус-строке</td></tr>
+</table>
+<h1 id="tabbox">tabbox</h2>
+<p class="syntax">tabbox(objnum,coord,option)</p>
+<p class="desc">создает подложку для закладок</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта tabbox</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота<br>через запятую или @am.<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>buttons</td><td>закладки отображаются в виде кнопок</td></tr>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>notab</td><td>не делать остановку на этом объекте по клавише TAB</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnSelChange</td><td>Выбрана другая закладка<br><br>Данные:<br>dt<1> - номер выбранной закладки</td></tr>
+<tr><td>OnClick</td><td>Щелчок по закладке левой кнопкой<br><br>Данные:<br>dt<1> - номер закладки</td></tr>
+<tr><td>WM_LBUTTONDBLCLK</td><td>Двойной щелчок по закладке левой кнопкой<br><br>Данные:<br>dt<1> - номер закладки</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#deltab">deltab</a></td><td>удаляет закладку</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#getselect">getselect</a></td><td>возвращает номер выделенной строки или закладки</td></tr>
+<tr><td><a href="FlashGUI.html#instab">instab</a></td><td>вставляет закладку в tabbox</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#notab">notab</a></td><td>сброс режима размещения создаваемых объектов на закладке</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#settabtext">settabtext</a></td><td>устанавливает новый текст закладки</td></tr>
+<tr><td><a href="FlashGUI.html#showtab">showtab</a></td><td>показывает закладку tabbox</td></tr>
+<tr><td><a href="FlashGUI.html#tab">tab</a></td><td>устанавливает закладку для создаваемых объектов</td></tr>
+</table>
+<h1 id="table">table</h2>
+<p class="syntax">table(objnum,coord,option)</p>
+<p class="desc">создает таблицу</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота<br>через запятую или @am.<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>check</td><td>с элементами checkbox в начале строки</td></tr>
+<tr><td>disable</td><td>недоступна</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидима</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>icons name</td><td>возможность добавления значков из указанного списка</td></tr>
+<tr><td>list</td><td>без колонок и сетки, с горизонтальной прокруткой</td></tr>
+<tr><td>mselect</td><td>возможность выбора нескольких строк</td></tr>
+<tr><td>nogrid</td><td>без сетки</td></tr>
+<tr><td>noheader</td><td>без заголовков</td></tr>
+<tr><td>nosel</td><td>не запоминать выделенную строку</td></tr>
+<tr><td>notab</td><td>не делать остановку на таблице по клавише TAB</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>seltextonly</td><td>выделять только текст</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnSetFocus</td><td>Объект получил фокус<br><br>Данные:<br><1> - номер окна, откуда ушел фокус<br><2> - номер объекта, откуда ушел фокус</td></tr>
+<tr><td>OnEnter</td><td>Нажата клавиша Enter<br><br>Данные:<br>dt<1> - номер выделенной строки (массив для mselect)<br>dt<2> - пусто<br>dt<3> - содержимое первой ячейки (массив для mselect)</td></tr>
+<tr><td>OnSelChange</td><td>Выделена другая строка<br><br>Данные:<br>dt<1> - номер выделенной строки<br>dt<2> - пусто<br>dt<3> - содержимое первой ячейки<br>Примечание: при множественном выделении событие<br>OnSelChange приходит только для первой строки</td></tr>
+<tr><td>OnClick</td><td>Щелчок левой кнопкой на строке<br><br>Данные:<br>dt<1> - номер строки<br>dt<2> - номер ячейки<br>dt<3> - содержимое первой ячейки<br>dt<4> - содержимое ячейки, указанной мышью</td></tr>
+<tr><td>OnDblClick</td><td>Двойной щелчок левой кнопкой на строке<br><br>Данные:<br>как в OnClick</td></tr>
+<tr><td>OnRClick</td><td>Щелчок правой кнопкой на строке<br><br>Данные:<br>как в OnClick, а также dt<5> - координаты мыши</td></tr>
+<tr><td>OnColumnClick</td><td>Щелчок левой кнопкой на заголовке колонки<br><br>Данные:<br>dt<1> - номер колонки</td></tr>
+<tr><td>OnCheck</td><td>На строке изменена отметка галочкой<br><br>Данные:<br>dt<1> - номер строки<br>dt<2> - 1 (установлена метка) или 0 (снята метка)</td></tr>
+<tr><td>OnDrop</td><td>Перетаскиваемые строки отпущены<br><br>Данные:<br>dt<1> - номер объекта-источника (table или treebox)<br>dt<2> - номер позиции, в которой строки были отпущены<br>dt<3,linepos,text> - массив перетаскиваемых строк</td></tr>
+<tr><td>OnKeydownOnBegin</td><td>Нажата клавиша 'вверх' в первой строке<br><br>Данные:<br>dt<1> - нажатая клавиша (VK_UP или VK_PREV)</td></tr>
+<tr><td>OnKeydownOnEnd</td><td>Нажата клавиша 'вниз' в последней строке<br><br>Данные:<br>dt<1> - нажатая клавиша (VK_DOWN или VK_NEXT)</td></tr>
+</table>
+<h2>Горячие клавиши</h2>
+<table>
+<tr><td>VK_INSERT</td><td>Нажата клавиша Insert</td></tr>
+<tr><td>VK_DELETE</td><td>Нажата клавиша Delete</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#checkrow">checkrow</a></td><td>помечает галочкой строку таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#delcol">delcol</a></td><td>удаляет колонку из таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#delrow">delrow</a></td><td>удаляет строку из таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getcell">getcell</a></td><td>возвращает содержимое ячейки таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#getchecks">getchecks</a></td><td>возвращает метки всех строк в таблице</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#getrow">getrow</a></td><td>возвращает содержимое строки таблицы (всех ячеек строки)</td></tr>
+<tr><td><a href="FlashGUI.html#getrows">getrows</a></td><td>возвращает количество строк в таблице</td></tr>
+<tr><td><a href="FlashGUI.html#getselect">getselect</a></td><td>возвращает номер выделенной строки или закладки</td></tr>
+<tr><td><a href="FlashGUI.html#insrow">insrow</a></td><td>вставляет строку в таблицу</td></tr>
+<tr><td><a href="FlashGUI.html#inscol">inscol</a></td><td>вставляет колонку в таблицу</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#replcell">replcell</a></td><td>заменяет текст одной или нескольких ячеек</td></tr>
+<tr><td><a href="FlashGUI.html#replrow">replrow</a></td><td>заменяет текст строки таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#selrow">selrow</a></td><td>выделяет строку таблицы</td></tr>
+<tr><td><a href="FlashGUI.html#setdrop">setdrop</a></td><td>связывает источник и приемник drag-n-drop</td></tr>
+</table>
+<h1 id="textbox">textbox</h2>
+<p class="syntax">textbox(objnum,coord,option)</p>
+<p class="desc">создает поле ввода текста (многострочное)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота<br>через запятую или @am.<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>disable</td><td>недоступно</td></tr>
+<tr><td>editor</td><td>устанавливает возможности редактора программ</td></tr>
+<tr><td>flat</td><td>без рамки</td></tr>
+<tr><td>hide</td><td>невидимо</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>notab</td><td>не делать остановку на этом поле по клавише TAB</td></tr>
+<tr><td>num</td><td>нумерация строк</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>readonly</td><td>недоступно для ввода</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnSetFocus</td><td>Объект получил фокус<br><br>Данные:<br>dt<1> - номер окна, откуда ушел фокус<br>dt<2> - номер объекта, откуда ушел фокус</td></tr>
+<tr><td>WM_RBUTTONDOWN</td><td>Щелчок правой кнопкой мыши<br><br>Данные не приходят</td></tr>
+<tr><td>OnSavepointLeft</td><td>Текст изменен пользователем<br><br>Данные не приходят</td></tr>
+</table>
+<p>При создании textbox в нем создаются маркеры (цвета осветленные):</p>
+<table>
+<tr><td>1</td><td>серый</td></tr>
+<tr><td>2</td><td>красный</td></tr>
+<tr><td>3</td><td>зеленый</td></tr>
+<tr><td>4</td><td>синий</td></tr>
+<tr><td>5</td><td>желтый</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#getmark">getmark</a></td><td>возвращает номера помеченных строк и позиций</td></tr>
+<tr><td><a href="FlashGUI.html#gettext">gettext</a></td><td>возвращает текст из объектов entry, textbox, соmbo</td></tr>
+<tr><td><a href="FlashGUI.html#instext">instext</a></td><td>вставляет текст в textbox</td></tr>
+<tr><td><a href="FlashGUI.html#markline">markline</a></td><td>помечает строку в объекте textbox</td></tr>
+<tr><td><a href="FlashGUI.html#marktext">marktext</a></td><td>помечает текст в объекте textbox</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+</table>
+<h1 id="timer">timer</h2>
+<p class="syntax">timer(objnum,time,num,option)</p>
+<p class="desc">создает таймер</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>time</td><td>период срабатывания в секундах</td></tr>
+<tr><td>num</td><td>количество срабатываний (0 означает "бесконечно")</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>Cобытия</h2>
+<table>
+<tr><td>OnTimer</td><td>очередное срабатываение по времени<br><br>Данные:<br>dt<1> - номер срабатывания</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+</table>
+<h1 id="toolbar">toolbar</h2>
+<p class="syntax">toolbar(objnum,coord,imglist,option)</p>
+<p class="desc">создает панель кнопок</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина<br>через запятую или @am</td></tr>
+<tr><td>imglist</td><td>имя списка изображений<br>Если необходим список изображений для неактивных<br>кнопок, он указывается через запятую или @am.</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bw num</td><td>фиксированная ширина кнопок в колонках (num)</td></tr>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>hotkey keyname keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>notext</td><td>только для значков (минимальная ширина кнопок)</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>raised</td><td>выпуклые кнопки</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnClick</td><td>Щелчок левой кнопкой мыши на кнопке<br><br>Данные:<br>dt<1> - числовой идентификатор кнопки<br>dt<2> - номер изображения в imglist</td></tr>
+</table>
+<h2>Горячие клавиши</h2>
+<table>
+<tr><td>VK_RETURN</td><td>Нажата клавиша Enter<br><br>Данные:<br>dt<1> - числовой идентификатор кнопки</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delbtn">delbtn</a></td><td>удаляет кнопку из тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getbtn">getbtn</a></td><td>получает информацию о кнопке тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#insbtn">insbtn</a></td><td>вставляет кнопку в тулбар</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#modifybtn">modifybtn</a></td><td>изменяет кнопку тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#setdropmenu">setdropmenu</a></td><td>вставляет меню в кнопку тулбара</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+</table>
+<h1 id="treebox">treebox</h2>
+<p class="syntax">treebox(objnum,coord,imglist,option)</p>
+<p class="desc">создает объект для отображения дерева</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>колонка, строка, ширина, высота<br>через запятую или @am<br>В режиме grid колонка и строка не указываются,<br>ширина - не обязательна.</td></tr>
+<tr><td>imglist</td><td>список изображений</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bkg color</td><td>цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>font [name size style color]</td><td>характеристики шрифта (см. <a href="FlashGUI.html#font">bkg</a>)</td></tr>
+<tr><td>hide</td><td>невидим</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>sizing CODE [base.objnum]</td><td>правила масштабирования (см. <a href="FlashGUI.html#sizing">bkg</a>)</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnSetFocus</td><td>Объект получил фокус<br><br>Данные:<br>dt<1> - номер окна, откуда ушел фокус<br>dt<2> - номер объекта, откуда ушел фокус</td></tr>
+<tr><td>OnEnter</td><td>Нажата клавиша Enter<br><br>Данные:<br>dt<1> - идентификатор узла<br>dt<2> - идентификатор родительского узла</td></tr>
+<tr><td>OnSelChange</td><td>dt<1> - идентификатор выделенного узла<br>dt<2> - идентификатор предыдущего узла<br>dt<3> - _BYKEYBOARD или _BYMOUSE</td></tr>
+<tr><td>OnDblClick</td><td>Двойной щелчок мыши<br><br>Данные не приходят</td></tr>
+<tr><td>OnDrop</td><td>Перетаскиваемые строки отпущены<br><br>Данные:<br>dt<1> - номер объекта-источника (table или treebox)<br>dt<2> - номер позиции, в которой строки были отпущены<br>dt<3,linepos,text> - массив перетаскиваемых строк</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delnode">delnode</a></td><td>удаляет узел дерева</td></tr>
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#insnode">insnode</a></td><td>вставляет узел в дерево</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#selnode">selnode</a></td><td>выделяет узел дерева</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+<tr><td><a href="FlashGUI.html#setnodetext">setnodetext</a></td><td>устанавливает новый текст узла в дереве</td></tr>
+</table>
+<h1 id="winbox">winbox</h2>
+<p class="syntax">winbox(objnum,coord,text,option)</p>
+<p class="desc">создает объект, имеющий форму и поведение окна</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>coord</td><td>координаты, через запятую или @am:</td></tr>
+<tr><td>text</td><td>заголовок окна</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Координаты</h2>
+<table>
+<tr><td>'ширина,высота'</td><td>чтобы окно располагалось по центру<br>родительского окна</td></tr>
+<tr><td>'колонка,строка,ширина,высота'</td><td>чтобы окно располагалось относительно<br>начала родителького окна</td></tr>
+<tr><td>'колонка,строка,ширина,высота' с опцией desktop</td><td>чтобы окно располагалось относительно<br>начала рабочего стола</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>appwindow</td><td>окно приложения (отображается на панели приложений)</td></tr>
+<tr><td>bkg color</td><td>устанавливает цвет фона (см. <a href="FlashGUI.html#bkg">bkg</a>)</td></tr>
+<tr><td>child</td><td>не выходит за пределы родительского окна</td></tr>
+<tr><td>desktop</td><td>разместить относительно начала рабочего стола</td></tr>
+<tr><td>disable</td><td>недоступен</td></tr>
+<tr><td>hide</td><td>невидимо</td></tr>
+<tr><td>hotkey keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>icon name num</td><td>значок из списка изображений</td></tr>
+<tr><td>nocaption</td><td>без верхней панели</td></tr>
+<tr><td>noclose</td><td>без кнопки закрытия окна и без значка</td></tr>
+<tr><td>nomax</td><td>без кнопки максимизации окна</td></tr>
+<tr><td>nomin</td><td>без кнопки минимизации окна</td></tr>
+<tr><td>noresize</td><td>без возможности изменить размер с помощью мыши</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>toolwindow</td><td>с уменьшенной верхней панелью и без значка</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnCancel</td><td>Нажата клавиша 'Esc'<br><br>Данные не приходят</td></tr>
+<tr><td>OnClose</td><td>Нажата кнопка закрытия окна<br><br>Данные не приходят</td></tr>
+</table>
+<h2>Примечание</h2>
+<ul>
+<li>Ctrl+Q переводит окно в диагностический режим, показывающий номер и тип объекта,<br>а также координату в свободной области, при нажатии левой кнопки.</li>
+</ul>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delobj">delobj</a></td><td>удаляет объект</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#setfocus">setfocus</a></td><td>передает фокус требуемому полю</td></tr>
+</table>
+<h1 id="window">window</h2>
+<p class="syntax">window(coord,text,option)</p>
+<p class="desc">создает главное окно приложения</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>coord</td><td>координаты, через запятую или @am:</td></tr>
+<tr><td>text</td><td>заголовок окна</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Координаты</h2>
+<table>
+<tr><td>'ширина,высота'</td><td>чтобы окно располагалось по центру<br>родительского окна</td></tr>
+<tr><td>'колонка,строка,ширина,высота'</td><td>чтобы окно располагалось относительно<br>начала родителького окна</td></tr>
+<tr><td>'колонка,строка,ширина,высота' с опцией desktop</td><td>чтобы окно располагалось относительно<br>начала рабочего стола</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>child</td><td>немодальное, не выходит за пределы родительского окна</td></tr>
+<tr><td>desktop</td><td>разместить относительно начала рабочего стола</td></tr>
+<tr><td>hide</td><td>невидимо</td></tr>
+<tr><td>hotkey keyname ...</td><td>назначить горячие клавиши (см. <a href="FlashGUI.html#hotkey">bkg</a>)</td></tr>
+<tr><td>icon name num</td><td>значок из списка изображений</td></tr>
+<tr><td>nocaption</td><td>без заголовка</td></tr>
+<tr><td>noclose</td><td>без кнопки закрытия окна и без значка</td></tr>
+<tr><td>nomax</td><td>без кнопки максимизации окна</td></tr>
+<tr><td>nomin</td><td>без кнопки минимизации окна</td></tr>
+<tr><td>nomodal</td><td>немодальное</td></tr>
+<tr><td>noresize</td><td>без возможности изменить размер с помощью мыши</td></tr>
+<tr><td>root</td><td>немодальное, родителем является рабочий стол</td></tr>
+<tr><td>toolwindow</td><td>с уменьшенной верхней панелью и без значка</td></tr>
+</table>
+<h2>События</h2>
+<table>
+<tr><td>OnCancel</td><td>Нажата клавиша 'Esc'<br><br>Данные не приходят</td></tr>
+<tr><td>OnClose</td><td>Нажата кнопка закрытия окна<br><br>Данные не приходят</td></tr>
+<tr><td>menuitem.id</td><td>Выбран пункт меню, являющийся командой<br><br>Данные не приходят</td></tr>
+</table>
+<h2>Примечание</h2>
+<ul>
+<li>Ctrl+Q переводит окно в диагностический режим, показывающий номер и тип объекта,<br>а также координату в свободной области, при нажатии левой кнопки.</li>
+</ul>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delwin">delwin</a></td><td>удаляет текущее окно</td></tr>
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+<tr><td><a href="FlashGUI.html#modify">modify</a></td><td>изменяет внешний вид или поведение объекта</td></tr>
+<tr><td><a href="FlashGUI.html#settext">settext</a></td><td>вставляет текст в объект</td></tr>
+</table>
+<h1 id="addline">addline</h2>
+<p class="syntax">addline(combo.objnum,code,text)</p>
+<p class="desc">добавляет элемент списка в combo</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>combo.objnum</td><td>номер объекта combo</td></tr>
+<tr><td>code</td><td>скрытый код</td></tr>
+<tr><td>text</td><td>текст</td></tr>
+</table>
+<p>Элемент списка - отображаемая в списке строка и ее код (не отображается).</p>
+<p>Чтобы вставить сразу несколько строк, необходимо параметр code оставить пустым,<br>а в text передать список строк как список атрибутов (через @am).<br>Код указывается первым значением (через @vm) в каждом атрибуте.</p>
+<p>Если код не указан (нет первого значения в атрибуте), то элементу списка<br>в качестве кода будет назначен его порядковый номер в списке атрибутов text.</p>
+<p>Другой способ вставить сразу несколько строк - передать в code несколько кодов,<br>а в text их названия. Элементы списков должны быть разделены @am или @vm.</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+</table>
+<h1 id="bkg">bkg</h2>
+<p class="syntax">bkg(objnum,color,option)</p>
+<p class="desc">устанавливает фон</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>color</td><td>код цвета в шестнадцатиричном формате</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<p>Можно указать список объектов через запятую или @am.</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#font">font</a></td><td>устанавливает шрифт</td></tr>
+</table>
+<h1 id="checkrow">checkrow</h2>
+<p class="syntax">checkrow(table.objnum,row,check)</p>
+<p class="desc">помечает галочкой строку таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>row</td><td>номер строки<br><br>Можно указать несколько строк<br>через запятую или @am<br><br>'all' означает 'все строки'</td></tr>
+<tr><td>check</td><td>флаг метки:<br><br>1 - установить<br>0 - снять<br><br>Можно указать массив меток (для каждой строки)<br>через запятую или @am</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="clearall">clearall</h2>
+<p class="desc">удаляет данные из всех объектов</p>
+<h1 id="csort">csort</h2>
+<p class="syntax">csort(table.objnum,colnum,sortmode)</p>
+<p class="desc">сортирует колонку таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>colnum</td><td>номер колонки</td></tr>
+<tr><td>mode</td><td>режимы сортировки, через запятую или @am<br>a - по возрастанию<br>d - по убыванию<br>num - как число</td></tr>
+</table>
+<ul>
+<li>Если не указан порядок сортировки, он чередуется.</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="delbtn">delbtn</h2>
+<p class="syntax">delbtn(toolbar.objnum,btn.id)</p>
+<p class="desc">удаляет кнопку из тулбара</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>toolbar.objnum</td><td>номер объекта toolbar</td></tr>
+<tr><td>btn.id</td><td>идентификтор кнопки или 'all' (удалить все)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#toolbar">toolbar</a></td><td>создает панель кнопок</td></tr>
+</table>
+<h1 id="delcol">delcol</h2>
+<p class="syntax">delcol(table.objnum,pos)</p>
+<p class="desc">удаляет колонку из таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>pos</td><td>номер колонки или 'all' (удалить все)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="delhotkey">delhotkey</h2>
+<p class="syntax">delhotkey(objnum,key)</p>
+<p class="desc">удаляет горячую клавишу окна или объекта</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта (номер 0 - это окно)</td></tr>
+<tr><td>key</td><td>код клавиши</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#hotkey">hotkey</a></td><td>назначает горячую клавишу окну или объекту</td></tr>
+</table>
+<h1 id="dellines">dellines</h2>
+<p class="syntax">dellines(combo.objnum)</p>
+<p class="desc">удаляет все строки из объекта combo</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>combo.objnum</td><td>номер объекта combo</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+</table>
+<h1 id="delnode">delnode</h2>
+<p class="syntax">delnode(treebox.objnum,node.id)</p>
+<p class="desc">удаляет узел дерева</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>treebox.objnum</td><td>номер объекта tabbox</td></tr>
+<tr><td>node.id</td><td>идентификатор узла или 'all' (удалить все)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#treebox">treebox</a></td><td>создает объект для отображения дерева</td></tr>
+</table>
+<h1 id="delobj">delobj</h2>
+<p class="syntax">delobj(objnum)</p>
+<p class="desc">удаляет объект</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+</table>
+<h1 id="delrow">delrow</h2>
+<p class="syntax">delrownum(table.objnum,rownum)</p>
+<p class="desc">удаляет строку из таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>rownum</td><td>номер удаляемой строки или 'all' (удалить все)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="deltab">deltab</h2>
+<p class="syntax">deltab(tabbox.objnum,tabnum)</p>
+<p class="desc">удаляет закладку</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>tabbox.objnum</td><td>номер объекта tabbox</td></tr>
+<tr><td>tabnum</td><td>номер удаляемой закладки или 'all' (удалить все)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+</table>
+<h1 id="delwin">delwin</h2>
+<p class="desc">удаляет текущее окно</p>
+<h1 id="do">do</h2>
+<p class="syntax">do(objnum,action)</p>
+<p class="desc">выполняет дополнительное действие</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта (0 - окно)</td></tr>
+<tr><td>action</td><td>действие [параметры]</td></tr>
+</table>
+<h2>Для объекта entry:</h2>
+<table>
+<tr><td><i>Действие [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>cmenu flag</td><td>отображать (1) или не отображать (0) стандартное меню мыши</td></tr>
+<tr><td>setsel spos,epos</td><td>установить выделение с позиции spos по позицию epos<br>(вместо запятой можно @am)</td></tr>
+</table>
+<h2>Для объекта table:</h2>
+<table>
+<tr><td><i>Действие [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>setcolw colnum,colwidth</td><td>установить ширину столбца (в пикселях)</td></tr>
+</table>
+<h2>Для объекта textbox:</h2>
+<table>
+<tr><td><i>Действие [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>undo</td><td>отмена</td></tr>
+<tr><td>redo</td><td>возврат</td></tr>
+<tr><td>cut</td><td>вырезать</td></tr>
+<tr><td>copy</td><td>копировать</td></tr>
+<tr><td>paste</td><td>вставить</td></tr>
+<tr><td>print</td><td>печатать</td></tr>
+<tr><td>append text</td><td>добавить текст в конец документа</td></tr>
+<tr><td>lineobj objnum prefix</td><td>отображать номер строки в объекте objnum с заданным префиксом</td></tr>
+<tr><td>colobj objnum prefix</td><td>отображать номер колонки в объекте objnum с заданным префиксом</td></tr>
+<tr><td>charobj objnum prefix</td><td>отображать код символа в объекте objnum с заданным префиксом</td></tr>
+<tr><td>zoomin</td><td>увеличить шрифт</td></tr>
+<tr><td>zoomout</td><td>уменьшить шрифт</td></tr>
+<tr><td>cmenu flag</td><td>отображать (1) или не отображать (0) стандартное меню мыши</td></tr>
+<tr><td>replsel text</td><td>заменить выделенный текст</td></tr>
+<tr><td>replall flags,findtext:CHAR(1):repltext</td><td>заменить везде findtext на repltext</td></tr>
+<tr><td>gotoline linenum</td><td>перейти к строке</td></tr>
+<tr><td>selectall</td><td>выделить весь текст без скроллирования в конец выделения</td></tr>
+<tr><td>selword</td><td>выделить слово, на котором находится курсор</td></tr>
+<tr><td>setsel spos,epos</td><td>установить выделение с позиции spos по позицию epos(вместо запятой можно @am)</td></tr>
+<tr><td>setfolding flag</td><td>установить (1) или снять (0) режим свертывания блоков текста</td></tr>
+<tr><td>setsave</td><td>установить modifyflag=0</td></tr>
+<tr><td>setundo flag</td><td>запоминать (1) или нет (1) изменения для UNDO и REDO</td></tr>
+<tr><td>delline</td><td>удалить текущую строку</td></tr>
+<tr><td>dupline</td><td>создать копию текущей строки</td></tr>
+<tr><td>setline linenum,linetext</td><td>установить текст linetext в строке linenum</td></tr>
+<tr><td>insline linenum,linetext</td><td>вставить строку linetext перед строкой linenum</td></tr>
+<tr><td>setlexer flag</td><td>установить (1) или снять (0) режим лексического разбора (подсветка слов)</td></tr>
+<tr><td>indents flag</td><td>показывать (1) или не показывать (0) отступы</td></tr>
+<tr><td>indentsize size</td><td>установить размер отступа</td></tr>
+<tr><td>caretw num</td><td>ширина курсора в пикселях (0, 1, 2 или 3)</td></tr>
+</table>
+<h2>Для объекта winbox:</h2>
+<table>
+<tr><td><i>Действие [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>popup</td><td>перевести окно из минимизированного состояния в нормальное</td></tr>
+</table>
+<h2>Для всех объектов:</h2>
+<table>
+<tr><td><i>Действие [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>setpos x,y,x,y</td><td>установить координаты левого верхнего и правого нижнего углов<br>в пикселях (можно через @am или @vm)</td></tr>
+<tr><td>chpos +-x,+-y,+-x,+-y</td><td>изменить координаты левого верхнего и правого нижнего углов<br>на заданное количество пикселей (можно через @am или @vm)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#getdt">getdt</a></td><td>возвращает дополнительные данные</td></tr>
+</table>
+<h1 id="dropdown">dropdown</h2>
+<p class="syntax">dropdown(combo.objnum,state)</p>
+<p class="desc">раскрывает список в объекте combo</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>combo.objnum</td><td>номер объекта combo</td></tr>
+<tr><td>state</td><td>0 - свернуть, 1 - раскрыть</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+</table>
+<h1 id="font">font</h2>
+<p class="syntax">font(objnum,fontspec)</p>
+<p class="desc">устанавливает шрифт</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>fontspec</td><td>name size style color<br><br>характеристики шрифта<br>через запятую, пробел, @am или @vm\</td></tr>
+</table>
+<h2>Характеристки шрифта</h2>
+<table>
+<tr><td>name</td><td>наименование шрифта<br>(в двойных кавычках, если более одного слова)</td></tr>
+<tr><td>size</td><td>размер</td></tr>
+<tr><td>style</td><td>normal, italic, bold, bold italic</td></tr>
+<tr><td>color</td><td>код цвета в шестнадцатиричном формате</td></tr>
+</table>
+<p>Можно указать список объектов через запятую или @am.</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#bkg">bkg</a></td><td>устанавливает фон</td></tr>
+</table>
+<h1 id="fontfor">fontfor</h2>
+<p class="syntax">fontfor(objtype,fontspec)</p>
+<p class="desc">предустанавливает шрифт для объектов окна</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>fontspec</td><td>name size style color<br><br>характеристики шрифта<br>через запятую, пробел, @am или @vm\</td></tr>
+</table>
+<h2>Характеристки шрифта</h2>
+<table>
+<tr><td>name</td><td>наименование шрифта<br>(в двойных кавычках, если более одного слова)</td></tr>
+<tr><td>size</td><td>размер</td></tr>
+<tr><td>style</td><td>normal, italic, bold, bold italic</td></tr>
+<tr><td>color</td><td>код цвета в шестнадцатиричном формате</td></tr>
+</table>
+<p>Можно указать список типов объектов через запятую или @am.</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#font">font</a></td><td>устанавливает шрифт</td></tr>
+</table>
+<h1 id="getbtn">getbtn</h2>
+<p class="syntax">getbtn(toolbar.objnum,btn.id,info)</p>
+<p class="desc">получает информацию о кнопке тулбара</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>toolbar.objnum</td><td>номер объекта toolbar</td></tr>
+<tr><td>btn.id</td><td>идентификатор кнопки</td></tr>
+<tr><td>info</td><td><1> порядковый номер<br><2> текст<br><3> состояние check/uncheck (1/0)<br><4> состояние enable/disable (1/0)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#toolbar">toolbar</a></td><td>создает панель кнопок</td></tr>
+</table>
+<h1 id="getcell">getcell</h2>
+<p class="syntax">getcell(table.objnum,rownum,colnum,text)</p>
+<p class="desc">возвращает содержимое ячейки таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>rownum</td><td>строка</td></tr>
+<tr><td>colnum</td><td>колонка (или несколько, через запятую или @am)</td></tr>
+<tr><td>text</td><td>содержимое ячейки (или нескольких ячеек, через @am)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="getcheck">getcheck</h2>
+<p class="syntax">getcheck(objnum,state)</p>
+<p class="desc">возвращает состояние кнопки checkbox или radio</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта checkbox или radio</td></tr>
+<tr><td>state</td><td>1 - помечена<br>0 - нет</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#checkbox">checkbox</a></td><td>создает кнопку-флажок</td></tr>
+<tr><td><a href="FlashGUI.html#radio">radio</a></td><td>создает радиокнопку</td></tr>
+</table>
+<h1 id="getchecks">getchecks</h2>
+<p class="syntax">getchecks(table.objnum,checks)</p>
+<p class="desc">возвращает метки всех строк в таблице</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>checks</td><td>массив значений<br>1 - помечена<br>0 - не помечена</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="getcode">getcode</h2>
+<p class="syntax">getcode(combo.objnum,code)</p>
+<p class="desc">возвращает код строки, отображаемой в combo</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>combo.objnum</td><td>номер объекта combo</td></tr>
+<tr><td>code</td><td>код</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+</table>
+<h1 id="getdt">getdt</h2>
+<p class="syntax">getdt(objnum,name,dt)</p>
+<p class="desc">возвращает дополнительные данные</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>name</td><td>наименование данных [параметры]</td></tr>
+<tr><td>dt</td><td>данные</td></tr>
+</table>
+<h2>Для объекта table</h2>
+<table>
+<tr><td><i>Наименование данных [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>all</td><td>динамический массив (строки, колонки)</td></tr>
+<tr><td>colw colnum</td><td>ширина строки в пикселях</td></tr>
+</table>
+<h2>Для объекта textbox</h2>
+<table>
+<tr><td><i>Наименование данных [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>caretpos</td><td>позиция курсора в пикселях от начала объекта<br><1,1> - x<br><1,2> - y</td></tr>
+<tr><td>curcol</td><td>позиция курсора в строке</td></tr>
+<tr><td>curline</td><td>текст текущей строки</td></tr>
+<tr><td>curpos</td><td>позиция курсора в тексте</td></tr>
+<tr><td>findall flags,findtext</td><td>строки, содержащие findtext<br>(flags - [WHOLEWORD] [MATCHCASE] [REGEXP])</td></tr>
+<tr><td>findtext spos,epos,flags,findtext</td><td><1,1> - позиция начала текста<br><1,2> - позиция конца текста<br><br>(flags - [WHOLEWORD] [MATCHCASE] [REGEXP])</td></tr>
+<tr><td>len</td><td>количество позиций в тексте</td></tr>
+<tr><td>line num</td><td>текст строки</td></tr>
+<tr><td>linecount</td><td>количество строк</td></tr>
+<tr><td>linelen linenum</td><td>длина строки</td></tr>
+<tr><td>linenum pos</td><td>номер строки</td></tr>
+<tr><td>modifyflag</td><td>1 - изменен, 0 - не изменен</td></tr>
+<tr><td>selpos</td><td><1,1> - позиция начала выделения<br><1,2> - позиция конца выделения</td></tr>
+<tr><td>seltext</td><td>выделенный текст</td></tr>
+<tr><td>spos linenum</td><td>позиция первого символа строки</td></tr>
+</table>
+<h2>Для всех объектов</h2>
+<table>
+<tr><td><i>Наименование данных [параметры]</i></td><td><i>Описание</i></td></tr>
+<tr><td>winpos</td><td><1> текущее положение (в пикселях, через @vm)<br><2> положение в состоянии NORMAL (в пикселях, через @vm)<br><3> - состояние: NORMAL, MIN, MAX</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#do">do</a></td><td>выполняет дополнительное действие</td></tr>
+</table>
+<h1 id="getmark">getmark</h2>
+<p class="syntax">getmark(textbox.objnum,linepos,textpos)</p>
+<p class="desc">возвращает номера помеченных строк и позиций</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>textbox.objnum</td><td>номер объекта textbox</td></tr>
+<tr><td>linepos</td><td>номера помеченных строк через @vm<br>Номер атрибута является номером маркера.</td></tr>
+<tr><td>textpos</td><td>позиции помеченных фрагментов текста в виде значений:<br>- номер первого символа от начала текста, включая переводы строк<br>- количество символов, включая переводы строк<br>- номер строки<br>- номер первого символа от начала строки</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#textbox">textbox</a></td><td>создает поле ввода текста (многострочное)</td></tr>
+</table>
+<h1 id="getnodetext">getnodetext</h2>
+<p class="syntax">getnodetext(treebox.objnum,node.id,text)</p>
+<p class="desc">возвращает текст узла в дереве</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>treebox.objnum</td><td>номер объекта treebox</td></tr>
+<tr><td>node.id</td><td>идентификатор узла</td></tr>
+<tr><td>text</td><td>текст</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#treebox">treebox</a></td><td>создает объект для отображения дерева</td></tr>
+</table>
+<h1 id="getrow">getrow</h2>
+<p class="syntax">getrow(table.objnum,rownum,rowtext)</p>
+<p class="desc">возвращает содержимое строки таблицы (всех ячеек строки)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>rownum</td><td>строка</td></tr>
+<tr><td>rowtext</td><td>содержимое ячеек через @am</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="getrows">getrows</h2>
+<p class="syntax">getrows(table.objnum,nrows)</p>
+<p class="desc">возвращает количество строк в таблице</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>nrows</td><td>количество строк</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="getselect">getselect</h2>
+<p class="syntax">getselect(objnum,num)</p>
+<p class="desc">возвращает номер выделенной строки или закладки</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>num</td><td>номер строки или закладки</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="gettext">gettext</h2>
+<p class="syntax">gettext(objnum,text)</p>
+<p class="desc">возвращает текст из объектов entry, textbox, соmbo</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>text</td><td>текст</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+<tr><td><a href="FlashGUI.html#entry">entry</a></td><td>создает поле ввода</td></tr>
+<tr><td><a href="FlashGUI.html#textbox">textbox</a></td><td>создает поле ввода текста (многострочное)</td></tr>
+</table>
+<h1 id="goback">goback</h2>
+<p class="syntax">goback(browser.objnum)</p>
+<p class="desc">возращается к предыдущей ссылке в объекте browser</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>browser.objnum</td><td>номер объекта</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#browser">browser</a></td><td>создает объект-браузер для отображения html-файлов</td></tr>
+</table>
+<h1 id="hotkey">hotkey</h2>
+<p class="syntax">hotkey(objnum,keyname)</p>
+<p class="desc">назначает горячую клавишу окну или объекту</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта (номер 0 - это окно)</td></tr>
+<tr><td>keyname</td><td>условное обозначение или код клавиши</td></tr>
+</table>
+<p>Объекты и клавиши можно указывать списком, через запятую или @am</p>
+<p>Клавиши можно назначать в сочетании с Alt, Ctrl, Shift<br>и клавишей Windows с помощью модификаторов:</p>
+<p>MOD_ALT<br>MOD_CONTROL<br>MOD_SHIFT<br>MOD_WIN\</p>
+<h2>Примеры</h2>
+<table>
+<tr><td>VK_A|MOD_CONTROL</td><td>Ctrl+A</td></tr>
+<tr><td>VK_B|MOD_CONTROL|MOD_SHIFT</td><td>Ctrl+Shift+B</td></tr>
+<tr><td>VK_DELETE</td><td>Del</td></tr>
+</table>
+<p>Для удобства можно не писать префикс "VK_" при назначении клавиши,<br>а простые комбинации с Alt, Shift или Ctrl обозначать как<br>Ctrl+N, Shift+F2 и т.п.</p>
+<p>Название клавиши возвращается функцией getmsg в параметре ev.</p>
+<h2>Полный перечень клавиш</h2>
+<table>
+<tr><td>VK_SHIFT</td><td>Shift</td></tr>
+<tr><td>VK_CONTROL</td><td>Ctrl</td></tr>
+<tr><td>VK_A-Z</td><td>буквы</td></tr>
+<tr><td>VK_SPACE</td><td>пробел</td></tr>
+<tr><td>VK_RETURN</td><td>Enter</td></tr>
+<tr><td>VK_F1-F24</td><td>функциональные клавиши</td></tr>
+<tr><td>VK_0-9</td><td>цифры в верхнем ряду клавиш</td></tr>
+<tr><td>VK_NUMPAD0-9</td><td>цифры на Numpad</td></tr>
+<tr><td>VK_ESCAPE</td><td>Esc</td></tr>
+<tr><td>VK_TAB</td><td>табуляция</td></tr>
+<tr><td>VK_CAPITAL</td><td>Caps Lock</td></tr>
+<tr><td>VK_LSHIFT</td><td>левый Shift</td></tr>
+<tr><td>VK_LCONTROL</td><td>левый Ctrl</td></tr>
+<tr><td>VK_PAUSE</td><td>Pause</td></tr>
+<tr><td>VK_NUMLOCK</td><td>Num Lock</td></tr>
+<tr><td>VK_BACK</td><td>Backspace</td></tr>
+<tr><td>VK_HOME</td><td>Home</td></tr>
+<tr><td>VK_END</td><td>End</td></tr>
+<tr><td>VK_PRIOR</td><td>Page Up</td></tr>
+<tr><td>VK_NEXT</td><td>Page Down</td></tr>
+<tr><td>VK_DELETE</td><td>Del</td></tr>
+<tr><td>VK_INSERT</td><td>Ins</td></tr>
+<tr><td>VK_LEFT</td><td>стрелка влево</td></tr>
+<tr><td>VK_RIGHT</td><td>стрелка вправо</td></tr>
+<tr><td>VK_UP</td><td>стрелка вверх</td></tr>
+<tr><td>VK_DOWN</td><td>стрелка вниз</td></tr>
+<tr><td>VK_RSHIFT</td><td>правый Shift</td></tr>
+<tr><td>VK_RCONTROL</td><td>правый Ctrl</td></tr>
+<tr><td>VK_LBUTTON</td><td>левая кнопка мыши</td></tr>
+<tr><td>VK_RBUTTON</td><td>правая кнопка мыши</td></tr>
+<tr><td>VK_MBUTTON</td><td>средняя кнопка мыши</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#delhotkey">delhotkey</a></td><td>удаляет горячую клавишу окна или объекта</td></tr>
+</table>
+<h1 id="insbtn">insbtn</h2>
+<p class="syntax">insbtn(toolbar.objnum,btn.pos,btn.id,icon.num,text,tooltip,option)</p>
+<p class="desc">вставляет кнопку в тулбар</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>toolbar.objnum</td><td>номер объекта toolbar</td></tr>
+<tr><td>btn.pos</td><td>порядковый номер кнопки (-1 - добавить в конец)</td></tr>
+<tr><td>btn.id</td><td>числовой идентификатор кнопки (от 0 до 499)</td></tr>
+<tr><td>icon.num</td><td>номер изображения</td></tr>
+<tr><td>text</td><td>текст кнопки</td></tr>
+<tr><td>tooltip</td><td>текст подсказки</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>disable</td><td>недоступна</td></tr>
+<tr><td>hide</td><td>невидима</td></tr>
+<tr><td>dropdown</td><td>возможность подключения выпадающего меню</td></tr>
+<tr><td>noautosize</td><td>фиксированной ширины (задается в toolbar)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#toolbar">toolbar</a></td><td>создает панель кнопок</td></tr>
+</table>
+<h1 id="inscol">inscol</h2>
+<p class="syntax">inscol(objnum,pos,text,width,option)</p>
+<p class="desc">вставляет колонку в таблицу</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>pos</td><td>номер колонки (-1 - добавить в конец)</td></tr>
+<tr><td>text</td><td>заголовок колонки</td></tr>
+<tr><td>width</td><td>ширина колонки</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>right</td><td>правое выравнивание</td></tr>
+<tr><td>center</td><td>выравнивание по центру</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="insnode">insnode</h2>
+<p class="syntax">insnode(treebox.objnum,owner,id,img,imgselect,text,option)</p>
+<p class="desc">вставляет узел в дерево</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>treebox.objnum</td><td>номер объекта treebox</td></tr>
+<tr><td>owner</td><td>идентификатор вышестоящего узла (0 - корень)</td></tr>
+<tr><td>id</td><td>идентификатор узла</td></tr>
+<tr><td>img</td><td>изображение для состояния 'не выбран'</td></tr>
+<tr><td>imgselect</td><td>изображение для состояния 'выбран'</td></tr>
+<tr><td>text</td><td>текст узла</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#treebox">treebox</a></td><td>создает объект для отображения дерева</td></tr>
+</table>
+<h1 id="insrow">insrow</h2>
+<p class="syntax">insrow(table.objnum,row,text,option)</p>
+<p class="desc">вставляет строку в таблицу</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>row</td><td>номер строки (-1 - добавить в конец)</td></tr>
+<tr><td>text</td><td>значения ячеек через ^ или @am</td></tr>
+<tr><td>option</td><td>number (номер картинки из списка изображений)</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="insrows">insrows</h2>
+<p class="syntax">insrows(table.objnum,row,rows,option)</p>
+<p class="desc">вставляет строки в таблицу</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>row</td><td>номер строки, перед которой осуществляется вставка<br>-1 - добавить в конец</td></tr>
+<tr><td>rows</td><td>значения строк через @am (значения - через @vm)</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="inssep">inssep</h2>
+<p class="syntax">inssep(objnum,num,option)</p>
+<p class="desc">вставляет разделитель в тулбар</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>num</td><td>порядковый номер кнопки (-1 - добавить в конец)</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#toolbar">toolbar</a></td><td>создает панель кнопок</td></tr>
+</table>
+<h1 id="instab">instab</h2>
+<p class="syntax">instab(tabbox.objnum,pos,text,option)</p>
+<p class="desc">вставляет закладку в tabbox</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>tabbox.objnum</td><td>номер объекта tabbox</td></tr>
+<tr><td>pos</td><td>номер закладки (-1 - добавить в конец)</td></tr>
+<tr><td>text</td><td>заголовок</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+</table>
+<h1 id="instext">instext</h2>
+<p class="syntax">instext(textbox.objnum,pos,text)</p>
+<p class="desc">вставляет текст в textbox</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>textbox.objnum</td><td>номер объекта textbox</td></tr>
+<tr><td>pos</td><td>позиция начала вставки<br>0 означает 'заменить выделенную область<br>если ничего не выделено, то вставляется в позицию курсора<br>-1 означает 'добавить в конец'</td></tr>
+<tr><td>text</td><td>любой текст, в том числе @am, @vm и @svm</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#textbox">textbox</a></td><td>создает поле ввода текста (многострочное)</td></tr>
+</table>
+<h1 id="markline">markline</h2>
+<p class="syntax">markline(textbox.objnum,linepos,markflag,markernum)</p>
+<p class="desc">помечает строку в объекте textbox</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>textbox.objnum</td><td>номер объекта textbox</td></tr>
+<tr><td>linepos</td><td>номер строки (0 - текущая строка)</td></tr>
+<tr><td>markflag</td><td>флаг отметки (0 - снять, 1 - установить)</td></tr>
+<tr><td>markernum</td><td>номер маркера (по умолчанию - 1)</td></tr>
+</table>
+<p>Можно указать список строк через запятую или @am</p>
+<p>При создании textbox в нем создаются следующие<br>маркеры (цвета осветленные):</p>
+<table>
+<tr><td>1</td><td>серый</td></tr>
+<tr><td>2</td><td>красный</td></tr>
+<tr><td>3</td><td>зеленый</td></tr>
+<tr><td>4</td><td>синий</td></tr>
+<tr><td>5</td><td>желтый</td></tr>
+</table>
+<h2>Cм. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#textbox">textbox</a></td><td>создает поле ввода текста (многострочное)</td></tr>
+</table>
+<h1 id="marktext">marktext</h2>
+<p class="syntax">marktext(textbox.objnum,text,markflag,option)</p>
+<p class="desc">помечает текст в объекте textbox</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>textbox.objnum</td><td>номер объекта textbox</td></tr>
+<tr><td>text</td><td>текст, подлежащий выделению ('' - весь текст)</td></tr>
+<tr><td>markflag</td><td>флаг отметки<br>0 - снять<br>1 - установить</td></tr>
+<tr><td>option</td><td>опции</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>selection</td><td>отметить только в выделенной области</td></tr>
+</table>
+<p>Помечает цветом и фоном все вхождения заданного текста в объекте textbox.</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#textbox">textbox</a></td><td>создает поле ввода текста (многострочное)</td></tr>
+</table>
+<h1 id="menuitem">menuitem</h2>
+<p class="syntax">menuitem(menu.id,item.id,text,option)</p>
+<p class="desc">создает пункт меню</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>menu.id</td><td>идентификатор меню (число)<br><br>При создании пункта в корневом горизонтальном<br>меню memu.id = 0.<br><br>item.id - идентификатор пункта (число от 0 до 1499)</td></tr>
+<tr><td>text</td><td>название пункта меню</td></tr>
+<tr><td>option</td><td>указываются через запятую</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>bbreak</td><td>начать с новой колонки, c разделителем</td></tr>
+<tr><td>check</td><td>пометить галочкой (точкой)</td></tr>
+<tr><td>disable</td><td>выключить</td></tr>
+<tr><td>group</td><td>является началом радиогруппы</td></tr>
+<tr><td>icon name num</td><td>добавить изображение num из списка NAME.gil</td></tr>
+<tr><td>mbreak</td><td>начать с новой колонки, без разделителя</td></tr>
+<tr><td>pos num</td><td>порядковый номер пункта</td></tr>
+<tr><td>radio</td><td>является продолжением радиогруппы</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#cmenu">cmenu</a></td><td>создает контекстное меню (для мыши)</td></tr>
+<tr><td><a href="FlashGUI.html#menu">menu</a></td><td>создает меню для последующего заполнения с помощью menuitem</td></tr>
+</table>
+<h1 id="menusep">menusep</h2>
+<p class="syntax">menusep(menu.id,option)</p>
+<p class="desc">создает разделительную черту в меню</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>menu.id</td><td>идентификатор меню</td></tr>
+<tr><td>option</td><td>опции</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>pos num</td><td>порядковый номер</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#cmenu">cmenu</a></td><td>создает контекстное меню (для мыши)</td></tr>
+<tr><td><a href="FlashGUI.html#menu">menu</a></td><td>создает меню для последующего заполнения с помощью menuitem</td></tr>
+</table>
+<h1 id="modify">modify</h2>
+<p class="syntax">modify(objnum,action)</p>
+<p class="desc">изменяет внешний вид или поведение объекта</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта (0 означает окно)</td></tr>
+<tr><td>action</td><td>действие</td></tr>
+</table>
+<h2>Действия</h2>
+<table>
+<tr><td>disable</td><td>сделать неактивным</td></tr>
+<tr><td>enable</td><td>сделать активным</td></tr>
+<tr><td>hide</td><td>сделать невидимым</td></tr>
+<tr><td>list</td><td>сменить формат таблицы на списочный</td></tr>
+<tr><td>maximize</td><td>максимизировать окно</td></tr>
+<tr><td>minimize</td><td>минимизировать окно</td></tr>
+<tr><td>off</td><td>то же, что disable</td></tr>
+<tr><td>on</td><td>то же, что enable</td></tr>
+<tr><td>raised</td><td>сделать заголовок выпуклым</td></tr>
+<tr><td>readonly</td><td>сделать доступным только на чтение</td></tr>
+<tr><td>report</td><td>сменить формат таблицы на колоночный</td></tr>
+<tr><td>restore</td><td>восстановить нормальное отображение окна</td></tr>
+<tr><td>show</td><td>сделать видимым</td></tr>
+<tr><td>sunken</td><td>сделать заголовок вдавленным</td></tr>
+</table>
+<p>Можно указать список объектов и список действий через запятую или @am.</p>
+<h1 id="modifybtn">modifybtn</h2>
+<p class="syntax">modifybtn(toolbar.objnum,btn.id,action)</p>
+<p class="desc">изменяет кнопку тулбара</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>toolbar.objnum</td><td>номер объекта toolbar</td></tr>
+<tr><td>btn.id</td><td>идентификатор кнопки</td></tr>
+<tr><td>action</td><td>действие</td></tr>
+</table>
+<h2>Действия</h2>
+<table>
+<tr><td>enable</td><td>сделать активной</td></tr>
+<tr><td>disable</td><td>сделать неактивной</td></tr>
+<tr><td>hide</td><td>сделать невидимой</td></tr>
+<tr><td>show</td><td>сделать видимой</td></tr>
+<tr><td>check</td><td>выделить</td></tr>
+<tr><td>uncheck</td><td>снять выделение</td></tr>
+<tr><td>text ТЕКСТ</td><td>установить новый текст</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#toolbar">toolbar</a></td><td>создает панель кнопок</td></tr>
+</table>
+<h1 id="modifymenu">modifymenu</h2>
+<p class="syntax">modifymenu2(menuid,type,lineid,action)</p>
+<p class="desc">производит действие со строкой меню</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>menuid</td><td>идентификатор меню, в котором меняется строка</td></tr>
+<tr><td>type</td><td>способ указания строки</td></tr>
+<tr><td>lineid</td><td>указатель строки</td></tr>
+<tr><td>action</td><td>действия через запятую</td></tr>
+</table>
+<h2>Способы указания строки</h2>
+<table>
+<tr><td>menu</td><td>по идентификатору menu</td></tr>
+<tr><td>menuitem</td><td>по идентификатору menuitem</td></tr>
+<tr><td>pos</td><td>по порядковому номеру строки</td></tr>
+</table>
+<h2>Действия</h2>
+<table>
+<tr><td>check</td><td>пометить галочкой (точкой)</td></tr>
+<tr><td>delete</td><td>удалить</td></tr>
+<tr><td>disable</td><td>выключить</td></tr>
+<tr><td>enable</td><td>включить</td></tr>
+<tr><td>icon name num</td><td>добавить изображение из указанного списка</td></tr>
+<tr><td>text текст</td><td>установить новый текст</td></tr>
+<tr><td>uncheck</td><td>снять отметку</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#cmenu">cmenu</a></td><td>создает контекстное меню (для мыши)</td></tr>
+<tr><td><a href="FlashGUI.html#menu">menu</a></td><td>создает меню для последующего заполнения с помощью menuitem</td></tr>
+</table>
+<h1 id="notab">notab</h2>
+<p class="desc">сброс режима размещения создаваемых объектов на закладке</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+<tr><td><a href="FlashGUI.html#tab">tab</a></td><td>устанавливает закладку для создаваемых объектов</td></tr>
+</table>
+<h1 id="openlink">openlink</h2>
+<p class="syntax">openlink(browser.objnum,url)</p>
+<p class="desc">отображает гиперссылку в объекте browser</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>browser.objnum</td><td>номер объекта browser</td></tr>
+<tr><td>url</td><td>адрес ресурса</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#browser">browser</a></td><td>создает объект-браузер для отображения html-файлов</td></tr>
+</table>
+<h1 id="parent">parent</h2>
+<p class="syntax">parent(objnum)</p>
+<p class="desc">устанавливает номер родительского объекта</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+</table>
+<p>После создания окна номер родительского объекта равен 0,<br>и объекты создаются в окне.</p>
+<p>Для того, чтобы объекты создавалиь на фрейме (frame),<br>на панели закладок (tabbox) или в дочернем окне (winbox),<br>необходимо установить номер родительского объекта.</p>
+<p>По окончании необходимо вернуть номер родительского<br>объекта в исходное состояние (0).</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#frame">frame</a></td><td>создает объект-прямоугольник для размещения в нем других объектов</td></tr>
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+<tr><td><a href="FlashGUI.html#winbox">winbox</a></td><td>создает объект, имеющий форму и поведение окна</td></tr>
+</table>
+<h1 id="pbarcount">pbarcount</h2>
+<p class="syntax">pbarcount(pbar.objnum,count)</p>
+<p class="desc">устанавливает количество шагов в pbar</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>pbar.objnum</td><td>номер объекта pbar</td></tr>
+<tr><td>count</td><td>количество шагов</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#pbar">pbar</a></td><td>создает индикатор выполнения процесса</td></tr>
+</table>
+<h1 id="pbarpos">pbarpos</h2>
+<p class="syntax">pbarcount(pbar.objnum,pos)</p>
+<p class="desc">устанавливает pbar в заданную позицию</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>pbar.objnum</td><td>номер объекта pbar</td></tr>
+<tr><td>pos</td><td>номер позиции</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#pbar">pbar</a></td><td>создает индикатор выполнения процесса</td></tr>
+</table>
+<h1 id="replcell">replcell</h2>
+<p class="syntax">replcell(table.objnum,rownum,colnum,celltext)</p>
+<p class="desc">заменяет текст одной или нескольких ячеек</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>rownum</td><td>номер строки</td></tr>
+<tr><td>colnum</td><td>номер колонки</td></tr>
+<tr><td>celltext</td><td>содержимое ячеек через ^ или @am</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="replrow">replrow</h2>
+<p class="syntax">replrow(table.objnum,rownum,rowtext,option)</p>
+<p class="desc">заменяет текст строки таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>rownum</td><td>номер строки</td></tr>
+<tr><td>rowtext</td><td>содержимое ячеек через ^ или @am</td></tr>
+<tr><td>option</td><td>опции</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>iconnum</td><td>значок в начале строки</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="rtfload">rtfload</h2>
+<p class="syntax">rtfload(rtfbox.objnum,rtfcode)</p>
+<p class="desc">загружает RTF-код из переменной</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>rtfbox.objnum</td><td>номер объекта rtfbox</td></tr>
+<tr><td>rtfcode</td><td>переменная, содержащая RTF-код</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#rtfbox">rtfbox</a></td><td>создает объект для редактирования RTF-файла</td></tr>
+</table>
+<h1 id="rtfopen">rtfopen</h2>
+<p class="syntax">rtfopen(rtfbox.objnum,filename)</p>
+<p class="desc">открывает RTF-файл</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>rtfbox.objnum</td><td>номер объекта rtfbox</td></tr>
+<tr><td>filename</td><td>имя RTF-файла</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#rtfbox">rtfbox</a></td><td>создает объект для редактирования RTF-файла</td></tr>
+</table>
+<h1 id="rtfsave">rtfsave</h2>
+<p class="syntax">rtfsave(rtfbox.objnum,filename)</p>
+<p class="desc">сохраняет RTF-файл</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>rtfbox.objnum</td><td>номер объекта rtfbox</td></tr>
+<tr><td>filename</td><td>имя RTF-файла</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#rtfbox">rtfbox</a></td><td>создает объект для редактирования RTF-файла</td></tr>
+</table>
+<h1 id="selnode">selnode</h2>
+<p class="syntax">selnode(treebox.objnum,id)</p>
+<p class="desc">выделяет узел дерева</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>treebox.objnum</td><td>номер объекта treebox</td></tr>
+<tr><td>id</td><td>идентификатор узла</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#treebox">treebox</a></td><td>создает объект для отображения дерева</td></tr>
+</table>
+<h1 id="selrow">selrow</h2>
+<p class="syntax">selrow(table.objnum,row)</p>
+<p class="desc">выделяет строку таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта table</td></tr>
+<tr><td>row</td><td>номер строки,<br>массив номеров (через запятую, @am или @vm)<br>или ключевое слово</td></tr>
+</table>
+<h2>Ключевые слова</h2>
+<table>
+<tr><td>all</td><td>выделить все строки</td></tr>
+<tr><td>unselect</td><td>снять выделение со всех строк</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="setcheck">setcheck</h2>
+<p class="syntax">setcheck(objnum,state)</p>
+<p class="desc">устанавливает состояние checkbox или radio</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта checkbox или radio</td></tr>
+<tr><td>state</td><td>1 - пометить<br>0 - снять метку</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#checkbox">checkbox</a></td><td>создает кнопку-флажок</td></tr>
+<tr><td><a href="FlashGUI.html#radio">radio</a></td><td>создает радиокнопку</td></tr>
+</table>
+<h1 id="setcode">setcode</h2>
+<p class="syntax">setcode(objnum,code)</p>
+<p class="desc">вставляет строку в combo по ее коду</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>code</td><td>код</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+</table>
+<h1 id="setdrop">setdrop</h2>
+<p class="syntax">setdrop(dragfrom.objnum,dropto.objnum)</p>
+<p class="desc">связывает источник и приемник drag-n-drop</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>dragfrom.objnum</td><td>номер объекта-источника (table или treebox)</td></tr>
+<tr><td>dropto.objnum</td><td>номер объекта-приемника</td></tr>
+</table>
+<p>Можно указать несколько объектов-приемников через запятую или @am.</p>
+<h1 id="setdropmenu">setdropmenu</h2>
+<p class="syntax">setdropmenu(toolbar.objnum,btn.id,menu.id)</p>
+<p class="desc">вставляет меню в кнопку тулбара</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>toolbar.objnum</td><td>номер объекта toolbar</td></tr>
+<tr><td>btn.id</td><td>числовой идентификатор кнопки</td></tr>
+<tr><td>menu.id</td><td>номер меню</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#toolbar">toolbar</a></td><td>создает панель кнопок</td></tr>
+</table>
+<h1 id="setfocus">setfocus</h2>
+<p class="syntax">setfocus(objnum)</p>
+<p class="desc">передает фокус требуемому полю</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта или ключевое слово</td></tr>
+</table>
+<h2>Ключевые слова</h2>
+<table>
+<tr><td>n или next</td><td>следующий объект</td></tr>
+<tr><td>p или prev</td><td>предыдущий объект</td></tr>
+</table>
+<h1 id="seticon">seticon</h2>
+<p class="syntax">seticon(table.objnum,rownum,iconnum)</p>
+<p class="desc">устанавливает значок для строки таблицы</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>table.objnum</td><td>номер объекта</td></tr>
+<tr><td>rownum</td><td>номер строки</td></tr>
+<tr><td>iconnum</td><td>номер значка</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#table">table</a></td><td>создает таблицу</td></tr>
+</table>
+<h1 id="setimage">setimage</h2>
+<p class="syntax">setimage(image.objnum,path)</p>
+<p class="desc">отображает гр. файл в объекте image</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>image.objnum</td><td>номер объекта image</td></tr>
+<tr><td>path</td><td>путь к графическому файлу</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#image">image</a></td><td>создает объект-изображение</td></tr>
+</table>
+<h1 id="setnodetext">setnodetext</h2>
+<p class="syntax">setnodetext(treebox.objnum,node,text)</p>
+<p class="desc">устанавливает новый текст узла в дереве</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>treebox.objnum</td><td>номер объекта treebox</td></tr>
+<tr><td>node</td><td>идентификатор узла</td></tr>
+<tr><td>text</td><td>новый текст</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#treebox">treebox</a></td><td>создает объект для отображения дерева</td></tr>
+</table>
+<h1 id="setscroll">setscroll</h2>
+<p class="syntax">setscroll(scrollbar.objnum,size,pagesize,option)</p>
+<p class="desc">устанавливает параметры скроллера</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>scrollbar.objnum</td><td>номер объекта</td></tr>
+<tr><td>size</td><td>общее количество элементов</td></tr>
+<tr><td>pagesize</td><td>количество элементов в странице</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#scrollbar">scrollbar</a></td><td>создает полосу прокрутки (скроллер)</td></tr>
+</table>
+<h1 id="setscrollpos">setscrollpos</h2>
+<p class="syntax">setscrollpos(scrollbar.objnum,pos)</p>
+<p class="desc">устанавливает скроллер в заданное положение</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>scrollbar.objnum</td><td>номер объекта</td></tr>
+<tr><td>pos</td><td>позиция</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#scrollbar">scrollbar</a></td><td>создает полосу прокрутки (скроллер)</td></tr>
+</table>
+<h1 id="settabtext">settabtext</h2>
+<p class="syntax">settabtext(tabbox.objnum,tab,text)</p>
+<p class="desc">устанавливает новый текст закладки</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>tabbox.objnum</td><td>номер объекта tabbox</td></tr>
+<tr><td>tab</td><td>номер закладки</td></tr>
+<tr><td>text</td><td>новый текст</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+</table>
+<h1 id="settext">settext</h2>
+<p class="syntax">settext(objnum,text)</p>
+<p class="desc">вставляет текст в объект</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта (0 - window)</td></tr>
+<tr><td>text</td><td>текст</td></tr>
+</table>
+<h2>Примечание</h2>
+<ul>
+<li>Если в качесте объекта указано window или winbox,<br>то будет установлен заголовок окна.</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#button">button</a></td><td>создает кнопку</td></tr>
+<tr><td><a href="FlashGUI.html#combo">combo</a></td><td>создает выпадающий список (combobox)</td></tr>
+<tr><td><a href="FlashGUI.html#entry">entry</a></td><td>создает поле ввода</td></tr>
+<tr><td><a href="FlashGUI.html#label">label</a></td><td>создает заголовок (просто текст)</td></tr>
+<tr><td><a href="FlashGUI.html#labelbox">labelbox</a></td><td>создает рамку с заголовком</td></tr>
+<tr><td><a href="FlashGUI.html#textbox">textbox</a></td><td>создает поле ввода текста (многострочное)</td></tr>
+</table>
+<h1 id="showmenu">showmenu</h2>
+<p class="syntax">showmenu(id,coord,option)</p>
+<p class="desc">отображает клик-меню (или обычное меню)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>id</td><td>идентификатор меню</td></tr>
+<tr><td>coord</td><td>координаты опорной точки в пикселях<br>через зяпятую, @vm или @am</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>left</td><td>опорная точка слева (по умолчанию)</td></tr>
+<tr><td>right</td><td>опорная точка справа</td></tr>
+<tr><td>center</td><td>опорная точка в центре базовой линии</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#cmenu">cmenu</a></td><td>создает контекстное меню (для мыши)</td></tr>
+<tr><td><a href="FlashGUI.html#menu">menu</a></td><td>создает меню для последующего заполнения с помощью menuitem</td></tr>
+</table>
+<h1 id="showtab">showtab</h2>
+<p class="syntax">showtab(tabbox.objnum,tab)</p>
+<p class="desc">показывает закладку tabbox</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>tabbox.objnum</td><td>номер объекта tabbox</td></tr>
+<tr><td>tab</td><td>номер закладки</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+</table>
+<h1 id="sizing">sizing</h2>
+<p class="syntax">sizing(objnum,CODE)</p>
+<p class="desc">устанавливает правила масштабирования объекта</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта<br>Можно указать несколько, через запятую или @am.</td></tr>
+<tr><td>CODE</td><td>код масштабирования и, при необходимости, номер<br>базового объекта через пробел</td></tr>
+</table>
+<p>Функция sizing определяет, что будет происходить с объектом<br>при изменении размеров окна.</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>CODE</td><td>4-х буквенный код, определяющий изменение координат и размеров<br>объекта относительно базового объекта (base.objnum)</td></tr>
+<tr><td>base.objnum</td><td>базовый объект (номер объекта). Можно не указывать. По умолчанию<br>это родительский объект (window, frame, winbox или tabbox).</td></tr>
+</table>
+<h2>Порядок следования букв CODE</h2>
+<table>
+<tr><td>1-я буква</td><td>смещение по горизонтали левого верхнего угла объекта</td></tr>
+<tr><td>2-я буква</td><td>смещение по вертикали левого верхнего угла объекта</td></tr>
+<tr><td>3-я буква</td><td>смещение по горизонтали правого нижнего угла объекта</td></tr>
+<tr><td>4-я буква</td><td>смещение по вертикали правого нижнего угла объекта</td></tr>
+</table>
+<h2>Коды букв CODE</h2>
+<table>
+<tr><td>S</td><td>сохранять расстояние относительно левого верхнего угла базового объекта</td></tr>
+<tr><td>E</td><td>сохранять расстояние относительно правого нижнего угла базового объекта</td></tr>
+<tr><td>M</td><td>сохранять расстояние относительно центра базового объекта</td></tr>
+<tr><td>P</td><td>пропорционально изменять расстояние</td></tr>
+<tr><td>N</td><td>не применять никаких действий</td></tr>
+</table>
+<h2>Примеры Sizing</h2>
+<table>
+<tr><td>SSSS</td><td>Объект не меняет никаких координат, т.к. сохраняются все<br>расстояния относительно левого верхнего угла базового объекта.</td></tr>
+<tr><td>EEEE</td><td>Ширина и высота объекта не меняются, объект следует за<br>правым нижним углом базового объекта.</td></tr>
+<tr><td>SSEE</td><td>Левый верхний угол объекта остается на месте, а правый нижний<br>сохраняет растояние относительно правого нижнего угла базового<br>объекта. Ширина и высота объекта увеличивается на столько же,<br>на сколько увеличиваются высота и ширина базового объекта.</td></tr>
+<tr><td>SSPP</td><td>Левый верхний угол объекта остается на месте, а правый нижний<br>не сохраняет растояния относительно правого нижнего угла<br>базового объекта. Ширина и высота объекта увеличиваются<br>пропорционально ширине и высоте базового объекта.</td></tr>
+<tr><td>SSEM</td><td>Левый верхний угол объекта остается на месте, а правый нижний<br>сохраняет растояние по горизонтали относительно нижнего угла<br>базового объекта, и по вертикали относительно центра базового<br>объекта. Ширина и высота объекта увеличиваются.</td></tr>
+</table>
+<h1 id="stbarimage">stbarimage</h2>
+<p class="syntax">stbarimage(stbar.objnum,part,imglist,num)</p>
+<p class="desc">устанавливает изображение статус-строке</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>stbar.objnum</td><td>номер объекта</td></tr>
+<tr><td>part</td><td>номер сектора</td></tr>
+<tr><td>imglist</td><td>список изображений</td></tr>
+<tr><td>num</td><td>номер изображения</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#stbar">stbar</a></td><td>создает статус-строку</td></tr>
+</table>
+<h1 id="stbartext">stbartext</h2>
+<p class="syntax">stbartext(stbar.objnum,part,text)</p>
+<p class="desc">устанавливает текст в статус-строке</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>stbar.objnum</td><td>номер объекта</td></tr>
+<tr><td>part</td><td>номер сектора</td></tr>
+<tr><td>text</td><td>текст</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#stbar">stbar</a></td><td>создает статус-строку</td></tr>
+</table>
+<h1 id="tab">tab</h2>
+<p class="syntax">tab(tabbox.objnum,tabnum)</p>
+<p class="desc">устанавливает закладку для создаваемых объектов</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>tabbox.objnum</td><td>номер объекта tabbox</td></tr>
+<tr><td>tabnum</td><td>номер закладки</td></tr>
+</table>
+<h2>Примечания</h2>
+<ul>
+<li>Если требуется, чтобы объект был одновременно на<br>нескольких закладках, укажите номера этих закладок<br>через запятую или @am.</li>
+<li>После заполнения всех закладок необходимо выполнить<br>функцию notab.</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#tabbox">tabbox</a></td><td>создает подложку для закладок</td></tr>
+<tr><td><a href="FlashGUI.html#notab">notab</a></td><td>сброс режима размещения создаваемых объектов на закладке</td></tr>
+</table>
+<h1 id="tooltip">tooltip</h2>
+<p class="syntax">tooltip(objnum,text)</p>
+<p class="desc">создает всплывающую подсказку</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>text</td><td>текст подсказки</td></tr>
+</table>
+<p>Можно указать список объектов через запятую или @am.</p>
+<h1 id="unbind">unbind</h2>
+<p class="syntax">unbind(objnum,event)</p>
+<p class="desc">отключает генерацию сообщений для события</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта (0 - окно)</td></tr>
+<tr><td>event</td><td>наименование события (OnClose, OnSetFocus и т.п.)</td></tr>
+</table>
+<p>Можно указывать несколько объектов и событий<br>через запятую или @am.</p>
+<h1 id="autowaitcursor">autowaitcursor</h2>
+<p class="syntax">autowaitcursor(onoff)</p>
+<p class="desc">режим автоблокировки окна по любому событию</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>onoff</td><td>флаг:<br>1 - режим включен<br>0 - режим выключен</td></tr>
+</table>
+<p>Этот режим нужен, если сервер сильно нагружен,<br>и возможны большие задержки в обработке событий.</p>
+<p>В этом режиме при создании объектов события в них<br>будут программироваться таким образом, что перед<br>отправкой сообщения будет блокироваться окно, а<br>курсор меняться на песочные часы.</p>
+<p>Это необходимо для уведомления пользователя о простое<br>и предотвращения выполнения им каких-либо действий.</p>
+<p>Функция getmsg автоматически разблокирует окно после<br>обработки события.</p>
+<h2>Внимание</h2>
+<ul>
+<li>Функция initgui устанавливает этот флаг в 0.</li>
+<li>Целесообразно отключить в объектах необрабатываемые<br>сообщения (с помощью функции unbind)</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#waitcursor">waitcursor</a></td><td>включает/выключает отображение песочных часов</td></tr>
+</table>
+<h1 id="brizversion">brizversion</h2>
+<p class="syntax">brizversion(brizversion)</p>
+<p class="desc">возвращает версию BRIZ</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>brizversion</td><td>номер версии</td></tr>
+</table>
+<h1 id="clearmsg">clearmsg</h2>
+<p class="desc">удаляет все сообщения из очереди</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#insmsg">insmsg</a></td><td>эмулирует наступление события с указанными параметрами</td></tr>
+<tr><td><a href="FlashGUI.html#restoremsg">restoremsg</a></td><td>повторяет последнее событие</td></tr>
+</table>
+<h1 id="csvdump">csvdump</h2>
+<p class="syntax">команда TCL</p>
+<p class="desc">выгружает файл D3 в csv-файл Windows</p>
+<h2>Синтаксис</h2>
+<p><code>csvdump ServerFileName TO CsvFileName options</code></p>
+<h2>Параметры</h2>
+<table>
+<tr><td>ServerFileName</td><td>файл D3</td></tr>
+<tr><td>CsvFileName</td><td>файл MS Windows (csv)</td></tr>
+<tr><td>Option</td><td>опции (через пробел)</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>NoId</td><td>не включать id первой колонкой файла csv</td></tr>
+<tr><td>Delim=символы</td><td>разделительные символы (по умолчанию ";")</td></tr>
+</table>
+<h2>Примеры</h2>
+<p><code>csvdump clients TO "C:\mycsvfolder\clients.csv"</code></p>
+<p><code>csvdump clients TO "C:\mycsvfolder\clients.csv" NoId</code></p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#csvload">csvload</a></td><td>загружает csv-файл Windows в файл D3</td></tr>
+</table>
+<h1 id="csvload">csvload</h2>
+<p class="syntax">команда TCL</p>
+<p class="desc">загружает csv-файл Windows в файл D3</p>
+<h2>Синтаксис</h2>
+<p><code>csvload CsvFileName TO ServerFileName option</code></p>
+<h2>Параметры</h2>
+<table>
+<tr><td>CsvFileName</td><td>имя файла csv</td></tr>
+<tr><td>ServerFileName</td><td>имя файла D3</td></tr>
+<tr><td>Option</td><td>опции (через пробел)</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>GenId</td><td>генерировать идентификаторы</td></tr>
+<tr><td>IdLen=N</td><td>длина генерируемого идентификатора (по умолчанию 7)</td></tr>
+<tr><td>StartId=N</td><td>генерировать идентификаторы, начиная с заданного</td></tr>
+<tr><td>Delim=символы</td><td>разделитель (по умолчанию ";")</td></tr>
+</table>
+<h2>Примеры</h2>
+<p><code>csvload "C:\mycsvfolder\clients.csv" TO clients GenId IdLen=5</code></p>
+<p><code>csvload "C:\mycsvfolder\clients.csv" TO clients GenId IdLen=5 StartId=05100</code></p>
+<p><code>csvload "C:\mycsvfolder\clients.csv" TO clients Delim=##!</code></p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#csvdump">csvdump</a></td><td>выгружает файл D3 в csv-файл Windows</td></tr>
+</table>
+<h1 id="errbox">errbox</h2>
+<p class="syntax">errbox(head,text)</p>
+<p class="desc">сообщение об ошибке (кнопка OK и значок X)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>head</td><td>заголовок окна</td></tr>
+<tr><td>text</td><td>текст сообщения<br><br>Символ \ является управляющим<br>Чтобы он был в тексте сообщения, замените его на \\<br>\r означает перевод строки.</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#mbox">mbox</a></td><td>отображает окно сообщения с кнопками</td></tr>
+</table>
+<h1 id="fdump">fdump</h2>
+<p class="syntax">команда TCL</p>
+<p class="desc">выгружает данные в файлы MS Windows</p>
+<h2>Синтаксис</h2>
+<p><code>fdump serverfile [ item(s) ] to path (options</code></p>
+<h2>Параметры</h2>
+<table>
+<tr><td>serverfile</td><td>файл D3</td></tr>
+<tr><td>item(s)</td><td>запись(и) D3</td></tr>
+<tr><td>path</td><td>путь к файлу или папке MS Windows<br>options - опции</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>B</td><td>конвертирует 16-ричные записи в двоичные файлы MS Windows</td></tr>
+<tr><td>R</td><td>сохраняет DOS-кодировку (cp866)</td></tr>
+<tr><td>O</td><td>перезаписывает существующие файлы MS Windows</td></tr>
+<tr><td>F</td><td>конвертирует файл D3 в специальный файл MS Windows.</td></tr>
+<tr><td>Разделители атрибутов, значений, подзначений и записей<br>сохраняются.<br>Из полученного таким образом файла MS Windows<br>можно восстановить файл D3 командой fload с опцией F.</td><td></td></tr>
+<tr><td>V</td><td>verbose (выводит подробную информацию о ходе передачи данных)</td></tr>
+</table>
+<h2>Примечание</h2>
+<ul>
+<li>Перед командой fdump можно выполнить select или get-list</li>
+</ul>
+<h2>Примеры</h2>
+<p><code>fdump myfile myitem to "C:\myfile.txt"</code></p>
+<p><code>fdump myfile to "C:\myfolder\"</code></p>
+<p><code>fdump myfile myitem.gif to "C:\myfile.gif" (B</code></p>
+<p><code>fdump myfile to "C:\myfolder\" (B</code></p>
+<p><code>fdump myfile to "C:\myfile.txt" (F</code></p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#fload">fload</a></td><td>загружает данные из файлов MS Windows</td></tr>
+</table>
+<h1 id="flashgui.version">flashgui.version</h2>
+<p class="syntax">команда TCL</p>
+<p class="desc">возвращает версию и имя установочного счета</p>
+<h1 id="fload">fload</h2>
+<p class="syntax">команда TCL</p>
+<p class="desc">загружает данные из файлов MS Windows</p>
+<h2>Синтаксис</h2>
+<p><code>fload path to serverfile [item(s)] (options</code></p>
+<h2>Параметры</h2>
+<table>
+<tr><td>path</td><td>путь к файлу или папке<br>serverfile - файл D3</td></tr>
+<tr><td>items(s)</td><td>ключ записи D3 (может быть несколько)</td></tr>
+<tr><td>options</td><td>опции</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>B</td><td>конвертирует двоичные файлы в шестнадцатиричные записи</td></tr>
+<tr><td>R</td><td>сохраняет DOS-кодировку</td></tr>
+<tr><td>O</td><td>перезаписывает существующие записи</td></tr>
+<tr><td>F</td><td>создает записи D3 из строк файла MS Windows</td></tr>
+<tr><td>V</td><td>verbose (выводит подробный отчет о выполнении)</td></tr>
+</table>
+<h2>Примеры</h2>
+<p><code>fload "C:\myfile.txt" to myfile myitem</code></p>
+<p><code>fload "C:\myfolder\" to myfile</code></p>
+<p><code>fload "C:\myfile.gif" to myfile myitem.gif (B</code></p>
+<p><code>fload "C:\myfolder\" to myfile (B</code></p>
+<p><code>fload "C:\myfile.txt" to myfile (F</code></p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#fdump">fdump</a></td><td>выгружает данные в файлы MS Windows</td></tr>
+</table>
+<h1 id="getdir">getdir</h2>
+<p class="syntax">getdir(dir)</p>
+<p class="desc">возвращает рабочую директорию</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>dir</td><td>путь к директории</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#homedir">homedir</a></td><td>делает директорию BRIZ.exe рабочей директорией</td></tr>
+<tr><td><a href="FlashGUI.html#setdir">setdir</a></td><td>устанавливает рабочую директорию</td></tr>
+</table>
+<h1 id="getmsg">getmsg</h2>
+<p class="syntax">getmsg(win,obj,ev,dt)</p>
+<p class="desc">ожидает наступления события и возвращает его параметры</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>win</td><td>номер окна</td></tr>
+<tr><td>obj</td><td>номер объекта (0 - обозначает окно)</td></tr>
+<tr><td>ev</td><td>наименование события</td></tr>
+<tr><td>dt</td><td>данные (атрибуты)</td></tr>
+</table>
+<h1 id="getwin">getwin</h2>
+<p class="syntax">getwin(win)</p>
+<p class="desc">возвращает номер активного окна</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>win</td><td>номер окна</td></tr>
+</table>
+<h1 id="grid">grid</h2>
+<p class="syntax">grid(coord,colw,option)</p>
+<p class="desc">устанавливает режим размещения объектов в сетке</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>coord</td><td>координаты верхнего левого угла (колонка, строка)<br>через запятую или @am (по умолчанию - '1,1')</td></tr>
+<tr><td>colw</td><td>ширины столбцов через запятую или @am</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>nospace</td><td>без разделительного пробела</td></tr>
+</table>
+<h2>Примечания</h2>
+<ul>
+<li>Ячейки сетки заполняются слева направо, сверху вниз.</li>
+<li>Если не указана опция nospace, между объектами вставляется<br>разделительный пробел.</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#nogrid">nogrid</a></td><td>отключает режим grid</td></tr>
+<tr><td><a href="FlashGUI.html#skip">skip</a></td><td>пропускает n ячеек grid</td></tr>
+<tr><td><a href="FlashGUI.html#skiprow">skiprow</a></td><td>пропускает заданное число строк grid</td></tr>
+</table>
+<h1 id="hideall">hideall</h2>
+<p class="desc">делает невидимыми все окна</p>
+<h1 id="homedir">homedir</h2>
+<p class="desc">делает директорию BRIZ.exe рабочей директорией</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#getdir">getdir</a></td><td>возвращает рабочую директорию</td></tr>
+<tr><td><a href="FlashGUI.html#setdir">setdir</a></td><td>устанавливает рабочую директорию</td></tr>
+</table>
+<h1 id="ibox">ibox</h2>
+<p class="syntax">ibox(head,text)</p>
+<p class="desc">информационное сообщение (кнопка OK и значок i)</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>head</td><td>заголовок окна</td></tr>
+<tr><td>text</td><td>текст сообщения<br><br>Символ \ является управляющим<br>Чтобы он был в тексте сообщения, замените его на \\<br>\r означает перевод строки.</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#mbox">mbox</a></td><td>отображает окно сообщения с кнопками</td></tr>
+</table>
+<h1 id="insmsg">insmsg</h2>
+<p class="syntax">insmsg(win,obj,ev,dt)</p>
+<p class="desc">эмулирует наступление события с указанными параметрами</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>win</td><td>номер окна</td></tr>
+<tr><td>obj</td><td>номер объекта</td></tr>
+<tr><td>ev</td><td>событие</td></tr>
+<tr><td>dt</td><td>данные</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#clearmsg">clearmsg</a></td><td>удаляет все сообщения из очереди</td></tr>
+<tr><td><a href="FlashGUI.html#restoremsg">restoremsg</a></td><td>повторяет последнее событие</td></tr>
+</table>
+<h1 id="mbox">mbox</h2>
+<p class="syntax">mbox(type,head,text,ret)</p>
+<p class="desc">отображает окно сообщения с кнопками</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>type</td><td>строка, задающая кнопки и значок</td></tr>
+<tr><td>head</td><td>заголовок окна</td></tr>
+<tr><td>text</td><td>текст сообщения</td></tr>
+<tr><td>ret</td><td>нажатая кнопка:<br><br>Abort<br>Retry<br>Ignore<br>Yes<br>No<br>Cancel<br>OK</td></tr>
+</table>
+<h2>Параметр type</h2>
+<table>
+<tr><td>abort retry ignore</td><td>кнопки Abort Retry Ignore, значок !</td></tr>
+<tr><td>error</td><td>кнопка OK, значок X</td></tr>
+<tr><td>info</td><td>кнопка OK, значок i</td></tr>
+<tr><td>ok</td><td>кнопка OK, значок !</td></tr>
+<tr><td>ok cancel</td><td>кнопки OK Cancel, значок !</td></tr>
+<tr><td>retry cancel</td><td>кнопки Retry Cancel, значок !</td></tr>
+<tr><td>yes no</td><td>кнопки Yes No, значок ?</td></tr>
+<tr><td>yes no cancel</td><td>кнопки Yes No Cancel, значок !</td></tr>
+</table>
+<h2>Примечания</h2>
+<ul>
+<li>В руссифицированной версии Windows названия кнопок выводятся по-русски</li>
+<li>Если в окне сообщения есть кнопка Cancel, то при закрытии окна<br>возвращается cancel</li>
+<li>Символ \ является управляющим, чтобы он был в тексте<br>сообщения, замените его на \\, \r означает перевод строки</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#ibox">ibox</a></td><td>информационное сообщение (кнопка OK и значок i)</td></tr>
+<tr><td><a href="FlashGUI.html#okbox">okbox</a></td><td>сообщение с кнопкой OK и значком !</td></tr>
+<tr><td><a href="FlashGUI.html#errbox">errbox</a></td><td>сообщение об ошибке (кнопка OK и значок X)</td></tr>
+<tr><td><a href="FlashGUI.html#mmbox">mmbox</a></td><td>окно сообщения с произвольными кнопками</td></tr>
+</table>
+<h1 id="mkdir">mkdir</h2>
+<p class="syntax">mkdir(path)</p>
+<p class="desc">создает директорию</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>path</td><td>путь</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#rmdir">rmdir</a></td><td>удаляет директорию</td></tr>
+</table>
+<h1 id="mmbox">mmbox</h2>
+<p class="syntax">mmbox(buttons,head,text,ret)</p>
+<p class="desc">окно сообщения с произвольными кнопками</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>buttons</td><td>тексты кнопок через пробел, запятую или @am</td></tr>
+<tr><td>head</td><td>заголовок окна</td></tr>
+<tr><td>text</td><td>текст сообщения</td></tr>
+<tr><td>ret</td><td>текст нажатой кнопки</td></tr>
+</table>
+<h1 id="msgoff">msgoff</h2>
+<p class="desc">выключает выдачу сообщений</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#msgon">msgon</a></td><td>включает выдачу сообщений</td></tr>
+</table>
+<h1 id="msgon">msgon</h2>
+<p class="desc">включает выдачу сообщений</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#msgoff">msgoff</a></td><td>выключает выдачу сообщений</td></tr>
+</table>
+<h1 id="nogrid">nogrid</h2>
+<p class="desc">отключает режим grid</p>
+<p>Возвращает к режиму задания абсолютных координат.</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#grid">grid</a></td><td>устанавливает режим размещения объектов в сетке</td></tr>
+</table>
+<h1 id="objtype">objtype</h2>
+<p class="syntax">objtype(objnum,objtype,dt)</p>
+<p class="desc">возвращает тип объекта</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>objnum</td><td>номер объекта</td></tr>
+<tr><td>objtype</td><td>тип объекта</td></tr>
+<tr><td>dt</td><td>дополнительные данные</td></tr>
+</table>
+<h1 id="okbox">okbox</h2>
+<p class="syntax">okbox(head,text)</p>
+<p class="desc">сообщение с кнопкой OK и значком !</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>head</td><td>заголовок окна</td></tr>
+<tr><td>text</td><td>текст сообщения<br><br>Символ \ является управляющим.<br>Чтобы он был в тексте сообщения, замените его на \\<br>\r означает перевод строки.</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#mbox">mbox</a></td><td>отображает окно сообщения с кнопками</td></tr>
+</table>
+<h1 id="pickwin">pickwin</h2>
+<p class="syntax">pickwin(pickfile,pickitem,winpath,option,ret)</p>
+<p class="desc">копирует запись D3 в файл Windows</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>pickfile</td><td>имя файла D3</td></tr>
+<tr><td>pickitem</td><td>имя записи в файле D3</td></tr>
+<tr><td>winpath</td><td>полное имя файла в windows (путь и имя файла)</td></tr>
+<tr><td>option</td><td>опции</td></tr>
+<tr><td>ret</td><td>код возврата.<br>В случае успешного выполнения возвращается 'ok'.</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>win</td><td>с перекодировкой cp866->cp1251 (по умолчанию)</td></tr>
+<tr><td>raw</td><td>без перекодировки</td></tr>
+<tr><td>dos</td><td>без перекодировки</td></tr>
+<tr><td>bin</td><td>для передачи двоичных данных:</td></tr>
+</table>
+<h2>Примечания</h2>
+<ul>
+<li>(опция bin) В D3 NT: передаче подлежат только записи в формате<br>hex, сохраненные ранее с помощью winpick.<br>В D3 Linux: если pickfile не является OSFI-ссылкой<br>на директорию, а обычным файлом D3, то передаче<br>подлежат только записи в формате hex, сохраненные<br>ранее с помощью winpick.</li>
+<li>Режимы raw и dos для пересылки данных в кодировке<br>cp866 без преобразования.</li>
+<li>Если режим не указан, то используется режим win.</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#winpick">winpick</a></td><td>копирует файл Windows в запись D3</td></tr>
+</table>
+<h1 id="restoremsg">restoremsg</h2>
+<p class="desc">повторяет последнее событие</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#clearmsg">clearmsg</a></td><td>удаляет все сообщения из очереди</td></tr>
+<tr><td><a href="FlashGUI.html#insmsg">insmsg</a></td><td>эмулирует наступление события с указанными параметрами</td></tr>
+</table>
+<h1 id="rmdir">rmdir</h2>
+<p class="syntax">mkdir(path)</p>
+<p class="desc">удаляет директорию</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>path</td><td>путь</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#mkdir">mkdir</a></td><td>создает директорию</td></tr>
+</table>
+<h1 id="rtftab">rtftab</h2>
+<p class="syntax">rtftab(par,dt)</p>
+<p class="desc">формирует код таблицы rtf</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>par</td><td>установочные параметры через запятую</td></tr>
+<tr><td>dt</td><td>данные (на входе и на выходе)</td></tr>
+</table>
+<h2>Установочные параметры</h2>
+<table>
+<tr><td>отступ</td><td>отступ слева в мм</td></tr>
+<tr><td>границы</td><td>буквы R,L,T,B,H,V,X<br>(справа, слева, сверху, снизу, горизонтально, вертикально, X=RTBL)</td></tr>
+<tr><td>столбцы</td><td>nA-nA-nA ..., где:<br>n - ширина столбца в мм<br>A - выравнивание (R,L,C,J)<br>(по правой границе, по левой границе, по центру, по ширине)</td></tr>
+</table>
+<h2>Данные</h2>
+<table>
+<tr><td>на входе</td><td>значения ячеек таблицы, слева направо, сверху вниз, через @am</td></tr>
+<tr><td>на выходе</td><td>rtf-код таблицы</td></tr>
+</table>
+<h2>Пример</h2>
+<p><code>a='1':@am:'2':@am:'3':@am:'4':@am:'5':@am:'6'<br>call rtftab('5,XVH,R10-L20',a)</code></p>
+<h1 id="session">session</h2>
+<p class="syntax">session(action)</p>
+<p class="desc">управляет окном сессии</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>action</td><td>действия,через запятую или @am</td></tr>
+</table>
+<h2>Действия</h2>
+<table>
+<tr><td>show</td><td>показать сессию</td></tr>
+<tr><td>1</td><td>показать сессию</td></tr>
+<tr><td>hide</td><td>скрыть сессию</td></tr>
+<tr><td>0</td><td>скрыть сессию</td></tr>
+<tr><td>text текст</td><td>устанавить заголовок окна</td></tr>
+</table>
+<h1 id="setcoord">setcoord</h2>
+<p class="syntax">setcoord(col.size,row.size,line.space,margin.size)</p>
+<p class="desc">задает размеры координатной сетки окна</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>col.size</td><td>ширина колонки</td></tr>
+<tr><td>row.size</td><td>высота строки</td></tr>
+<tr><td>line.space</td><td>межстрочный интервал</td></tr>
+<tr><td>margin.size</td><td>отступ от границ окна</td></tr>
+</table>
+<h1 id="setdir">setdir</h2>
+<p class="syntax">setdir(path,ret)</p>
+<p class="desc">устанавливает рабочую директорию</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>path</td><td>путь</td></tr>
+<tr><td>ret</td><td>флаг ошибки указания пути<br>0 - выполнено<br>1 - директория не существует</td></tr>
+</table>
+<h2>Функции</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#homedir">homedir</a></td><td>делает директорию BRIZ.exe рабочей директорией</td></tr>
+<tr><td><a href="FlashGUI.html#getdir">getdir</a></td><td>возвращает рабочую директорию</td></tr>
+</table>
+<h1 id="setwin">setwin</h2>
+<p class="syntax">setwin(win)</p>
+<p class="desc">устанавливает номер текущего активнго окна</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>win</td><td>номер окна</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#getwin">getwin</a></td><td>возвращает номер активного окна</td></tr>
+</table>
+<h1 id="showall">showall</h2>
+<p class="desc">делает видимыми все окна</p>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#hideall">hideall</a></td><td>делает невидимыми все окна</td></tr>
+</table>
+<h1 id="skip">skip</h2>
+<p class="syntax">skip(n)</p>
+<p class="desc">пропускает n ячеек grid</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>n</td><td>количество пропускаемых ячеек</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#grid">grid</a></td><td>устанавливает режим размещения объектов в сетке</td></tr>
+<tr><td><a href="FlashGUI.html#skiprow">skiprow</a></td><td>пропускает заданное число строк grid</td></tr>
+</table>
+<h1 id="skiprow">skiprow</h2>
+<p class="syntax">skiprow(num)</p>
+<p class="desc">пропускает заданное число строк grid</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>num</td><td>количество строк</td></tr>
+</table>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#grid">grid</a></td><td>устанавливает режим размещения объектов в сетке</td></tr>
+<tr><td><a href="FlashGUI.html#skip">skip</a></td><td>пропускает n ячеек grid</td></tr>
+</table>
+<h1 id="waitcursor">waitcursor</h2>
+<p class="syntax">waitcursor(state)</p>
+<p class="desc">включает/выключает отображение песочных часов</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>state</td><td>1 - включить<br>0 - выключить</td></tr>
+</table>
+<h1 id="wcolor">wcolor</h2>
+<p class="syntax">wcolor(hexval)</p>
+<p class="desc">вызывает диалог выбора цвета</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>hexval</td><td>значение RGB в шестнадцатеричном формте</td></tr>
+</table>
+<h1 id="wfile">wfile</h2>
+<p class="syntax">wfile(wintitle,filename,option)</p>
+<p class="desc">вызывает диалог выбора файла Windows</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>wintitle</td><td>имя диалога</td></tr>
+<tr><td>filename</td><td>имена файлов через @am</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>mselect</td><td>множественное выделение</td></tr>
+<tr><td>filter</td><td>выражение для установки фильтров:<br>filter "Название, выражение" "Название, выражение" ...<br>пример:<br>filter "Файлы MS Word, *.doc"</td></tr>
+<tr><td>mustexist</td><td>выбор только существующих файлов</td></tr>
+</table>
+<h1 id="wfolder">wfolder</h2>
+<p class="syntax">wfolder(wintitle,folder,option)</p>
+<p class="desc">вызывает Windows-диалог выбора папки</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>wintitle</td><td>заглавие диалога</td></tr>
+<tr><td>folder</td><td>имя папки</td></tr>
+<tr><td>option</td><td>зарезервировано</td></tr>
+</table>
+<h1 id="wfont">wfont</h2>
+<p class="syntax">wfont(font)</p>
+<p class="desc">вызывает диалог выбора шрифта</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>font</td><td>шрифт в виде динамического массива:<br><br><1> - Имя<br><2> - Размер<br><3> - Стиль (bold, italic, bold italic)<br><4> - цвет в шестнадцатеричном формате</td></tr>
+</table>
+<h1 id="wincmd">wincmd</h2>
+<p class="syntax">wincmd(command,param,option)</p>
+<p class="desc">выполняет команду Windows</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>command</td><td>имя команды Windows или вызываемого файла (и возможно путь до него)</td></tr>
+<tr><td>param</td><td>строка передаваемых параметров</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>hide</td><td>не показывать окно приложения</td></tr>
+<tr><td>min</td><td>минимизировать окно приложения</td></tr>
+</table>
+<h2>Примечание</h2>
+<ul>
+<li>опции hide и min не выполняются при работе с приложениями MS Office</li>
+</ul>
+<table class="list">
+<tr><td><a href="FlashGUI.html#winstart">winstart</a></td><td>открывает или печатает файл Windows</td></tr>
+</table>
+<h1 id="winpick">winpick</h2>
+<p class="syntax">winpick(winpath,pickfile,pickitem,option,ret)</p>
+<p class="desc">копирует файл Windows в запись D3</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>winpath</td><td>полное имя файла в Windows (путь и имя файла)</td></tr>
+<tr><td>pickfile</td><td>имя файла D3</td></tr>
+<tr><td>pickitem</td><td>имя записи в файле D3</td></tr>
+<tr><td>option</td><td>опции</td></tr>
+<tr><td>ret</td><td>код возврата.<br>В случае успешного выполнения возвращается 'ok'.</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>win</td><td>с перекодировкой cp1251->cp866 (по умолчанию)</td></tr>
+<tr><td>raw</td><td>без перекодировки</td></tr>
+<tr><td>dos</td><td>без перекодировки</td></tr>
+<tr><td>bin</td><td>для передачи двоичных данных</td></tr>
+</table>
+<h2>Примечания</h2>
+<ul>
+<li>(опция bin) В D3 NT: запись будет сохранена в формате hex.<br>В D3 Linux: если pickfile является OSFI-ссылкой на<br>на директорию, запись будет сохранена в двоичном формате,<br>иначе - в формате hex.</li>
+<li>Режимы raw и dos для пересылки данных к кодировке<br>cp866 без преобразования.</li>
+<li>Если режим не указан, то используется режим win.</li>
+</ul>
+<h2>См. также</h2>
+<table class="list">
+<tr><td><a href="FlashGUI.html#pickwin">pickwin</a></td><td>копирует запись D3 в файл Windows</td></tr>
+</table>
+<h1 id="winstart">winstart</h2>
+<p class="syntax">winstart(filename,action,option)</p>
+<p class="desc">открывает или печатает файл Windows</p>
+<h2>Параметры</h2>
+<table>
+<tr><td>filename</td><td>имя файла</td></tr>
+<tr><td>action</td><td>действие</td></tr>
+<tr><td>option</td><td>опции через запятую или @am</td></tr>
+</table>
+<h2>Действия</h2>
+<table>
+<tr><td>open</td><td>открыть файл</td></tr>
+<tr><td>print</td><td>открыть и распечатать на файл на принтер по умолчанию</td></tr>
+</table>
+<h2>Опции</h2>
+<table>
+<tr><td>hide</td><td>не показывать окно приложения</td></tr>
+<tr><td>min</td><td>минимизировать окно приложения</td></tr>
+</table>
+<h2>Примечание</h2>
+<ul>
+<li>опции hide и min не выполняются при работе с приложениями MS Office</li>
+</ul>
+<hr noshade color="#cccccc" size="1"><p class="copy">Copyright &copy; 2005 Infoved - All Rights Reserved</p>
+</body>
+</html>

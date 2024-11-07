@@ -1,0 +1,69 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "GP_Term"=.\GP_Term.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GP_term", BAAAAAAA
+    .
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ListMaker"=.\ListMaker\ListMaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/ListMaker", MACAAAAA
+    .\listmaker
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "WinListmaker"=.\WinListmaker\WinListmaker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/WinListmaker", UACAAAAA
+    .\WinListmaker
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+    begin source code control
+    "$/GP_Term", BAAAAAAA
+    .
+    end source code control
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

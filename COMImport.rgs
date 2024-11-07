@@ -1,0 +1,24 @@
+HKCR
+{
+	GP_Term.COMImport.1 = s 'COMImport Class'
+	{
+		CLSID = s '{1FC4AF30-8426-4C47-A9A7-839204386C5E}'
+	}
+	GP_Term.COMImport = s 'COMImport Class'
+	{
+		CLSID = s '{1FC4AF30-8426-4C47-A9A7-839204386C5E}'
+		CurVer = s 'GP_Term.COMImport.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1FC4AF30-8426-4C47-A9A7-839204386C5E} = s 'COMImport Class'
+		{
+			ProgID = s 'GP_Term.COMImport.1'
+			VersionIndependentProgID = s 'GP_Term.COMImport'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{1509E7E2-DD4C-11D3-970D-0080AD863699}'
+			'TypeLib' = s '{1509E7A7-DD4C-11D3-970D-0080AD863699}'
+		}
+	}
+}

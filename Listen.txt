@@ -1,0 +1,29 @@
+cfunction socket.builtin
+include dm,bp,unix.h socket.h
+readbuffer= space(1000) 
+
+fd=%socket( AF$INET , SOCK$STREAM, 0 )
+crt fd
+code=%connect( fd, AF$INET, "10.100.115.46", 1967 )
+crt code,system(0)
+mmm="qwerty":char(13)
+%write(fd, mmm, 7)
+
+for i=1 to 100000
+nbb=%read(fd,readbuffer,1)
+if nbb>0 then
+    crt readbuffer[1,nbb]:
+ end else
+    crt 0
+    in cccc
+ end
+*in cccc
+*if cccc=64 then exit
+*mmm[1,1]=char(cccc)
+%write(fd, readbuffer, 1)
+next i
+
+* Закрытие соединения
+%close(fd)
+
+

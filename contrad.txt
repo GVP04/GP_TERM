@@ -1,0 +1,137 @@
+
+
+	char chh1[]={0xD1,0xCE,0xCC,0xEF,0xB9,0xFA,0xBC,0xCA,0xBC,0xAF,0xD7,0xB0,0xCF,0xE4,0xC2,0xEB,0xCD,0xB7,0,0};
+//	char chh1[]={0xCE,0xD1,0xEF,0xCC,0xFA,0xB9,0xCA,0xBC,0xAF,0xBC,0xB0,0xD7,0xE4,0xCF,0xEB,0xC2,0xB7,0xCD,0,0};
+	char chhcmp[]={0xC6,0x51,0xA5,0xD0,0xB0,0xEA,0xBB,0xDA,0xB6,0xB0,0xB8,0xCB,0xBD,0x63,0xBD,0x58,0xC0,0x59,0,0};
+//	char chhcmp[]={0x51,0xC6,0xD0,0xA5,0xEA,0xB0,0xDA,0xBB,0xB0,0xB6,0xCB,0xB8,0x63,0xBD,0x58,0xBD,0x59,0xC0,0,0};
+	char chhdtmp[40];
+	char chhd[40];
+	unsigned short tmpwstr[40];
+	unsigned short tmpwstr2[40];
+	DWORD dwwidthArr[]={0,LCMAP_HALFWIDTH,LCMAP_FULLWIDTH,};
+	DWORD dwsswap[]={0,LCMAP_BYTEREV,};
+	DWORD dwCase[]={0,LCMAP_LOWERCASE,LCMAP_UPPERCASE,};
+	DWORD dwconv[]={0,LCMAP_HIRAGANA,LCMAP_KATAKANA,LCMAP_SIMPLIFIED_CHINESE,LCMAP_TRADITIONAL_CHINESE};
+	WORD sublng[5]={SUBLANG_CHINESE_TRADITIONAL,SUBLANG_CHINESE_SIMPLIFIED,SUBLANG_CHINESE_HONGKONG,SUBLANG_CHINESE_SINGAPORE,SUBLANG_CHINESE_MACAU,};
+
+	WORD cp[15]={0,936,950,51936,52936,10008,20000,20002,10002,CP_ACP,CP_OEMCP,CP_SYMBOL,CP_THREAD_ACP,CP_UTF7,CP_UTF8,};
+
+
+	WORD flgg[11]={0,
+MB_PRECOMPOSED,MB_COMPOSITE,MB_ERR_INVALID_CHARS,MB_USEGLYPHCHARS,
+MB_PRECOMPOSED|MB_ERR_INVALID_CHARS,MB_PRECOMPOSED|MB_USEGLYPHCHARS,
+MB_COMPOSITE|MB_ERR_INVALID_CHARS,MB_COMPOSITE|MB_USEGLYPHCHARS,
+MB_COMPOSITE|MB_USEGLYPHCHARS|MB_ERR_INVALID_CHARS,MB_PRECOMPOSED|MB_USEGLYPHCHARS|MB_ERR_INVALID_CHARS,
+};
+
+/*
+type=4 slng=1 scp=1 dcp=2 sflg=0 dflg=0 sconv=4 sswap=0 dwc=67108864
+type=4 slng=1 scp=1 dcp=8 sflg=0 dflg=0 sconv=4 sswap=0 dwc=67108864
+type=4 slng=3 scp=1 dcp=2 sflg=0 dflg=0 sconv=4 sswap=0 dwc=67108864
+type=4 slng=3 scp=1 dcp=8 sflg=0 dflg=0 sconv=4 sswap=0 dwc=67108864
+*/
+
+
+for(int slng=0;slng<5;slng++)
+{
+	WORD dwslng=MAKELCID(MAKELANGID(LANG_CHINESE,sublng[slng]),SORT_DEFAULT);
+//for(int swidth=0;swidth<3;swidth++)
+//for(int scase=0;scase<3;scase++)
+for(int sconv=4;sconv<5;sconv++)
+for(int sswap=0;sswap<2;sswap++)
+{
+	DWORD dwc=/*dwCase[scase]|dwwidthArr[swidth]|*/dwconv[sconv]|dwsswap[sswap];
+for(int sflg=0;sflg<1;sflg++)
+for(int dflg=0;dflg<1;dflg++)
+for(int scp=0;scp<15;scp++)
+for(int dcp=0;dcp<15;dcp++)
+for(int type=0;type<5;type++)
+{
+		for(int i=0;i<18;i++)			chhd[i]=0;
+
+	DWORD ret=0;
+
+//		if (/*chWideDosAnsi3 && *pcSrc>=0xA1 && *pcSrc<=0xFE && */ pcSrc[1]!=0x7F && pcSrc[1]!=0x01 && pcSrc[1]!=0x02)
+		switch(type)
+		{
+		case 0:
+			{
+				::MultiByteToWideChar(cp[scp], flgg[sflg], chh1, 20, tmpwstr, 38);
+				::WideCharToMultiByte(cp[dcp], flgg[dflg], tmpwstr, 10, chhd, 38, NULL, FALSE);
+			}
+			break;
+		case 1:
+			::LCMapString(dwslng,dwc,chh1,20,chhd,38);
+			break;
+
+		case 2:
+			{
+				::MultiByteToWideChar(cp[scp], flgg[sflg], chh1, 20, tmpwstr, 38) ;
+				::WideCharToMultiByte(cp[dcp],  flgg[dflg], tmpwstr, 10, chhdtmp, 38, NULL, FALSE) ;
+					::LCMapString(dwslng,dwc,chhdtmp,20,chhd,22);
+//				::MultiByteToWideChar(cp[dcp], flgg[sflg], chhd, 20, tmpwstr, 38) ;
+//				::WideCharToMultiByte(cp[scp],  flgg[dflg], tmpwstr, 10, chhd, 38, NULL, FALSE) ;
+			}
+			break;
+		case 3:
+			{
+				::MultiByteToWideChar(cp[scp],  flgg[sflg], chhdtmp, 20, tmpwstr, 38) ;
+				::LCMapStringW(dwslng,dwc,tmpwstr,10,tmpwstr2,38) ;
+				::WideCharToMultiByte(cp[dcp],  flgg[dflg], tmpwstr2, 10, chhd, 38, NULL, FALSE);
+			}
+			break;
+		case 4:
+			{
+				if (::LCMapString(dwslng,dwc,chh1,18,chhdtmp,18) &&
+				::MultiByteToWideChar(cp[scp],  flgg[sflg], chhdtmp, 18, tmpwstr, 9) &&
+				::WideCharToMultiByte(cp[dcp],  flgg[dflg], tmpwstr, 9, chhd, 18, NULL, FALSE)) ret=1;
+			}
+			break;
+
+		}
+
+		ret=0;
+		for(i=0;i<18 ;i++) if (chhcmp[i]==chhd[i]) ret++;
+
+		i++;
+		if (ret>15)
+		{
+		
+			TRACE("type=%d slng=%d scp=%d dcp=%d sflg=%d dflg=%d sconv=%d sswap=%d dwc=%d\n",type,slng,scp,dcp,sflg,dflg,sconv,sswap,dwc);
+
+		}
+
+
+}
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

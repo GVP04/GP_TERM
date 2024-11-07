@@ -1,0 +1,3 @@
+-EMU="ANSI"
+-HOST="192.168.100.5"
+-SSCRIPT="\slogin:;prog\r\suser id:;gvp\r\snary:;admprg\r"

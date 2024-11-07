@@ -1,0 +1,2231 @@
+// GPWindow.cpp: implementation of the GPWindow class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "GP_term.h"
+#include "GPUnit.h"
+#include "GPWindow.h"
+#include "GP_TermView.h"
+#include "GP_DlgSetting.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+GPWindow::GPWindow(UINT iWndId, CSize iGPWndSize,CRect iGPWndViewRect, UINT iGPWndState, UINT iChrStyle)
+{
+	m_NGPUNITmax=500;
+// Создание текстового окна где:
+// GPWindow::GPWindow(UINT iWndId, CSize iGPWndSize,CRect iGPWndViewRect, UINT iGPWndState, UINT iChrStyle)
+// iWndId         - идентификатор
+// iGPWndSize     - размеры окна
+// iGPWndViewRect - размеры видимой области окна
+// iGPWndState    - Состояние
+// iChrStyle      - стиль символов
+	m_CDlgDialogEditor=NULL;
+	m_NextMBOutChar=0;
+	m_LastPrefix=0;
+	m_ProtectedModeFlag=0;
+	m_ProtectedFieldModeFlag=0;
+	m_PrefixPosition=0;
+	m_PrefixPositionEx=0;
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwCreateWnd++;
+	WndId=iWndId;
+	CursorVisible=0;
+	ChrSpace=' ';  // пробельный символ
+	GPWndSize=iGPWndSize; // размеры окна
+	GPWndState=iGPWndState; // Состояние активно/неактивно
+	GPWndViewOfset.x=0;
+	ScrollWnd=true;
+	WaitScroll=false;
+	GPWndViewOfset.y=0;
+	if (GPWndSize.cx<=0) GPWndSize.cx=80;
+	if (GPWndSize.cy<=0) GPWndSize.cy=25;
+	if (GPWndSize.cx>16384) GPWndSize.cx=80;
+	if (GPWndSize.cy>16384) GPWndSize.cy=25;
+	GPWndViewRect=iGPWndViewRect; // размеры видимой области и позиция в экране
+	GPWndViewRect.NormalizeRect();
+	if (GPWndViewRect.Width()>GPWndSize.cx || GPWndViewRect.Width()==0) GPWndViewRect.right=GPWndViewRect.left+GPWndSize.cx; 
+	if (GPWndViewRect.Height()>GPWndSize.cy || GPWndViewRect.Height()==0) GPWndViewRect.bottom=GPWndViewRect.top+GPWndSize.cy; 
+	
+	cursor.y=cursor.x=0;	// позиция курсора
+	ChrStyle=iChrStyle;	// стиль символов
+
+	ChrColor= GPC.DefFrgColor; // цвет символов
+	BkgColor= GPC.DefBkgColor;  // свет фона
+
+	nall=GPWndSize.cx*GPWndSize.cy;
+	
+
+	m_NGPUNITmax=NINITIALUNITS;
+	WndUnit= new GPUnit * [NINITIALUNITS];
+	ZeroMemory(WndUnit,sizeof(GPUnit *)*NINITIALUNITS);
+
+	WndUnit[0]	=new GPUnit(0,0,"",WndUnit,&GPC.m_ScrToolTip,GPC.m_hViewWnd,GPC.m_View->m_AUSI);
+	WndChrRGB	=new UINT [nall];
+	WndChar		=new unsigned short [nall];
+	WndBkgRGB	=new UINT [nall];
+	WndChrStyle	=new UINT [nall];
+	ClearWnd();
+}
+
+GPWindow::~GPWindow()
+{
+	try
+	{
+		if (m_CDlgDialogEditor!=NULL)
+		{
+			m_CDlgDialogEditor->DestroyWindow();
+			delete m_CDlgDialogEditor;
+		}
+	}catch(...)
+	{
+			GPC.m_ErrReport.GPWriteErrorLog("GPWindow", "~GPWindow 87","");
+	}
+	m_CDlgDialogEditor=NULL;
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwDeleteWnd++;
+	if (WndChrRGB	!=NULL) delete[] WndChrRGB;
+	if (WndChar		!=NULL) delete[] WndChar;
+	if (WndBkgRGB	!=NULL) delete[] WndBkgRGB;
+	if (WndChrStyle	!=NULL) delete[] WndChrStyle;
+	if (WndUnit)
+	{
+		UINT i;
+		if (*WndUnit)
+		for(i=1;i<(*WndUnit)->m_NGPUNIT;i++) 
+			if (WndUnit[i]) 
+			try
+			{delete WndUnit[i];WndUnit[i]=NULL;}
+			catch(...)
+			{
+				GPC.m_ErrReport.GPWriteErrorLog("GPWindow", "~GPWindow 104","");
+				WndUnit[i]=NULL;
+			}
+
+		if (*WndUnit) {delete *WndUnit;*WndUnit=NULL;}
+		delete[] WndUnit;
+	}
+}
+
+void GPWindow::ClearWnd()
+{
+	UINT i;
+	DeleteAllObjects();
+
+	if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+	{
+		for(i=0;i<nall;i++)
+			if ((WndChrStyle[i]&GP_FNT_FIXED)!=GP_FNT_FIXED)
+				WndChar[i]=ChrSpace;
+	}
+	else
+	{
+		DWORD mask=(0xFFFFFFFF^GP_FNT_FIXED);
+		for(i=0;i<nall;i++) 
+		{
+			WndChrStyle[i]&=mask;
+			CharOut(i,ChrSpace);
+		}
+	}
+
+	if (GPC.m_hViewWnd!=NULL) InvalidateWnd();
+}
+
+void GPWindow::WndToBuffer(char *buff,CRect &iRe, CSize &ScrSize)
+{
+	try
+	{
+		CRect re=iRe;
+		re.NormalizeRect();
+		CRect reInt;
+		CRect tmp(0,0,ScrSize.cx-1,ScrSize.cy-1);
+		CRect wndRect(0,0,GPWndSize.cx-1,GPWndSize.cy-1);
+		tmp.InflateRect(1,1,1,1);
+		wndRect.InflateRect(1,1,1,1);
+		reInt.IntersectRect(tmp,wndRect);
+		reInt.DeflateRect(1,1,1,1);
+		wndRect=reInt;
+		wndRect+=GPWndViewOfset;
+		wndRect.InflateRect(1,1,1,1);
+		re.InflateRect(1,1,1,1);
+		
+		if (reInt.IntersectRect(wndRect,re))
+		{
+			wndRect.DeflateRect(1,1,1,1);
+			re.DeflateRect(1,1,1,1);
+			reInt.DeflateRect(1,1,1,1);
+			CRect BuffRect=reInt;
+			BuffRect-=re.TopLeft();
+			wndRect=reInt;
+			wndRect-=GPWndViewOfset;
+			int tmpreIntHeight=reInt.Height();
+			int y;
+			for(y=0;y<=tmpreIntHeight;y++)
+			{
+				int wndpos=(y+wndRect.top)*GPWndSize.cx+wndRect.left;
+				int buffpos=(y+BuffRect.top)*(re.Width()+1)+BuffRect.left;
+				int reIntWidth=reInt.Width();
+				int x;
+				for(x=0;x<=reIntWidth;x++)
+					buff[buffpos+x]=WndChar[wndpos+x]&0xFF;
+			}
+		}
+	}
+	catch(...)
+	{
+		GPC.m_ErrReport.GPWriteErrorLog("GPWindow", "WndToBuffer","");
+	}
+}
+
+void GPWindow::WndToBuffer(unsigned short *buff,CRect &iRe, CSize &ScrSize)
+{
+	try
+	{
+		CRect re=iRe;
+		re.NormalizeRect();
+		CRect reInt;
+		CRect tmp(0,0,ScrSize.cx-1,ScrSize.cy-1);
+		CRect wndRect(0,0,GPWndSize.cx-1,GPWndSize.cy-1);
+		tmp.InflateRect(1,1,1,1);
+		wndRect.InflateRect(1,1,1,1);
+		reInt.IntersectRect(tmp,wndRect);
+		reInt.DeflateRect(1,1,1,1);
+		wndRect=reInt;
+		wndRect+=GPWndViewOfset;
+		wndRect.InflateRect(1,1,1,1);
+		re.InflateRect(1,1,1,1);
+		
+		if (reInt.IntersectRect(wndRect,re))
+		{
+			wndRect.DeflateRect(1,1,1,1);
+			re.DeflateRect(1,1,1,1);
+			reInt.DeflateRect(1,1,1,1);
+			CRect BuffRect=reInt;
+			BuffRect-=re.TopLeft();
+			wndRect=reInt;
+			wndRect-=GPWndViewOfset;
+			int tmpreIntHeight=reInt.Height();
+			int y;
+			for(y=0;y<=tmpreIntHeight;y++)
+			{
+				int wndpos=(y+wndRect.top)*GPWndSize.cx+wndRect.left;
+				int buffpos=(y+BuffRect.top)*(re.Width()+1)+BuffRect.left;
+				int reIntWidth=reInt.Width();
+				int x;
+				for(x=0;x<=reIntWidth;x++)
+					buff[buffpos+x]=WndChar[wndpos+x];
+			}
+		}
+	}
+	catch(...)
+	{
+		GPC.m_ErrReport.GPWriteErrorLog("GPWindow", "WndToBuffer2","");
+	}
+}
+
+void GPWindow::WndPaint(CDC *sdc)
+{
+	if (GPC.m_View && (GPC.m_View->m_DlgSeparateViewInFrame==NULL || GPC.m_View->m_DlgSeparateViewInFrame->m_hWnd==NULL || !GPC.m_View->m_DlgSeparateViewInFrame->IsWindowVisible()))
+	{
+		CSize fdim=FontTable.GetFontDimension();
+	//	int dx=GPWndViewRect.left*fdim.cx;
+	//	int dy=GPWndViewRect.top*fdim.cy;
+
+		CRect rrr;
+		sdc->GetClipBox(&rrr);
+
+		CRect UpdRect=GPWndViewRect;
+		UpdRect.top*=fdim.cy;
+		UpdRect.bottom*=fdim.cy;
+		UpdRect.left*=fdim.cx;
+		UpdRect.right*=fdim.cx;
+		UpdRect&=rrr;
+		CRect DrawRect;
+		DrawRect.top=UpdRect.top/fdim.cy;
+		DrawRect.left=UpdRect.left/fdim.cx;
+		if (DrawRect.left>0) DrawRect.left--;
+		DrawRect.bottom=(UpdRect.bottom+fdim.cy-1)/fdim.cy;
+		DrawRect.right =(UpdRect.right +fdim.cx-1)/fdim.cx;
+
+		if (DrawRect.IsRectEmpty()==0)
+		{
+			int wpos,y,x,delta;
+			delta=GPWndSize.cx-DrawRect.Width();
+			wpos=GPWndSize.cx*(GPWndViewOfset.y+DrawRect.top-GPWndViewRect.top)+GPWndViewOfset.x+DrawRect.left-GPWndViewRect.left;
+			UINT OldBkColor=0xFFFFFFFF;
+			UINT OldFgColor=0xFFFFFFFF;
+			UINT OldChrStyle=0xFFFFFFFF;
+			UINT curentChrColor=0xFFFFFFFF;
+			UINT curentBkgColor=0xFFFFFFFF;
+			UINT oldbkmode=0xFFFFFFFF;
+
+			sdc->SetBkMode(TRANSPARENT);
+
+			for(y=0;y<DrawRect.Height();y++,wpos+=delta)
+				for(x=0;x<DrawRect.Width();x++,wpos++)
+				{
+					if (OldChrStyle!=(WndChrStyle[wpos]&0x3F))
+							sdc->SelectObject(FontTable.SelectObject(OldChrStyle=(WndChrStyle[wpos]&0x3F)));
+
+					curentChrColor=WndChrRGB[wpos];
+					curentBkgColor=WndBkgRGB[wpos];
+
+					if ((WndChrStyle[wpos]&GP_FNT_SELECTION)!=0)
+					{
+						curentChrColor^=0xFFFFFF;
+						curentBkgColor^=0xFFFFFF;
+					}
+
+					if (curentBkgColor!=OldBkColor)	sdc->SetBkColor(OldBkColor=curentBkgColor);
+
+					if ((WndChrStyle[wpos]&GP_FNT_BLINK)!=0) curentChrColor^=((GPC.BlinkValue*0x444444)&0xFFFFFF);
+					if (curentChrColor!=OldFgColor)		sdc->SetTextColor(OldFgColor=curentChrColor);
+					
+					if (oldbkmode!=WndChrStyle[wpos]) 
+					{
+						oldbkmode=WndChrStyle[wpos];
+						if ((oldbkmode&GP_FNT_OPAQUE)!=0) sdc->SetBkMode(TRANSPARENT);
+						else sdc->SetBkMode(OPAQUE);
+					}
+
+					if (*(WndChar+wpos))
+					{
+						char curOutChar=(*(WndChar+wpos))&0xFF;
+						if (!(oldbkmode&GP_FNT_OPAQUE))  
+							sdc->FillSolidRect((DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,((*(WndChar+wpos))&0xFF00)?fdim.cx*2:fdim.cx,fdim.cy,curentBkgColor);
+
+						if (((*(WndChar+wpos))&0xFF00))
+							::TextOutW(sdc->m_hDC, (DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,(LPCWSTR)(WndChar+wpos),1);
+						else
+							::TextOut(sdc->m_hDC, (DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,&curOutChar,1);
+						if ((WndChrStyle[wpos]&GP_FNT_BOLD)!=0 && fdim.cx>7) 
+						{
+							int oldb=sdc->SetBkMode(TRANSPARENT);
+							CFont *oldf=sdc->SelectObject(FontTable.SelectObject((WndChrStyle[wpos]+((WndChrStyle[wpos]^GP_FNT_OPAQUE)&GP_FNT_OPAQUE))&0x3F));
+							if (((*(WndChar+wpos))&0xFF00))
+								::TextOutW(sdc->m_hDC,(DrawRect.left+x)*fdim.cx+1,(DrawRect.top+y)*fdim.cy,(LPCWSTR)(WndChar+wpos),1);
+							else
+								::TextOut(sdc->m_hDC,(DrawRect.left+x)*fdim.cx+1,(DrawRect.top+y)*fdim.cy,&curOutChar,1);
+							sdc->SelectObject(oldf);
+							sdc->SetBkMode(oldb);
+						}
+					}
+					else
+					if (!(oldbkmode&GP_FNT_OPAQUE))  
+					{
+						if (x)
+						{
+							SIZE msz={0};
+							::GetTextExtentPointW(sdc->m_hDC,(LPCWSTR)(WndChar+wpos-1),1,&msz);
+							sdc->FillSolidRect((DrawRect.left+x-1)*fdim.cx+msz.cx,(DrawRect.top+y)*fdim.cy,fdim.cx+fdim.cx-msz.cx,fdim.cy,curentBkgColor);
+
+						}
+						else
+							sdc->FillSolidRect((DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,fdim.cx,fdim.cy,curentBkgColor);
+					}
+				}
+
+			for(x=1;(UINT)x<(*WndUnit)->m_NGPUNIT;x++) 
+				if (WndUnit[x]!=NULL) 
+					WndUnit[x]->UnitPaint(sdc,GPWndViewRect,UpdRect);
+		}		
+
+		if (DrawRect.IsRectEmpty()==0) sdc->ExcludeClipRect( &UpdRect);
+	}
+}
+
+void GPWindow::WndPrint(CDC *sdc)
+{
+	CSize fdim=PrintFontTable.GetFontDimension();
+
+//	int dx=GPWndViewRect.left*fdim.cx;
+//	int dy=GPWndViewRect.top*fdim.cy;
+	UINT i,n;
+
+	for(n=i=0;i<nall;i++)
+		if ((sdc->GetNearestColor(WndBkgRGB[i])&0xf0f0f0)==0) n++;
+
+	if (n>nall/2)
+	{
+		n=1;
+		GPInvertWnd();
+	}
+	else n=0;
+
+	CRect UpdRect=GPWndViewRect;
+	UpdRect.top*=fdim.cy;
+	UpdRect.bottom*=fdim.cy;
+	UpdRect.left*=fdim.cx;
+	UpdRect.right*=fdim.cx;
+
+	sdc->FillSolidRect(UpdRect,RGB(255,255,255));
+	CRect DrawRect;
+
+	DrawRect.top=UpdRect.top/fdim.cy;
+	DrawRect.left=UpdRect.left/fdim.cx;
+	DrawRect.bottom=(UpdRect.bottom+fdim.cy-1)/fdim.cy;
+	DrawRect.right =(UpdRect.right +fdim.cx-1)/fdim.cx;
+
+	if (DrawRect.IsRectEmpty()==0)
+	{
+		int wpos,y,x,delta;
+		delta=GPWndSize.cx-DrawRect.Width();
+		wpos=GPWndSize.cx*(GPWndViewOfset.y+DrawRect.top-GPWndViewRect.top)+GPWndViewOfset.x+DrawRect.left-GPWndViewRect.left;
+		UINT OldBkColor=0xFFFFFFFF;
+		UINT OldFgColor=0xFFFFFFFF;
+		UINT OldChrStyle=0xFFFFFFFF;
+		UINT newBKG;
+		UINT newFRG=0;
+
+		sdc->SetBkMode(TRANSPARENT);
+		sdc->SetBkColor(OldBkColor=RGB(255,255,255));
+		sdc->SetTextColor(OldFgColor=newFRG);
+
+
+		for(y=0;y<DrawRect.Height();y++,wpos+=delta)
+			for(x=0;x<DrawRect.Width();x++,wpos++)
+			{
+				newFRG=WndChrRGB[wpos];newBKG=WndBkgRGB[wpos];
+				OptimColor(sdc, newFRG,	newBKG);
+
+
+				if (OldBkColor!=newBKG) 	sdc->SetBkColor(OldBkColor=newBKG);
+
+				if (OldChrStyle!=(WndChrStyle[wpos]&0x3F))
+						sdc->SelectObject(PrintFontTable.SelectObject(OldChrStyle=(WndChrStyle[wpos]&0x3F)));
+
+				if (newFRG!=OldFgColor)		sdc->SetTextColor(OldFgColor=newFRG);
+
+				if (*(WndChar+wpos))
+				{
+					char curOutChar=(*(WndChar+wpos))&0xFF;
+					sdc->FillSolidRect((DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,fdim.cx,fdim.cy,newBKG);
+
+					if (((*(WndChar+wpos))&0xFF00))
+						::TextOutW(sdc->m_hDC, (DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,(LPCWSTR)(WndChar+wpos),1);
+					else
+						::TextOut(sdc->m_hDC, (DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,&curOutChar,1);
+
+					if ((WndChrStyle[wpos]&GP_FNT_BOLD)!=0) 
+					{
+						int posxtmp=(DrawRect.left+x)*fdim.cx;
+						int posytmp=(DrawRect.top+y)*fdim.cy;
+						if (((*(WndChar+wpos))&0xFF00))
+						{
+							::TextOutW(sdc->m_hDC,posxtmp-1,posytmp,(LPCWSTR)(WndChar+wpos),1);
+							::TextOutW(sdc->m_hDC,posxtmp+1,posytmp,(LPCWSTR)(WndChar+wpos),1);
+							::TextOutW(sdc->m_hDC,posxtmp,posytmp+1,(LPCWSTR)(WndChar+wpos),1);
+							::TextOutW(sdc->m_hDC,posxtmp,posytmp-1,(LPCWSTR)(WndChar+wpos),1);
+							::TextOutW(sdc->m_hDC,posxtmp-1,posytmp-1,(LPCWSTR)(WndChar+wpos),1);
+							::TextOutW(sdc->m_hDC,posxtmp+1,posytmp+1,(LPCWSTR)(WndChar+wpos),1);
+							::TextOutW(sdc->m_hDC,posxtmp-1,posytmp+1,(LPCWSTR)(WndChar+wpos),1);
+							::TextOutW(sdc->m_hDC,posxtmp+1,posytmp-1,(LPCWSTR)(WndChar+wpos),1);
+						}
+						else
+						{
+							::TextOut(sdc->m_hDC,posxtmp-1,posytmp  ,&curOutChar,1);
+							::TextOut(sdc->m_hDC,posxtmp+1,posytmp  ,&curOutChar,1);
+							::TextOut(sdc->m_hDC,posxtmp,  posytmp+1,&curOutChar,1);
+							::TextOut(sdc->m_hDC,posxtmp,  posytmp-1,&curOutChar,1);
+							::TextOut(sdc->m_hDC,posxtmp-1,posytmp-1,&curOutChar,1);
+							::TextOut(sdc->m_hDC,posxtmp+1,posytmp+1,&curOutChar,1);
+							::TextOut(sdc->m_hDC,posxtmp-1,posytmp+1,&curOutChar,1);
+							::TextOut(sdc->m_hDC,posxtmp+1,posytmp-1,&curOutChar,1);
+						}
+					}
+				}
+				else
+				{
+					if (x)
+					{
+						SIZE msz={0};
+						::GetTextExtentPointW(sdc->m_hDC,(LPCWSTR)(WndChar+wpos-1),1,&msz);
+						sdc->FillSolidRect((DrawRect.left+x-1)*fdim.cx+msz.cx,(DrawRect.top+y)*fdim.cy,fdim.cx+fdim.cx-msz.cx,fdim.cy,newBKG);
+
+					}
+					else
+						sdc->FillSolidRect((DrawRect.left+x)*fdim.cx,(DrawRect.top+y)*fdim.cy,fdim.cx,fdim.cy,newBKG);
+				}
+			}
+
+		for(x=1;(UINT)x<(*WndUnit)->m_NGPUNIT;x++) 
+			if (WndUnit[x]!=NULL) WndUnit[x]->UnitPrint(sdc,GPWndViewRect,UpdRect);
+	}		
+
+	if (n==1) GPInvertWnd();
+
+//	if (DrawRect.IsRectEmpty()==0) sdc->ExcludeClipRect( &UpdRect);
+}
+
+bool GPWindow::IsWndSaveEnable() 
+{ 	
+	return ((GPWndState&GP_WND_SAVE)!=0)?true:false;
+}
+
+bool GPWindow::IsWndViewEnable() 
+{
+	return ((GPWndState&GP_WND_VIEW)!=0)?true:false;
+}
+
+void GPWindow::GPCopyRgn(GPWindow * SourseWnd, CRect sourseRect, CPoint destRect)
+{
+	sourseRect.NormalizeRect();
+	if (GPWndSize.cx > destRect.x && GPWndSize.cy > destRect.y )
+	{
+		int nx=GPWndSize.cx-destRect.x;
+		int ny=GPWndSize.cy-destRect.y;
+
+		if (nx>sourseRect.Width())	nx=sourseRect.Width();
+		if (ny>sourseRect.Height())	ny=sourseRect.Height();
+
+		int delta_s=SourseWnd->GetWndSize().cx;
+		int delta_d=GetWndSize().cx;
+		int x,y;
+		int nallsorse=SourseWnd->GetWndSize().cx*SourseWnd->GetWndSize().cy;
+		for(x=0;x<nx;x++)
+			for(y=0;y<ny;y++)
+			{
+				int pos_s=(sourseRect.top+y)*delta_s+sourseRect.left+x;
+				int pos_d=(destRect.y+y)*delta_d+destRect.x+x;
+				if (pos_d<(int)nall && pos_s<nallsorse)
+				{
+					if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+					WndChrRGB  [pos_d]	= SourseWnd->WndChrRGB   [pos_s];
+					WndChar    [pos_d]	= SourseWnd->WndChar     [pos_s];
+					WndBkgRGB  [pos_d]	= SourseWnd->WndBkgRGB   [pos_s];
+					WndChrStyle[pos_d]	= SourseWnd->WndChrStyle [pos_s];
+				}
+			}
+	}
+	else
+	{
+		CString tmps;
+		tmps.Format("x=%d , y=%d",destRect.x,destRect.y);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","GPCopyRgn wrong parameters",tmps);
+	}
+
+}
+
+void GPWindow::IntersectRect(CRect & rect) 
+{
+	rect&=GPWndViewRect; 
+}
+
+CSize GPWindow::GetWndSize()		
+{	
+	return GPWndSize;
+}
+
+CRect GPWindow::GetWndRect()		
+{	
+	return CRect(CPoint(0,0),GPWndSize);
+}
+
+CRect GPWindow::GetWndViewRect()
+{	
+	return GPWndViewRect;
+}
+
+
+CPoint GPWindow::GetCursorPosition() 
+{	
+	CPoint ret(cursor);
+	ret.x-=GPWndViewOfset.x;
+	ret.y-=GPWndViewOfset.y;
+	return ret;
+}
+
+void GPWindow::GetBlinkPoints(char *mscr, int scrWidth)
+{
+	int wpos,spos,y,x,delta;
+	delta=scrWidth-GPWndViewRect.Width();
+	spos=scrWidth*GPWndViewRect.top+GPWndViewRect.left;
+
+	for(wpos=0,y=0;y<GPWndSize.cy;y++,spos+=delta)
+		for(x=0;x<GPWndSize.cx;x++,wpos++,spos++)
+			if (mscr[spos]==0)
+			{
+				mscr[spos]=1;
+				if ((WndChrStyle[wpos]&GP_FNT_BLINK)!=0) mscr[spos]=2;
+			}
+}
+
+UINT GPWindow::SetBkgColor(UINT newcolor)
+{
+	UINT old=BkgColor;
+	BkgColor=newcolor;
+	return old;
+}
+
+UINT GPWindow::GetBkgColor() 
+{
+	return BkgColor; 
+}
+
+UINT GPWindow::SetChrColor(UINT newcolor)
+{
+	UINT old=ChrColor;
+	ChrColor=newcolor;
+	return old;
+}
+
+UINT GPWindow::GetChrColor() 
+{ 
+	return ChrColor;
+}
+
+UINT GPWindow::SetChrStyle(UINT newStyle)
+{
+	UINT old=ChrStyle;
+	ChrStyle=newStyle;
+	if ((m_ProtectedFieldModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+		ChrStyle|=GP_FNT_FIXED;
+
+	return old;
+}
+
+UINT GPWindow::GetChrStyle() 
+{
+	return ChrStyle;
+}
+
+unsigned short GPWindow::SetChrSpace(unsigned short newSpace)
+{
+	unsigned short old=ChrSpace;
+	ChrSpace=newSpace;
+	return old;
+}
+
+unsigned short GPWindow::GetChrSpace() 
+{ 
+	return ChrSpace;
+}
+
+void GPWindow::CharOut(int x, int y, unsigned short ch)
+{
+	SetCursorPosition(x,y);
+	CharOut(ch);
+}
+
+void GPWindow::CharOutAW(int x, int y, char ch)
+{
+	SetCursorPosition(x,y);
+	CharOutAW(ch);
+}
+
+void GPWindow::LineOut(int x, int y, unsigned short *line, DWORD LineLen)
+{
+	if (LineLen)
+	{
+		CharOut(x,y,*line);
+		LineOut(++line,LineLen);
+	}
+}
+
+void GPWindow::LineOut(unsigned short *line, DWORD LineLen)
+{
+	while(LineLen--) CharOut(*(line++));
+}
+
+void GPWindow::CharOut(unsigned short ch)
+{
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+	switch(ch) 
+	{
+	case 0:		break;
+	case 7:		
+				if (GPC.m_View->m_uLockBeep==0)
+					if (PlaySound("ding.wav", NULL, SND_ASYNC)==FALSE) MessageBeep( 0xFFFFFFFF);   // sound type);( 2000,  150);   
+				break;
+	case 8:     CursorMoveLeft();
+				CharOut(ChrSpace);
+				CursorMoveLeft();
+				break;
+	case 13:	CursorMoveCR(); break;
+	case 10:	CursorMoveLF(); break;
+	default:	
+				if (WaitScroll==true)
+				{
+					WaitScroll=false;
+					ScrollUp();
+				}
+				
+				CharOut(cursor,ch);
+				if (IsWndViewEnable()==true) InvalidateWndPos(cursor.x+cursor.y*GPWndSize.cx); 
+				CursorMoveRight();
+				break;
+	}
+}
+
+void GPWindow::CharOutAW(char ch)
+{
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+
+	if (m_LastPrefix &&  ((ch<=32 && ch>=0) || GPC.dwGraphFlag))
+		GPC.dwMBReposition|=0x40000000;
+
+	switch(ch) 
+	{
+	case 0:		break;
+	case 7:		
+				if (GPC.m_View->m_uLockBeep==0)
+					if (PlaySound("ding.wav", NULL, SND_ASYNC)==FALSE) MessageBeep( 0xFFFFFFFF);   // sound type);( 2000,  150);   
+				break;
+	case 8:     CursorMoveLeft();
+				CharOut(ChrSpace);
+				CursorMoveLeft();
+				break;
+	case 13:	CursorMoveCR(); break;
+	case 10:	CursorMoveLF(); break;
+	default:
+				if (GPC.dwGraphFlag)	CharOutGR(ch);
+				else
+				if ((GPC.dwMBReposition&0x20000000) && (GPC.dwMBReposition&0x40000000) && (GPC.dwMBReposition&0x80000000) && !(ch<=32 && ch>=0))
+				{
+					if (WaitScroll)
+					{
+						WaitScroll=false;
+						ScrollUp();
+					}
+					if (m_PrefixPositionEx<nall)
+					{
+						char chh[4];
+						chh[1]=GPC.chWideDosAnsi[GPC.dwMBReposition&0xFF];
+						chh[0]=GPC.chWideDosAnsi2[(GPC.dwMBReposition/0x100)&0xFF];
+						GPC.MBConv3SrwPC(chh, chh);
+						if (
+						MultiByteToWideChar(
+						  GPC.m_CurCodePage, // code page
+						  MB_PRECOMPOSED,         // character-type options
+						  chh, // string to map
+						  2,       // number of bytes in string
+						  (LPWSTR)(WndChar+m_PrefixPositionEx),  // wide-character buffer
+						  1        // size of buffer
+						)==0)
+						{
+							WndChar[m_PrefixPositionEx]=(chh[0]&0xFF);
+							//WndChar[cursor.x+cursor.y*GPWndSize.cx]=(chh[1]&0xFF);
+							m_NextMBOutChar=(chh[1]&0xFF);
+						}
+
+						if (IsWndViewEnable()) InvalidateWndPos(m_PrefixPositionEx); 
+					}
+					CursorMoveRight();
+					GPC.dwMBReposition=0;
+					m_PrefixPositionEx=0xC0000000;
+				}
+				else
+				if (!m_LastPrefix || (ch<=32 && ch>=0))
+				{
+					if (WaitScroll && !GPC.chWideDosAnsi[ch&0xFF])
+					{
+						WaitScroll=false;
+						ScrollUp();
+					}
+					if (!m_LastPrefix)
+					{
+						CharOutAW(cursor,ch);
+						if (!m_LastPrefix && IsWndViewEnable()) 
+						{
+							if (cursor.x) InvalidateWndPos(cursor.x-1+cursor.y*GPWndSize.cx); 
+							InvalidateWndPos(cursor.x+cursor.y*GPWndSize.cx); 
+						}
+					}
+					else
+					{
+						CharOut(cursor,ch);
+						if (IsWndViewEnable()) 
+						{
+							if (cursor.x) InvalidateWndPos(cursor.x-1+cursor.y*GPWndSize.cx); 
+							InvalidateWndPos(cursor.x+cursor.y*GPWndSize.cx); 
+						}
+					}
+					CursorMoveRight();
+				}
+				else
+				{
+					GPC.dwMBReposition|=0x20000000;
+					if (m_PrefixPosition<nall) CharOutAW(m_PrefixPosition,ch);
+					if (GPC.m_WideOn2Pos) 
+					{
+						CharOut(cursor,m_NextMBOutChar);
+						if ((DWORD)(cursor.x+cursor.y*GPWndSize.cx)!=m_PrefixPosition+1) 
+							CharOut((UINT)(m_PrefixPosition+1),(unsigned short)m_NextMBOutChar);
+						m_NextMBOutChar=0;
+					}
+					if (WaitScroll)
+					{
+						WaitScroll=false;
+						ScrollUp();
+					}
+					if (IsWndViewEnable()) 
+					{
+						if (cursor.x) InvalidateWndPos(cursor.x-1+cursor.y*GPWndSize.cx); 
+						InvalidateWndPos(cursor.x+cursor.y*GPWndSize.cx); 
+					}
+
+					CursorMoveRight();
+				}
+
+				break;
+	}
+}
+
+void GPWindow::CharOutGR(char ch)
+{
+	if (GPC.dwGraphDecodeArray[ch]<0xFFFD)
+	{
+		if (WaitScroll)
+		{
+			WaitScroll=false;
+			ScrollUp();
+		}
+
+		CharOutGR(cursor.x+cursor.y*GPWndSize.cx,ch);
+		if (!m_LastPrefix && IsWndViewEnable()) 
+		{
+			if (cursor.x) InvalidateWndPos(cursor.x-1+cursor.y*GPWndSize.cx); 
+			InvalidateWndPos(cursor.x+cursor.y*GPWndSize.cx); 
+		}
+		CursorMoveRight();
+	}
+}
+
+
+void GPWindow::InvalidateWndPos(POINT pos) 
+{
+	InvalidateWndPos(pos.x+pos.y*GPWndSize.cx);
+}
+
+void GPWindow::InvalidateWndPos(UINT pos)
+{
+	if (IsWndViewEnable()==true &&  pos<nall && (GPC.m_View->m_DlgSeparateViewInFrame==NULL || GPC.m_View->m_DlgSeparateViewInFrame->m_hWnd==NULL || !GPC.m_View->m_DlgSeparateViewInFrame->IsWindowVisible()))
+	{
+		static CPoint po;
+		po.x=pos%GPWndSize.cx;
+		po.y=pos/GPWndSize.cx;
+		if	(
+				   po.y>= GPWndViewOfset.y 
+				&& po.y< (GPWndViewOfset.y+GPWndViewRect.bottom-GPWndViewRect.top)	
+				&& po.x>= GPWndViewOfset.x
+				&& po.x< (GPWndViewOfset.x+GPWndViewRect.right-GPWndViewRect.left)
+			) 
+		{
+			po.x+=GPWndViewRect.left-GPWndViewOfset.x;
+			po.y+=GPWndViewRect.top-GPWndViewOfset.y;
+			po.x*=FontTable.GetFontDimension().cx;
+			po.y*=FontTable.GetFontDimension().cy;
+			po.x+=GPC.ViewOffset.x;
+			po.y+=GPC.ViewOffset.y;
+			if (GPC.AppMainWndRect.PtInRect(po))
+			{
+				static CRect refrect;
+				refrect.top=po.y;
+				refrect.bottom=refrect.top+FontTable.GetFontDimension().cy;
+				refrect.left=po.x;
+				refrect.right=refrect.left+FontTable.GetFontDimension().cx;
+				CWnd::FromHandle(GPC.m_hViewWnd)->InvalidateRect(refrect);
+			}
+		}
+	}
+}
+
+void GPWindow::InvalidateRect(CRect refrect)
+{
+	 if (IsWndViewEnable()==true && (GPC.m_View->m_DlgSeparateViewInFrame==NULL || GPC.m_View->m_DlgSeparateViewInFrame->m_hWnd==NULL || !GPC.m_View->m_DlgSeparateViewInFrame->IsWindowVisible())) 
+	{
+		refrect&=(GPWndViewRect+GPWndViewOfset);
+		refrect.top*=FontTable.GetFontDimension().cy;
+		refrect.bottom*=FontTable.GetFontDimension().cy;
+		refrect.left*=FontTable.GetFontDimension().cx;
+		refrect.right*=FontTable.GetFontDimension().cx;
+		refrect+=GPC.ViewOffset;
+		CWnd::FromHandle(GPC.m_hViewWnd)->InvalidateRect(refrect);
+	}
+}
+
+void GPWindow::InvalidateWnd()
+{
+	if (IsWndViewEnable()==true && (GPC.m_View->m_DlgSeparateViewInFrame==NULL || GPC.m_View->m_DlgSeparateViewInFrame->m_hWnd==NULL || !GPC.m_View->m_DlgSeparateViewInFrame->IsWindowVisible())) 
+	{
+		CRect refrect(0,0,0,0);
+		refrect.top=(GPWndViewRect.top-GPWndViewOfset.y)*FontTable.GetFontDimension().cy+GPC.ViewOffset.y;
+		refrect.bottom=refrect.top+FontTable.GetFontDimension().cy*GPWndViewRect.Height();
+		refrect.left=(GPWndViewRect.left-GPWndViewOfset.x)*FontTable.GetFontDimension().cx+GPC.ViewOffset.x;
+		refrect.right=refrect.left+FontTable.GetFontDimension().cx*GPWndViewRect.Width();
+		CWnd::FromHandle(GPC.m_hViewWnd)->InvalidateRect(refrect);
+	}
+}
+
+void GPWindow::ScrollUp()
+{
+  if (ScrollWnd==true)
+  {
+	UINT pos1,pos2;
+	m_PrefixPosition-=GPWndSize.cx;
+	m_PrefixPositionEx-=GPWndSize.cx;
+
+	for(pos1=0,pos2 = GPWndSize.cx;pos2< nall;pos2++,pos1++)
+		CharOut(pos1,pos2);
+
+	for(;pos1< nall;pos1++)
+		CharOut(pos1,ChrSpace);
+
+	InvalidateWnd();
+  }
+}
+
+void GPWindow::ScrollDown()
+{
+  if (ScrollWnd==true)
+  {
+	int pos1,pos2;
+	m_PrefixPosition+=GPWndSize.cx;
+	m_PrefixPositionEx+=GPWndSize.cx;
+
+	for(pos1=nall-1,pos2 = nall-GPWndSize.cx-1;pos1>=GPWndSize.cx;pos2--,pos1--)
+		CharOut((UINT)pos1,(UINT)pos2);
+
+	for(;pos1>=0;pos1--)
+		CharOut(pos1,ChrSpace);
+	
+	InvalidateWnd();
+  }
+}
+
+void GPWindow::ScrollUp(UINT ntime)		
+{	
+	UINT i;
+	for(i=0;i<ntime; i++) ScrollUp();	
+}
+
+void GPWindow::ScrollDown(UINT ntime)
+{
+	UINT i;
+	for(i=0;i<ntime; i++) ScrollDown();
+}
+
+void GPWindow::ScrollLeft(UINT ntime)
+{
+	UINT i;
+	for(i=0;i<ntime; i++) ScrollLeft();
+}
+
+void GPWindow::ScrollRight(UINT ntime)
+{
+	UINT i;
+	for(i=0;i<ntime; i++) ScrollRight();
+}
+
+void GPWindow::ScrollLeft()
+{
+  if (ScrollWnd==true)
+  {
+	UINT pos=0;
+	int pos1;
+	UINT tChrStyle=WndChrStyle[0];		// текущий стиль символа
+	UINT tChrColor=WndChrRGB[0];		// текущий цвет символа
+	UINT tBkgColor=WndBkgRGB[0];		// текущий цвет фона
+	unsigned short tChrSpace=WndChar[0];		// пробельный символ 
+	
+	if ((m_PrefixPosition%GPWndSize.cx)==0)
+	{
+		m_PrefixPosition=0xC0000000;
+	}
+	else m_PrefixPosition--;
+
+	if ((m_PrefixPositionEx%GPWndSize.cx)==0)
+	{
+		m_PrefixPositionEx=0xC0000000;
+	}
+	else m_PrefixPositionEx--;
+
+	for(pos=0;pos<nall;pos++)
+		CharOut(pos,pos+1);
+	
+	for(pos=nall-1,pos1=pos-GPWndSize.cx;pos1>=0;pos1-=GPWndSize.cx)
+	{
+		CharOut((UINT)pos,(UINT)pos1);
+		pos=pos1;
+	}
+	
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+	WndChrStyle[pos]=	tChrStyle;
+	WndChrRGB[pos]  =	tChrColor;
+	WndBkgRGB[pos]  =	tBkgColor;
+	WndChar[pos]	=	tChrSpace;
+
+	InvalidateWnd();
+  }
+}
+
+void GPWindow::ScrollRight()
+{
+  if (ScrollWnd==true)
+  {
+
+	UINT pos=nall-1;
+	UINT tChrStyle=WndChrStyle[pos];	// текущий стиль символа
+	UINT tChrColor=WndChrRGB[pos];		// текущий цвет символа
+	UINT tBkgColor=WndBkgRGB[pos];		// текущий цвет фона
+	unsigned short tChrSpace=WndChar[pos];		// пробельный символ 
+
+	m_PrefixPosition++;
+	if ((m_PrefixPosition%GPWndSize.cx)==0)
+	{
+		m_PrefixPosition=0xC0000000;
+	}
+
+	m_PrefixPositionEx++;
+	if ((m_PrefixPositionEx%GPWndSize.cx)==0)
+	{
+		m_PrefixPositionEx=0xC0000000;
+	}
+	
+	for(;pos>0;pos--)
+	{
+		WndChar[pos]		=WndChar[pos-1];	// массив символов окна
+		WndChrRGB[pos]		=WndChrRGB[pos-1];	// массив цветов символов
+		WndBkgRGB[pos]		=WndBkgRGB[pos-1];	// массив цветов фона
+		WndChrStyle[pos]	=WndChrStyle[pos-1];// массив характеристик символов
+	}
+	
+	UINT pos1;
+	for(pos1=GPWndSize.cx;pos1<nall;pos1+=GPWndSize.cx)
+	{
+		WndChar[pos]		=WndChar[pos1];	// массив символов окна
+		WndChrRGB[pos]		=WndChrRGB[pos1];	// массив цветов символов
+		WndBkgRGB[pos]		=WndBkgRGB[pos1];	// массив цветов фона
+		WndChrStyle[pos]	=WndChrStyle[pos1];// массив характеристик символов
+		pos=pos1;
+	}
+	
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+	WndChrStyle[pos]=	tChrStyle;
+	WndChrRGB[pos]  =	tChrColor;
+	WndBkgRGB[pos]  =	tBkgColor;
+	WndChar[pos]	=	tChrSpace;
+
+	InvalidateWnd();
+  }
+}
+
+void GPWindow::CursorMoveLeft()
+{
+	WaitScroll=false;
+	if (--cursor.x<0) {	cursor.x=GPWndSize.cx-1; CursorMoveUp(); }
+//	ShowTextCursor();
+}
+
+void GPWindow::CursorMoveRight()
+{
+	if (WaitScroll==true) 
+	{
+		WaitScroll=false;
+		ScrollUp();
+	}
+	if (++cursor.x>=GPWndSize.cx) 
+	{
+		cursor.x=0;	WaitScroll=true; CursorMoveDown();
+	}
+//	ShowTextCursor();
+}
+
+void GPWindow::CursorMoveCR()
+{
+	WaitScroll=false;
+	cursor.x=0;
+//	ShowTextCursor();
+}
+
+void GPWindow::CursorMoveUp()
+{
+	WaitScroll=false;
+	if (--cursor.y<0) {	cursor.y=0;	ScrollDown();	}
+//	ShowTextCursor();
+}
+
+void GPWindow::CursorMoveDown()
+{
+	if (++cursor.y>=GPWndSize.cy) 
+	{	
+		cursor.y=GPWndSize.cy-1; 
+		if (WaitScroll==false) ScrollUp();
+	}
+	else WaitScroll=false;
+//	ShowTextCursor();
+}
+
+void GPWindow::SetCursorPosition(int x, int y)
+{
+	WaitScroll=false;
+	if (x<GPWndSize.cx && x>=0) cursor.x=x;
+	else
+	{
+		CString tmps;
+		tmps.Format("x=%d when cx=%d",x,GPWndSize.cx);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","SetCursorPosition wrong parameters",tmps);
+	}
+
+	if (y<GPWndSize.cy && y>=0) cursor.y=y;
+	else
+	{
+		CString tmps;
+		tmps.Format("y=%d when cy=%d",y,GPWndSize.cy);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","SetCursorPosition wrong parameters",tmps);
+	}
+//	ShowTextCursor();
+}
+
+void GPWindow::SetCursorPosition(POINT newPoint) 
+{
+	WaitScroll=false;
+	if (newPoint.x<GPWndSize.cx && newPoint.x>=0) cursor.x= newPoint.x;
+	else
+	{
+		CString tmps;
+		tmps.Format("x=%d when cx=%d",newPoint.x,GPWndSize.cx);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","SetCursorPosition wrong parameters",tmps);
+	}
+	if (newPoint.y<GPWndSize.cy && newPoint.y>=0) cursor.y= newPoint.y;
+	else
+	{
+		CString tmps;
+		tmps.Format("y=%d when cy=%d",newPoint.y,GPWndSize.cy);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","SetCursorPosition wrong parameters",tmps);
+	}
+//	ShowTextCursor();
+}
+
+void GPWindow::CharOut(UINT pos, unsigned short ch)
+{
+	if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+	{
+		while(pos<nall && (WndChrStyle[pos]&GP_FNT_FIXED)==GP_FNT_FIXED) pos++;
+		if (pos==nall)
+		{
+			pos-=GPWndSize.cx;
+			ScrollUp();
+		}
+	}
+
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+
+	if(ch>175 && ch<224) 
+		WndChrStyle[pos]=((ChrStyle|GP_FNT_CODE)&(0xFFFFFFFF^(GP_FNT_BOLD|GP_FNT_UNDERLINE|GP_FNT_STRIKE|GP_FNT_ITALIC)))|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+	else	
+	{
+		WndChrStyle[pos]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);	// массив характеристик символов
+	}
+	ch=(ch&0xFF00)|GPC.chDosAnsi[ch&0xFF];
+
+	WndChar[pos]		=ch;	// массив символов окна
+	WndChrRGB[pos]		=ChrColor;	// массив цветов символов
+	WndBkgRGB[pos]		=BkgColor;	// массив цветов фона
+
+}
+
+void GPWindow::CharOutAW(UINT pos, char ch)
+{
+	if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+	{
+		while(pos<nall && (WndChrStyle[pos]&GP_FNT_FIXED)==GP_FNT_FIXED) pos++;
+		if (pos==nall)
+		{
+			pos-=GPWndSize.cx;
+			ScrollUp();
+		}
+	}
+
+	if (GPC.dwGraphFlag)	CharOutGR(ch);
+	else
+	if (m_LastPrefix)
+	{
+		if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+		WndChrStyle[pos]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+		char chh[4];
+		chh[1]=GPC.chWideDosAnsi2[ch];
+		chh[0]=m_LastPrefix;
+		//mbtowc(WndChar+pos,chh,2);
+
+		GPC.MBConv3SrwPC(chh, chh);
+		if (MultiByteToWideChar(
+		  GPC.m_CurCodePage, // code page
+		  MB_PRECOMPOSED,         // character-type options
+		  chh, // string to map
+		  2,       // number of bytes in string
+		  (LPWSTR)(WndChar+pos),  // wide-character buffer
+		  1        // size of buffer
+		)==0)
+		{
+			WndChar[pos]=(chh[0]&0xFF);
+			//WndChar[cursor.x+cursor.y*GPWndSize.cx]=(chh[1]&0xFF);
+			m_NextMBOutChar=(chh[1]&0xFF);
+		}
+
+		WndChrRGB[pos]		=ChrColor;	// массив цветов символов
+		WndBkgRGB[pos]		=BkgColor;	// массив цветов фона
+		m_LastPrefix=0;
+	}
+	else
+	{
+		if (GPC.chWideDosAnsi[ch]) 
+		{
+			m_LastPrefix=GPC.chWideDosAnsi[ch];
+			m_PrefixPosition=pos;
+			WndChrStyle[pos]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);	// массив характеристик символов
+		}
+		else
+		{
+
+			if(ch>175 && ch<224) 
+				WndChrStyle[pos]=((ChrStyle|GP_FNT_CODE)&(0xFFFFFFFF^(GP_FNT_BOLD|GP_FNT_UNDERLINE|GP_FNT_STRIKE|GP_FNT_ITALIC)))|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+			else	
+			{
+				WndChrStyle[pos]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);	// массив характеристик символов
+			}
+			ch=(ch&0xFF00)|GPC.chDosAnsi[ch&0xFF];
+			WndChar[pos]		=ch;	// массив символов окна
+		}
+		WndChrRGB[pos]		=ChrColor;	// массив цветов символов
+		WndBkgRGB[pos]		=BkgColor;	// массив цветов фона
+	}
+}
+
+void GPWindow::CharOutGR(UINT pos, char ch)
+{
+	if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+	{
+		while(pos<nall && (WndChrStyle[pos]&GP_FNT_FIXED)==GP_FNT_FIXED) pos++;
+		if (pos==nall)
+		{
+			pos-=GPWndSize.cx;
+			ScrollUp();
+		}
+	}
+
+	if (GPC.dwGraphDecodeArray[ch]<0xFFFD)
+	{
+		WndChrStyle[pos]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+		WndChar[pos]		=(unsigned short)GPC.dwGraphDecodeArray[ch];
+		WndChrRGB[pos]		=ChrColor;	// массив цветов символов
+		WndBkgRGB[pos]		=BkgColor;	// массив цветов фона
+	}
+	else
+	{
+		if (GPC.dwGraphDecodeArray[ch]>0xFFFD) GPC.dwGraphFlag=0;
+		if (GPC.dwGraphDecodeArray[ch]==0xFFFE) CharOutAW(pos,ch);
+	}
+}
+
+void GPWindow::CharOut(UINT pos1,UINT  pos2)
+{
+	if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+	WndChar[pos1]		=WndChar[pos2];
+	WndChrRGB[pos1]		=WndChrRGB[pos2];
+	WndBkgRGB[pos1]		=WndBkgRGB[pos2];
+	WndChrStyle[pos1]	=WndChrStyle[pos2];
+}
+
+void GPWindow::ClearEndOfWnd()
+{
+	UINT pos=cursor.x+cursor.y*GPWndSize.cx;
+	if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+		while(pos<nall)
+		{
+			if ((WndChrStyle[pos]&GP_FNT_FIXED)!=GP_FNT_FIXED)
+			{
+				InvalidateWndPos(pos);
+				CharOut(pos,ChrSpace);
+			}
+			pos++;
+		}
+	else
+		while(pos<nall) {InvalidateWndPos(pos);CharOut(pos++,ChrSpace);}
+}
+
+void GPWindow::ClearEndOfLine()
+{
+	UINT pos=cursor.x+cursor.y*GPWndSize.cx;
+	if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+		while(pos<nall && (WndChrStyle[pos]&GP_FNT_FIXED)!=GP_FNT_FIXED) 
+		{
+			InvalidateWndPos(pos);CharOut(pos++,ChrSpace);
+			if ((pos%GPWndSize.cx)==0) break;
+		}
+	else
+		while(pos<nall) 
+		{
+			InvalidateWndPos(pos);CharOut(pos++,ChrSpace);
+			if ((pos%GPWndSize.cx)==0) break;
+		}
+}
+
+void GPWindow::CharOut(POINT pos, unsigned short ch) 
+{
+	CharOut(pos.x+pos.y*GPWndSize.cx,ch);
+}
+
+void GPWindow::CharOutAW(POINT pos, char ch) 
+{
+	CharOutAW(pos.x+pos.y*GPWndSize.cx,ch);
+}
+
+bool GPWindow::LoadScrRgn(char *name, CPoint topleft) 
+{
+	// for restore saved Green screen for very old GS apps
+	char name1[256];
+	UINT clr[20];
+	sprintf(name1,"%s\\TABLE\\%s.TAB",GPC.app_path,name);
+	FILE *tmp=fopen(name1,"rb");
+	if (tmp==NULL) return false;
+	fgets(name1,250,tmp);
+	bool cl;
+	if (*name1=='C' || *name1=='c') cl=false; else cl=true;
+	fgets(name1,250,tmp);
+	fgets(name1,250,tmp);
+	ReplaceChar(name1,0xFD,',');
+	m_LastScanf=sscanf(name1,"%d,%d",clr,clr+1);
+	int c;
+
+	for(c=0;c<2;c++)
+	switch(clr[c])
+	{
+		case -33: BkgColor=cBEtalon[7];GPC.BkgColorInd=7;break;
+		case -34: BkgColor=cBEtalon[2];GPC.BkgColorInd=2;break;
+		case -35: BkgColor=cBEtalon[3];GPC.BkgColorInd=3;break;
+		case -36: BkgColor=cBEtalon[1];GPC.BkgColorInd=1;break;
+		case -37: BkgColor=cBEtalon[5];GPC.BkgColorInd=5;break;
+		case -38: BkgColor=cBEtalon[4];GPC.BkgColorInd=4;break;
+		case -39: BkgColor=cBEtalon[6];GPC.BkgColorInd=6;break;
+		case -40: BkgColor=cBEtalon[0];GPC.BkgColorInd=0;break;
+		case -41: ChrColor=cFEtalon[7];GPC.ChrColorInd=7;break;
+		case -42: ChrColor=cFEtalon[2];GPC.ChrColorInd=2;break;
+		case -43: ChrColor=cFEtalon[3];GPC.ChrColorInd=3;break;
+		case -44: ChrColor=cFEtalon[1];GPC.ChrColorInd=1;break;
+		case -45: ChrColor=cFEtalon[5];GPC.ChrColorInd=5;break;
+		case -46: ChrColor=cFEtalon[4];GPC.ChrColorInd=4;break;
+		case -47: ChrColor=cFEtalon[6];GPC.ChrColorInd=6;break;
+		case -48: ChrColor=cFEtalon[0];GPC.ChrColorInd=0;break;
+		case -57: ChrColor=cFEtalon[15];GPC.ChrColorInd=15;break;
+		case -58: ChrColor=cFEtalon[10];GPC.ChrColorInd=10;break;
+		case -59: ChrColor=cFEtalon[11];GPC.ChrColorInd=11;break;
+		case -60: ChrColor=cFEtalon[9 ];GPC.ChrColorInd=9 ;break;
+		case -61: ChrColor=cFEtalon[13];GPC.ChrColorInd=13;break;
+		case -62: ChrColor=cFEtalon[12];GPC.ChrColorInd=12;break;
+		case -63: ChrColor=cFEtalon[14];GPC.ChrColorInd=14;break;
+		case -64: ChrColor=cFEtalon[8 ];GPC.ChrColorInd=8 ;break;
+	}
+
+	fgets(name1,250,tmp);
+	fgets(name1,250,tmp);
+	CRect re;
+	ReplaceChar(name1,0xFD,',');
+	m_LastScanf=sscanf(name1,"%d,%d,%d,%d",&re.left,&re.top,&re.right,&re.bottom);
+	re.right++;	re.bottom++;
+	if (topleft.x!=100) {re.right-=(re.left-topleft.x);re.left=topleft.x;}
+	if (topleft.y!=100) {re.bottom-=(re.top-topleft.y);re.top=topleft.y;}
+
+	int y=re.top;
+	if (cl==true) ClearRect(re);
+
+
+	while(fgets(name1,250,tmp)!=NULL)
+	{
+		if (y>=0)
+		{
+			int x=re.left;
+			char *pos=name1;
+			while(x<0 && *pos!=0) {pos++;x++;}
+			while(x<re.right && *pos!=0 && x<GPWndSize.cx) 
+			{
+				UINT wpos=y*GPWndSize.cx+x;
+				if (wpos<nall && *pos>=' ')	CharOut(wpos,(unsigned short)(*pos&0xFF));
+				x++;pos++;
+			}
+		}
+		y++;
+	}
+	
+	InvalidateRect(re);
+	fclose(tmp);
+	return true;
+}
+
+void GPWindow::RecolorString(int posX, int posY, int LineLength)
+{
+	UINT pos=posX+posY*GPWndSize.cx;
+	if (pos<nall)
+	{
+		CString tmps;
+		tmps.Format("x=%d , y=%d",posX,posY);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","RecolorString wrong parameters",tmps);
+	}
+
+	while(pos<nall && (LineLength--)>0) 
+	{
+		WndBkgRGB[pos]=BkgColor;
+		WndChrRGB[pos]=ChrColor;
+//		WndChrStyle[pos]=ChrStyle;
+		InvalidateWndPos(pos++);
+	}
+}
+
+void GPWindow::CharLine(CPoint pos1, CPoint pos2,unsigned short Ch)
+{
+	UINT pos=pos1.x+pos1.y*GPWndSize.cx;
+	if (pos1.x!=pos2.x)
+		while(pos<nall && (pos%GPWndSize.cx)<(UINT)pos2.x) 
+		{
+			CharOut(pos,Ch);
+			InvalidateWndPos(pos++);
+		}
+	else
+		while(pos<(int)nall && (pos/GPWndSize.cx)<(UINT)pos2.y) 
+		{
+			CharOut(pos,Ch);
+			InvalidateWndPos(pos);
+			pos+=GPWndSize.cx;
+		}
+}
+
+
+void GPWindow::ShadowOld(CRect re,int type)
+{
+	int pos;
+	int n;
+	if (type==0) pos=(re.top+1)*GPWndSize.cx+re.right;
+		else	 pos=(re.top-1)*GPWndSize.cx+re.right;
+
+	for(n=0;pos<(int)nall && n<re.Height();pos+=GPWndSize.cx,n++)
+	if (pos>=0)
+	{
+		ShadowColor(WndChrRGB[pos]);
+		ShadowColor(WndBkgRGB[pos]);
+		InvalidateWndPos(pos);
+	}
+
+	if (type==0) pos=(re.bottom)*GPWndSize.cx+re.left+1;
+		else	 pos=(re.top-1)*GPWndSize.cx+re.left+1;
+
+	for(n=1;pos<(int)nall && n<re.Width();pos++,n++)
+	if (pos>=0)
+	{
+		ShadowColor(WndChrRGB[pos]);
+		ShadowColor(WndBkgRGB[pos]);
+		InvalidateWndPos(pos);
+	}
+	
+}
+
+void GPWindow::TextHorLine(int x, int y, int typ, int len)
+{
+// Нарисовать горизонтальную текстовую линию по координатам x y длиной len 
+// производится объединение с расположенными рядом линиями 
+// type = 0 - одинарная рамка
+// type = 1 - двойная рамка
+// type = 2 - пробельная рамка
+// void GPWindow::TextHorLine(int x, int y, int typ, int len)
+// type 0   single
+// type 1   double
+// type 2   erase
+	
+	const char chstrt0[]={0xC4,0xDA,0xD6,0xC0,0xC3,0xC3,0xD3,0xC3,0xC7,0xC4,0xC2,0xD2,0xC1,0xC5,0xC5,0xD0,0xC5,0xD7,0x0,};
+	const char chstrt1[]={0xCD,0xD5,0xC9,0xD4,0xC6,0xC6,0xC8,0xC6,0xCC,0xCD,0xD1,0xCB,0xCF,0xD8,0xD8,0xCA,0xD8,0xCE,0x0,};
+	const char chend0[] ={0xC4,0xBF,0xB7,0xD9,0xB4,0xB4,0xBE,0xB4,0xB6,0xC4,0xC2,0xD2,0xC1,0xC5,0xC5,0xD0,0xC5,0xD7,0x0,};
+	const char chend1[] ={0xCD,0xB8,0xBB,0xBE,0xB5,0xB5,0xBC,0xB5,0xB9,0xCD,0xD1,0xCB,0xCF,0xD8,0xD8,0xCA,0xD8,0xCE,0x0,};
+	const char *chstrt[]={chstrt0,chstrt1,};
+	const char *chend[]={chend0,chend1,};
+	char typeup[]   ={0xC3,0xC5,0xB4,0xB3,0xD5,0xD1,0xB8,0xC6,0xD8,0xB5,0xDA,0xC2,0xBF,0xD6,0xD2,0xB7,0xC7,0xD7,0xB6,0xBA,0xC9,0xCB,0xBB,0xCC,0xCE,0xB9,0x0,};
+	char typedown[] ={0xC3,0xC5,0xB4,0xB3,0xC0,0xC1,0xD9,0xC6,0xD8,0xB5,0xD4,0xCF,0xBE,0xC7,0xD7,0xB6,0xBA,0xD3,0xD0,0xBD,0xCC,0xCE,0xB9,0xC8,0xCA,0xBC,0x0,};
+	char typeleft[] ={0xDA,0xC4,0xC2,0xC3,0xC5,0xC0,0xC1,0xD6,0xD2,0xC7,0xD7,0xD3,0xD0,0xC9,0xCD,0xCB,0xCC,0xCE,0xC8,0xCA,0xD5,0xD1,0xC6,0xD8,0xD4,0xCF,0x0,};
+	char typeright[]={0xC4,0xC2,0xBF,0xC5,0xB4,0xC1,0xD9,0xD2,0xB7,0xD7,0xB6,0xD0,0xBD,0xCD,0xCB,0xBB,0xCE,0xB9,0xCA,0xBC,0xD1,0xB8,0xD8,0xB5,0xCF,0xBE,0x0,};
+	UINT pos,posend;
+
+/*	const char *chstrt[2]={"ДЪЦАГГУГЗДВТБЕЕРЕЧ","НХЙФЖЖИЖМНСЛПШШКШО"};
+	const char *chend[2] ={"Дї·Щґґѕґ¶ДВТБЕЕРЕЧ","Нё»ѕµµјµ№НСЛПШШКШО"};
+	char *typeup   ="ГЕґіХСёЖШµЪВїЦТ·ЗЧ¶єЙЛ»МО№";
+	char *typedown ="ГЕґіАБЩЖШµФПѕЗЧ¶єУРЅМО№ИКј";
+	char *typeleft ="ЪДВГЕАБЦТЗЧУРЙНЛМОИКХСЖШФП";
+	char *typeright="ДВїЕґБЩТ·Ч¶РЅНЛ»О№КјСёШµПѕ";
+	UINT pos,posend;*/
+
+	int chl,chr,chu,chd;
+
+	if (y<0) y=0;
+	if (x<0) x=0;
+	if(y<GPWndSize.cy && x<GPWndSize.cx) 
+	{
+		chl=chu=chd=0;
+		if (len+x>GPWndSize.cx) len=GPWndSize.cx-x;
+		pos=x+y*GPWndSize.cx;
+		posend=pos+len;
+		if(typ==2)
+		{
+			while(pos<posend && pos<nall)
+			{InvalidateWndPos(pos);CharOut(pos++,ChrSpace);}
+		}
+		if(typ>2)
+		{
+			while(pos<posend && pos<nall)
+			{InvalidateWndPos(pos);CharOut(pos++,(unsigned short)typ);}
+		}
+		else
+		{
+			if (x!=0 && (WndChrStyle[pos-1]&GP_FNT_CODE)!=0 && strchr(typeleft,WndChar[pos-1])!=NULL) chl++;
+			if (y!=0 && (WndChrStyle[pos-GPWndSize.cx]&GP_FNT_CODE)!=0 )      chu=(strchr(typeup,WndChar[pos-GPWndSize.cx])-typeup)/13+1;
+			if (y!=GPWndSize.cy-1 && (WndChrStyle[pos+GPWndSize.cx]&GP_FNT_CODE)!=0 ) chd=(strchr(typedown,WndChar[pos+GPWndSize.cx])-typedown)/13+1;
+			if (chd<0)     chd=0;
+			if (chu<0)     chu=0;
+			InvalidateWndPos(pos);
+			unsigned short tmpus=(unsigned short(*(chstrt[typ]+chl*9+chu*3+chd)));
+			tmpus&=0xFF;
+			CharOut(pos++,tmpus);
+			posend--;
+			while(pos<nall && pos<posend)
+			{
+				chu=chd=0;
+				if (y!=0 && (WndChrStyle[pos-GPWndSize.cx]&GP_FNT_CODE)!=0) chu=(strchr(typeup,WndChar[pos-GPWndSize.cx])-typeup)/13+1;
+				if (y!=GPWndSize.cy-1&& (WndChrStyle[pos+GPWndSize.cx]&GP_FNT_CODE)!=0) chd=(strchr(typedown,WndChar[pos+GPWndSize.cx])-typedown)/13+1;
+				if (chd<0)     chd=0;
+				if (chu<0)     chu=0;
+				InvalidateWndPos(pos);
+				tmpus=(unsigned short(*(chstrt[typ]+9+chu*3+chd)));
+				tmpus&=0xFF;
+				CharOut(pos++,tmpus);
+			}
+
+			chl=chr=chu=chd=0;
+			if (y!=0 && (WndChrStyle[pos-GPWndSize.cx]&GP_FNT_CODE)!=0) chu=(strchr(typeup,WndChar[pos-GPWndSize.cx])-typeup)/13+1;
+			if (y!=GPWndSize.cy-1 && (WndChrStyle[pos+GPWndSize.cx]&GP_FNT_CODE)!=0) chd=(strchr(typedown,WndChar[pos+GPWndSize.cx])-typedown)/13+1;
+			if (x!=GPWndSize.cx-1 && (WndChrStyle[pos+1]&GP_FNT_CODE)!=0 && strchr(typeright,WndChar[pos+1])!=NULL) chr++;
+			if (chd<0) chd=0;
+			if (chu<0) chu=0;
+			tmpus=(unsigned short(*(chend[typ]+chr*9+chu*3+chd)));
+			tmpus&=0xFF;
+			CharOut(pos,tmpus);InvalidateWndPos(pos);
+		}
+	}
+}
+
+void GPWindow::TextVerLine(int x, int y, int typ, int len)
+{
+// Нарисовать вертикальную текстовую линию по координатам x y длиной len 
+// производится объединение с расположенными рядом линиями 
+// type = 0 - одинарная рамка
+// type = 1 - двойная рамка
+// type = 2 - пробельная рамка
+// void GPWindow::TextVerLine(int x, int y, int typ, int len)
+// type 0   single
+// type 1   double
+// type 2   erase
+/*	const char *chstrt[2]={"іЪХїВВёВСіГЖґЕЕµЕШ","єЦЙ·ТТ»ТЛєЗМ¶ЧЧ№ЧО"};
+	const char *chend[2] ={"іАФЩББѕБПіГЖґЕЕµЕШ","єУИЅРРјРКєЗМ¶ЧЧ№ЧО"};
+	char *typeup   ="ГЕґіХСёЖШµЪВїЦТ·ЗЧ¶єЙЛ»МО№";
+	char *typedown ="ГЕґіАБЩЖШµФПѕЗЧ¶єУРЅМО№ИКј";
+	char *typeleft ="ЪДВГЕАБЦТЗЧУРЙНЛМОИКХСЖШФП";
+	char *typeright="ДВїЕґБЩТ·Ч¶РЅНЛ»О№КјСёШµПѕ";*/
+
+	const char chstrt0[]={0xB3,0xDA,0xD5,0xBF,0xC2,0xC2,0xB8,0xC2,0xD1,0xB3,0xC3,0xC6,0xB4,0xC5,0xC5,0xB5,0xC5,0xD8,0x0,};
+	const char chstrt1[]={0xBA,0xD6,0xC9,0xB7,0xD2,0xD2,0xBB,0xD2,0xCB,0xBA,0xC7,0xCC,0xB6,0xD7,0xD7,0xB9,0xD7,0xCE,0x0,};
+	const char chend0[] ={0xB3,0xC0,0xD4,0xD9,0xC1,0xC1,0xBE,0xC1,0xCF,0xB3,0xC3,0xC6,0xB4,0xC5,0xC5,0xB5,0xC5,0xD8,0x0,};
+	const char chend1[] ={0xBA,0xD3,0xC8,0xBD,0xD0,0xD0,0xBC,0xD0,0xCA,0xBA,0xC7,0xCC,0xB6,0xD7,0xD7,0xB9,0xD7,0xCE,0x0,};
+	const char *chstrt[]={chstrt0,chstrt1,};
+	const char *chend[] ={chend0,chend1,};
+	char typeup[]   ={0xC3,0xC5,0xB4,0xB3,0xD5,0xD1,0xB8,0xC6,0xD8,0xB5,0xDA,0xC2,0xBF,0xD6,0xD2,0xB7,0xC7,0xD7,0xB6,0xBA,0xC9,0xCB,0xBB,0xCC,0xCE,0xB9,0x0,};
+	char typedown[] ={0xC3,0xC5,0xB4,0xB3,0xC0,0xC1,0xD9,0xC6,0xD8,0xB5,0xD4,0xCF,0xBE,0xC7,0xD7,0xB6,0xBA,0xD3,0xD0,0xBD,0xCC,0xCE,0xB9,0xC8,0xCA,0xBC,0x0,};
+	char typeleft[] ={0xDA,0xC4,0xC2,0xC3,0xC5,0xC0,0xC1,0xD6,0xD2,0xC7,0xD7,0xD3,0xD0,0xC9,0xCD,0xCB,0xCC,0xCE,0xC8,0xCA,0xD5,0xD1,0xC6,0xD8,0xD4,0xCF,0x0,};
+	char typeright[]={0xC4,0xC2,0xBF,0xC5,0xB4,0xC1,0xD9,0xD2,0xB7,0xD7,0xB6,0xD0,0xBD,0xCD,0xCB,0xBB,0xCE,0xB9,0xCA,0xBC,0xD1,0xB8,0xD8,0xB5,0xCF,0xBE,0x0,};
+
+	UINT pos,posend;
+	int chl,chr,chu,chd;
+	unsigned short tmpus;
+
+	if (y<0) y=0;
+	if (x<0) x=0;
+	if(y<GPWndSize.cy && x<GPWndSize.cx) 
+	{
+		if (len+y>GPWndSize.cy) len=GPWndSize.cy-y;
+		pos=x+y*GPWndSize.cx;
+		posend=pos+len*GPWndSize.cx;
+		if(typ==2)
+		{
+			while(pos<posend && pos<nall)
+			{
+				CharOut(pos,ChrSpace); InvalidateWndPos(pos);
+				pos+=GPWndSize.cx;
+			}
+		}
+		else
+		if(typ>2)
+		{
+			while(pos<posend && pos<nall)
+			{
+				CharOut(pos,(unsigned short)typ); InvalidateWndPos(pos);
+				pos+=GPWndSize.cx;
+			}
+		}
+		else
+		{
+			chl=chu=chr=0;
+			if (y!=0 && (WndChrStyle[pos-GPWndSize.cx]&GP_FNT_CODE)!=0 && strchr(typeup,WndChar[pos-GPWndSize.cx])!=NULL) chu++;
+			if (x!=0 && (WndChrStyle[pos-1]&GP_FNT_CODE)!=0)				chl=(strchr(typeleft,WndChar[pos-1])-typeleft)/13+1;
+			if (x!=GPWndSize.cx-1 && (WndChrStyle[pos+1]&GP_FNT_CODE)!=0)	chr=(strchr(typeright,WndChar[pos+1])-typeright)/13+1;
+			if (chl<0)         chl=0;
+			if (chr<0)         chr=0;
+			tmpus=(unsigned short(*(chstrt[typ]+chu*9+chl*3+chr)));
+			tmpus&=0xFF;
+			CharOut(pos,tmpus);
+			InvalidateWndPos(pos);
+			pos+=GPWndSize.cx;
+
+			while(pos<posend-GPWndSize.cx && pos<nall-GPWndSize.cx)
+			{
+				chl=chr=0;
+				if (x!=0 && (WndChrStyle[pos-1]&GP_FNT_CODE)!=0)				chl=(strchr(typeleft,WndChar[pos-1])-typeleft)/13+1;
+				if (x!=GPWndSize.cx-1 && (WndChrStyle[pos+1]&GP_FNT_CODE)!=0)	chr=(strchr(typeright,WndChar[pos+1])-typeright)/13+1;
+  				if (chl<0)     chl=0;
+				if (chr<0)     chr=0;
+				tmpus=(unsigned short(*(chstrt[typ]+9+chl*3+chr)));
+				tmpus&=0xFF;
+				CharOut(pos,tmpus);InvalidateWndPos(pos);
+
+				pos+=GPWndSize.cx;
+			}
+
+			chl=chr=chd=0;
+			if (x!=0 && (WndChrStyle[pos-1]&GP_FNT_CODE)!=0)				chl=(strchr(typeleft,WndChar[pos-1])-typeleft)/13+1;
+			if (x!=GPWndSize.cx-1 && (WndChrStyle[pos+1]&GP_FNT_CODE)!=0)	chr=(strchr(typeright,WndChar[pos+1])-typeright)/13+1;
+			if (pos<nall-GPWndSize.cx && (WndChrStyle[pos+GPWndSize.cx]&GP_FNT_CODE)!=0 && strchr(typedown,WndChar[pos+GPWndSize.cx])!=NULL) chd++;
+			if (chl<0) chl=0;
+			if (chr<0) chr=0;
+			tmpus=(unsigned short(*(chend[typ]+chd*9+chl*3+chr)));
+			tmpus&=0xFF;
+			CharOut(pos,tmpus);
+			InvalidateWndPos(pos);
+		}
+	}
+}
+
+void GPWindow::TextBox(CRect re,int type)
+{
+// Нарисовать текстовую рамку по размерам re если type > 0xFFFF то 
+// объединение с расположенными рядом линиями не производится
+// type = 0 - одинарная рамка
+// type = 1 - двойная рамка
+// type = 2 - пробельная рамка
+// void GPWindow::TextBox(CRect re,int type)
+	if (type>=0x10000)
+	{
+		type-=0x10000;
+		char *ch="ДіЪїАЩНєЙ»Иј       ";
+		CharLine(re.TopLeft(),				CPoint(re.right,re.top),	ch[(type%3)*6]);
+		CharLine(CPoint(re.left ,re.bottom),re.BottomRight(),			ch[(type%3)*6]);
+		CharLine(re.TopLeft(),				CPoint(re.left,re.bottom),	ch[(type%3)*6+1]);
+		CharLine(CPoint(re.right,re.top),	re.BottomRight(),			ch[(type%3)*6+1]);
+		CharOut(re.TopLeft(),				ch[(type%3)*6+2]);	InvalidateWndPos(re.TopLeft());
+		CharOut(CPoint(re.right,re.top),	ch[(type%3)*6+3]);	InvalidateWndPos(CPoint(re.right,re.top));
+		CharOut(CPoint(re.left ,re.bottom),	ch[(type%3)*6+4]);	InvalidateWndPos(CPoint(re.left ,re.bottom));
+		CharOut(re.BottomRight(),			ch[(type%3)*6+5]);	InvalidateWndPos(re.BottomRight());
+	}
+	else
+	{
+		TextVerLine(re.left, re.top,	type, re.Height()+1);
+		TextVerLine(re.right,re.top,	type, re.Height()+1);
+		TextHorLine(re.left, re.top,	type, re.Width()+1);
+		TextHorLine(re.left, re.bottom, type, re.Width()+1);
+	}
+}
+
+UINT GPWindow::CreateUnit(UINT iType, UINT iId, const char *iProp, HWND pParentWnd)
+{
+	UINT ret=0;
+	CString tpms;
+	tpms.Format("object %d",iId);
+	if (iId>=m_NGPUNITmax && iId<0x10000)
+	{
+		UINT newNMax=iId+5000;
+		if (newNMax>0x10000) newNMax=0xFFFF;
+		GPUnit **GPUtmp= new GPUnit * [newNMax];
+		ZeroMemory(GPUtmp,sizeof(GPUnit *)*newNMax);
+		UINT i;
+		GPUtmp[0]=WndUnit[0];
+		for(i=1;i<WndUnit[0]->m_NGPUNIT;i++)
+			if ((GPUtmp[i]=WndUnit[i]))
+				GPUtmp[i]->GPU=GPUtmp;
+
+		GPUtmp[0]->GPU=GPUtmp;
+		delete []WndUnit;
+		WndUnit=GPUtmp;
+		m_NGPUNITmax=newNMax;
+	}
+	if (iId>0 && WndUnit!=NULL && iId<m_NGPUNITmax)
+	{
+		if (WndUnit[iId]==NULL)
+		{
+			if (iId>=WndUnit[0]->m_NGPUNIT) WndUnit[0]->m_NGPUNIT=iId+1;
+			WndUnit[iId]=new GPUnit(iId,iType,iProp,WndUnit, &(GPC.m_ScrToolTip),GPC.m_hViewWnd,GPC.m_View->m_AUSI);		
+			ret=iId;
+		}
+		else GPC.m_ErrReport.GPWriteErrorLog2("Object already exist",tpms ,iProp);
+	}
+	else GPC.m_ErrReport.GPWriteErrorLog2("Can't create object",tpms ,iProp);
+
+	return ret;
+}
+
+void GPWindow::DeleteUnit(UINT iObjId, BOOL bReport)
+{
+	UINT iId=GetObjectNum(iObjId);
+	BOOL rep=FALSE;
+	if (iId>0)
+	{
+		if (iId<WndUnit[0]->m_NGPUNIT && WndUnit[iId])
+		{
+			if (WndUnit[iId]==GPUnit::m_ptrUnitValChange) 
+			{
+				GPUnit::m_ptrUnitValChange=NULL;
+//					TRACE("m_ptrUnitValChange=NULL DeleteUnit %s\n",GPU[iId]->UnitInfoToString("\x01") );
+			}
+			UINT i;
+			for(i=1;i<WndUnit[0]->m_NGPUNIT;i++)
+				if (WndUnit[i] && i!=iId)
+				{
+					if (WndUnit[i]->UnitHWND!=NULL && ::GetParent(WndUnit[i]->UnitHWND)==WndUnit[iId]->UnitHWND)
+					{
+						if (bReport)
+						{
+							CString tpms=WndUnit[iId]->UnitInfoToString("\x01")+"\x02"+WndUnit[i]->UnitInfoToString("\x01");
+							GPC.m_ErrReport.GPWriteWarnLog("Implicit deleting of child object",WndUnit[0]->UnitInfoToString("\x01") ,tpms);
+						}
+						DeleteUnit(i, bReport);
+					}
+				}
+
+			if (WndUnit[iId]->UnitHWND && ::IsWindow(WndUnit[iId]->UnitHWND))
+			{
+				::SetWindowLong(WndUnit[iId]->UnitHWND,GWL_STYLE,::GetWindowLong(WndUnit[iId]->UnitHWND,GWL_STYLE)|WS_DISABLED);
+				//::DestroyWindow(WndUnit[num]->UnitHWND);
+			}
+			delete WndUnit[iId];
+			WndUnit[iId]=NULL;
+			for(i=iId+1;i<WndUnit[0]->m_NGPUNIT && !WndUnit[i];i++)
+			if (i>=WndUnit[0]->m_NGPUNIT)
+			{
+				WndUnit[0]->m_NGPUNIT=iId;
+				for(i=iId;i>0 && !WndUnit[i];i--)
+					WndUnit[0]->m_NGPUNIT=i;
+			}
+		}
+		else rep=TRUE;
+	}
+	else rep=TRUE;
+
+	if (bReport && rep)
+	{
+		CString tpms;
+		tpms.Format("object %d",iObjId);
+		GPC.m_ErrReport.GPWriteWarnLog("Try to delete nonexistent object",tpms ,"");
+	}
+}
+
+UINT GPWindow::GetObjectNum(UINT iObjId)
+{
+	return (iObjId>=(*WndUnit)->m_NGPUNIT) ? 0:iObjId;
+}
+
+void GPWindow::SetViewState(UINT iState)	
+{
+	GPWndState=iState;
+}
+
+GPUnit * GPWindow::GetUnitById(UINT iUnitId)	
+{
+	return GetUnitByNum(GetObjectNum(iUnitId));
+}
+
+GPUnit * GPWindow::GetUnitByNum(UINT iUnitNum)	
+{	
+	return iUnitNum>=(*WndUnit)->m_NGPUNIT?NULL:WndUnit[iUnitNum];
+}
+
+// Высветить текстовый курсор
+void GPWindow::ShowTextCursor()
+{
+	if (CursorVisible==true)
+	{
+		CPoint  oldcu(GetCursorPosition());
+		oldcu.x=oldcu.x*FontTable.GetFontDimension().cx+GPC.ViewOffset.x;
+		oldcu.y=(oldcu.y+1)*FontTable.GetFontDimension().cy+GPC.ViewOffset.y-2;
+		SetCaretPos(oldcu.x,oldcu.y);
+	}
+}
+
+// Функция очистки текстового прямоугольника
+void GPWindow::ClearRect(CRect iRect)
+{
+	int y;
+	for(y=iRect.top;y<iRect.bottom;y++)
+		if (y>=0)
+		{
+			int x;
+			for(x=iRect.left;x<iRect.right && x<GPWndSize.cx;x++)
+			{
+				UINT wpos=y*GPWndSize.cx+x;
+				if (wpos<nall)
+				{
+
+					if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+					{
+						if ((WndChrStyle[wpos]&GP_FNT_FIXED)!=GP_FNT_FIXED)
+						{
+							if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+							WndChar[wpos]		=ChrSpace;
+							WndChrRGB[wpos]		=ChrColor;
+							WndBkgRGB[wpos]		=BkgColor;
+						}
+					}
+					else
+					{
+						if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+						WndChar[wpos]		=ChrSpace;
+						WndChrRGB[wpos]		=ChrColor;
+						WndBkgRGB[wpos]		=BkgColor;
+						WndChrStyle[wpos]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+					}
+				}
+			}
+		}
+}
+
+void GPWindow::GPInvertWnd()
+{
+	UINT i;
+	for(i=0;i<nall;i++) 
+	{
+		WndChrRGB[i]^=0xFFFFFF;
+		WndBkgRGB[i]^=0xFFFFFF;
+	}
+
+	if (WndUnit!=NULL)
+		for(i=1;i<(*WndUnit)->m_NGPUNIT;i++) 
+			if (WndUnit[i]!=NULL) WndUnit[i]->GPInvertUnit();
+}
+
+void GPWindow::RecolorWnd(UINT iFrg, UINT iBkg)
+{
+	UINT i;
+	ChrColor=iFrg;
+	BkgColor=iBkg;
+	for(i=0;i<nall;i++) 
+	{
+		WndChrRGB[i]=ChrColor;
+		WndBkgRGB[i]=BkgColor;
+	}
+
+	InvalidateWnd();
+}
+
+void GPWindow::DoMethod(UINT UnitId, const char *iStr, char *oStr)
+{
+	UINT num=GetObjectNum(UnitId);
+	if (WndUnit[num] && WndUnit[num]->UnitHWND) 
+		WndUnit[num]->DoMethod(iStr, oStr);
+}
+
+void GPWindow::CursorMoveLF()
+{
+	CursorMoveDown();
+}
+
+void GPWindow::ResizingUnits(CRect *re)
+{
+//	if (GPC.m_View && GPC.m_View->m_AUSI && GPC.m_View->m_AUSI->GetItemCount())
+//	GPC.m_View->m_AUSI->UpdateSize();
+}
+
+void GPWindow::DelChar(CPoint pos)
+{
+	unsigned int poschar=pos.x+pos.y*GPWndSize.cx;
+	if (poschar<nall)
+	{
+		if (poschar==m_PrefixPosition)
+		{
+			m_PrefixPosition=0xC0000000;
+		}
+		else 
+			if (m_PrefixPosition>poschar) m_PrefixPosition++;
+
+		if (poschar==m_PrefixPositionEx)
+		{
+			m_PrefixPositionEx=0xC0000000;
+		}
+		else 
+			if (m_PrefixPositionEx>poschar) m_PrefixPositionEx++;
+
+		if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+			while(++poschar<nall && (WndChrStyle[poschar]&GP_FNT_FIXED)!=GP_FNT_FIXED)
+			{
+				WndChar[poschar-1]		=WndChar[poschar];
+				WndChrRGB[poschar-1]	=WndChrRGB[poschar];
+				WndBkgRGB[poschar-1]	=WndBkgRGB[poschar];
+				WndChrStyle[poschar-1]	=WndChrStyle[poschar]|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+			}
+		else
+			while(++poschar<nall)
+			{
+				WndChar[poschar-1]		=WndChar[poschar];
+				WndChrRGB[poschar-1]	=WndChrRGB[poschar];
+				WndBkgRGB[poschar-1]	=WndBkgRGB[poschar];
+				WndChrStyle[poschar-1]	=WndChrStyle[poschar]|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+			}
+		if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+		WndChar[--poschar]		=ChrSpace;
+		WndChrRGB[poschar]		=ChrColor;
+		WndBkgRGB[poschar]		=BkgColor;
+		WndChrStyle[poschar]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+		InvalidateRect(CRect(pos.x,pos.y,GPWndSize.cx-1,GPWndSize.cy-1));
+	}
+}
+
+void GPWindow::InsertChar(CPoint pos)
+{
+	unsigned int poscur=pos.x+pos.y*GPWndSize.cx;
+//	unsigned int poschar=nall-1;
+	unsigned int poschar=(pos.y+1)*GPWndSize.cx-1;
+	if (poscur<nall)
+	{
+		if (m_PrefixPosition==poscur)
+		{
+			m_PrefixPosition=0xC0000000;
+		}
+		else
+			if (m_PrefixPosition<=poschar && m_PrefixPosition>poscur) m_PrefixPosition++;
+
+		if (m_PrefixPositionEx==poscur)
+		{
+			m_PrefixPositionEx=0xC0000000;
+		}
+		else
+			if (m_PrefixPositionEx<=poschar && m_PrefixPositionEx>poscur) m_PrefixPositionEx++;
+
+		if ((m_ProtectedModeFlag&GP_FNT_FIXED)==GP_FNT_FIXED)
+			while(poschar>0 && --poschar>=poscur && (WndChrStyle[poschar+1]&GP_FNT_FIXED)!=GP_FNT_FIXED)
+			{
+				WndChar[poschar+1]		=WndChar[poschar];
+				WndChrRGB[poschar+1]	=WndChrRGB[poschar];
+				WndBkgRGB[poschar+1]	=WndBkgRGB[poschar];
+				WndChrStyle[poschar+1]	=WndChrStyle[poschar]|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+			}
+		else
+			while(poschar>0 && --poschar>=poscur)
+			{
+				WndChar[poschar+1]		=WndChar[poschar];
+				WndChrRGB[poschar+1]	=WndChrRGB[poschar];
+				WndBkgRGB[poschar+1]	=WndBkgRGB[poschar];
+				WndChrStyle[poschar+1]	=WndChrStyle[poschar]|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+			}
+		if (GPC.DlgStatistics) GPC.DlgStatistics->m_STAT_TERMINAL.dwChOutput++;
+		WndChar[++poschar]		=ChrSpace;
+		WndChrRGB[poschar]		=ChrColor;
+		WndBkgRGB[poschar]		=BkgColor;
+
+		WndChrStyle[poschar]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+
+		InvalidateRect(CRect(pos.x,pos.y,GPWndSize.cx-1,GPWndSize.cy-1));
+	}
+}
+
+void GPWindow::DelLine(int pos)
+{
+	if (pos>=0 && pos<GPWndSize.cy-1)
+	{
+		unsigned int poschar=pos*GPWndSize.cx;
+		if (m_PrefixPosition>=poschar && m_PrefixPosition<poschar+GPWndSize.cx)
+		{
+			m_PrefixPosition=0xC0000000;
+		}
+		else
+		if (m_PrefixPosition>poschar) m_PrefixPosition-=GPWndSize.cx;
+
+		if (m_PrefixPositionEx>=poschar && m_PrefixPositionEx<poschar+GPWndSize.cx)
+		{
+			m_PrefixPositionEx=0xC0000000;
+		}
+		else
+		if (m_PrefixPositionEx>poschar) m_PrefixPositionEx-=GPWndSize.cx;
+
+		while(poschar<nall-GPWndSize.cx)
+		{
+			WndChar[poschar]	=WndChar[poschar+GPWndSize.cx];
+			WndChrRGB[poschar]	=WndChrRGB[poschar+GPWndSize.cx];
+			WndBkgRGB[poschar]	=WndBkgRGB[poschar+GPWndSize.cx];
+			WndChrStyle[poschar]=WndChrStyle[poschar+GPWndSize.cx];
+			poschar++;
+		}
+
+		while(poschar<nall)
+		{
+			WndChar[poschar]		=ChrSpace;
+			WndChrRGB[poschar]		=ChrColor;
+			WndBkgRGB[poschar]		=BkgColor;
+			WndChrStyle[poschar++]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+		}
+		InvalidateRect(CRect(0,pos,GPWndSize.cx-1,GPWndSize.cy-1));
+	}
+	else
+	{
+		CString tmps;
+		tmps.Format("n=%d",pos);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","DelLine wrong parameters",tmps);
+	}
+
+
+}
+
+void GPWindow::InsertLine(int pos)
+{
+	if (pos>=0 && pos<GPWndSize.cy)
+	{
+		unsigned int posend=pos*GPWndSize.cx;
+		unsigned int poschar=nall-1;
+		if (m_PrefixPosition>=posend) m_PrefixPosition+=GPWndSize.cx;
+		if (m_PrefixPosition>=nall)
+		{
+			m_PrefixPosition=0xC0000000;
+		}
+
+		if (m_PrefixPositionEx>=posend) m_PrefixPositionEx+=GPWndSize.cx;
+		if (m_PrefixPositionEx>=nall)
+		{
+			m_PrefixPositionEx=0xC0000000;
+		}
+
+		while(poschar>=posend+GPWndSize.cx)
+		{
+			WndChar[poschar]	=WndChar[poschar-GPWndSize.cx];
+			WndChrRGB[poschar]	=WndChrRGB[poschar-GPWndSize.cx];
+			WndBkgRGB[poschar]	=WndBkgRGB[poschar-GPWndSize.cx];
+			WndChrStyle[poschar]=WndChrStyle[poschar-GPWndSize.cx];
+			poschar--;
+		}
+
+		while(poschar>=posend)
+		{
+			WndChar[poschar]		=ChrSpace;
+			WndChrRGB[poschar]		=ChrColor;
+			WndBkgRGB[poschar]		=BkgColor;
+			WndChrStyle[poschar--]	=ChrStyle|(m_ProtectedFieldModeFlag&GP_FNT_FIXED);
+		}
+		InvalidateRect(CRect(0,pos,GPWndSize.cx-1,GPWndSize.cy-1));
+	}
+	else
+	{
+		CString tmps;
+		tmps.Format("n=%d",pos);
+		GPC.m_ErrReport.GPWriteErrorLog2("Green screen","InsertLine wrong parameters",tmps);
+	}
+}
+
+void GPWindow::ResetSelection()
+{
+	UINT mask=(0xFFFFFFFF^GP_FNT_SELECTION);
+	UINT pos;
+	for(pos=0;pos<nall;pos++)
+		WndChrStyle[pos]&=mask;
+}
+
+void GPWindow::SetSelection(CRect &re, CSize &ScrSize)
+{
+	re.NormalizeRect();
+	CRect scr(0,0,ScrSize.cx,ScrSize.cy);
+	CRect wnd(0,0,GPWndSize.cx,GPWndSize.cy);
+	wnd+=GPWndViewOfset;
+	if (wnd.top<scr.top) wnd.top=scr.top;
+	if (wnd.left<scr.left) wnd.left=scr.left;
+	if (wnd.bottom>scr.bottom) wnd.bottom=scr.bottom;
+	if (wnd.right>scr.right) wnd.right=scr.right;
+
+	if (wnd.right>=wnd.left && wnd.bottom>=wnd.top)
+	{
+		if (wnd.top<re.top) wnd.top=re.top;
+		if (wnd.left<re.left) wnd.left=re.left;
+		if (wnd.bottom>re.bottom) wnd.bottom=re.bottom;
+		if (wnd.right>re.right) wnd.right=re.right;
+		if (wnd.bottom>=ScrSize.cy) wnd.bottom=ScrSize.cy-1;
+		if (wnd.right>=ScrSize.cx) wnd.right=ScrSize.cx-1;
+		if (wnd.right>=wnd.left && wnd.bottom>=wnd.top)
+		{
+			wnd-=GPWndViewOfset;
+			int y;
+			for(y=wnd.top;y<=wnd.bottom;y++)
+			{
+				int pos=y*GPWndSize.cx;
+				int x;
+				for(x=wnd.left;x<=wnd.right;x++)
+					WndChrStyle[pos+x]|=GP_FNT_SELECTION;
+			}
+		}
+	}
+}
+
+void GPWindow::CharOut(const unsigned short *iBuff, DWORD iLength)
+{
+	if (iBuff && iLength && iLength<0x1000000)
+		while(iLength--)
+			CharOut(*(iBuff++));
+}
+
+void GPWindow::CharOutAW(const char *iBuff, DWORD iLength)
+{
+	if (iBuff && iLength && iLength<0x1000000)
+	{
+		while(iLength--)
+			CharOutAW(*(iBuff++));
+	}
+}
+
+unsigned short GPWindow::GetCurChar()
+{
+	return GetCurChar(cursor);
+}
+
+unsigned short GPWindow::GetCurChar(CPoint pos)
+{
+	return WndChar[pos.x+pos.y*GPWndSize.cx];
+}
+
+DWORD GPWindow::GetNearestChars(PNEAREST9X9 iNC)
+{
+	return GetNearestChars(iNC, cursor);
+}
+
+DWORD GPWindow::GetNearestChars(PNEAREST9X9 iNC, POINT iPosition)
+{
+	DWORD ret=0;
+	DWORD curpos=iPosition.x+iPosition.y*GPWndSize.cx;
+	iNC->po=iPosition;
+	iNC->center=0xFFFF;
+	iNC->bottom=0xFFFF;
+	iNC->bottomleft=0xFFFF;
+	iNC->bottomright=0xFFFF;
+	iNC->top=0xFFFF;
+	iNC->topleft=0xFFFF;
+	iNC->topright=0xFFFF;
+	iNC->left=0xFFFF;
+	iNC->right=0xFFFF;
+	if (curpos-1				<nall)	{ret++; iNC->left		=WndChar[curpos-1				];}
+	if (curpos+1				<nall)	{ret++; iNC->right		=WndChar[curpos+1				];}
+	if (curpos					<nall)	{ret++; iNC->center		=WndChar[curpos					];}
+	if (curpos-1+GPWndSize.cx	<nall)	{ret++; iNC->bottomleft	=WndChar[curpos-1+GPWndSize.cx	];}
+	if (curpos+1+GPWndSize.cx	<nall)	{ret++; iNC->bottomright=WndChar[curpos+1+GPWndSize.cx	];}
+	if (curpos+GPWndSize.cx		<nall)	{ret++; iNC->bottom		=WndChar[curpos+GPWndSize.cx	];}
+	if (curpos-1-GPWndSize.cx	<nall)	{ret++; iNC->topleft	=WndChar[curpos-1-GPWndSize.cx	];}
+	if (curpos+1-GPWndSize.cx	<nall)	{ret++; iNC->topright	=WndChar[curpos+1-GPWndSize.cx	];}
+	if (curpos-GPWndSize.cx		<nall)	{ret++; iNC->top		=WndChar[curpos-GPWndSize.cx	];}
+
+	return ret;
+}
+
+void GPWindow::SetExPerfixPosition()
+{
+	m_PrefixPositionEx=cursor.x+cursor.y*GPWndSize.cx;
+}
+
+
+DWORD GPWindow::SetStyleToChars(DWORD dwStlToDelete, DWORD dwStlToAdd, unsigned short usChar)
+{
+	DWORD ret=0;
+
+	UINT i;
+	DWORD mask=(0xFFFFFFFF^dwStlToDelete);
+	if (dwStlToDelete)
+		for(i=0;i<nall;i++)
+			if (usChar==0xFFFF || WndChar[i]==usChar)
+			{
+				ret++;
+				WndChrStyle[i]&=mask;
+			}
+
+
+	if (dwStlToAdd)
+		for(i=0;i<nall;i++)
+			if (usChar==0xFFFF || WndChar[i]==usChar)
+			{
+				ret++;
+				WndChrStyle[i]|=dwStlToAdd;
+			}
+	return ret;
+}
+
+void GPWindow::RunEditor()
+{
+	if (m_CDlgDialogEditor==NULL)
+	{
+		m_CDlgDialogEditor =new CDlgDialogEditor(this,GPC.m_View);
+		m_CDlgDialogEditor->Create(IDD_DIALOGOBJECTS);
+	}
+
+	try
+	{
+		m_CDlgDialogEditor->ShowWindow(SW_SHOW);
+	}catch(...)
+	{
+		GPC.m_ErrReport.GPWriteErrorLog("GPWindow", "RunEditor 2074","");
+		m_CDlgDialogEditor =new CDlgDialogEditor(this,GPC.m_View);
+		m_CDlgDialogEditor->Create(IDD_DIALOGOBJECTS);
+	}
+
+	try
+	{
+		m_CDlgDialogEditor->ShowWindow(SW_SHOW);
+	}catch(...)
+	{
+		GPC.m_ErrReport.GPWriteErrorLog("GPWindow", "RunEditor 2084","");
+	}
+
+	m_CDlgDialogEditor->SetWindowPos(&CWnd::wndTop,0,0,0,0,SWP_NOACTIVATE|SWP_NOMOVE|SWP_NOSIZE);
+
+}
+
+void GPWindow::DeleteAllObjects()
+{
+	UINT i;
+	if (WndUnit)
+	{
+		for(i=1;i<(*WndUnit)->m_NGPUNIT;i++) 
+			if (WndUnit[i]) 
+			{
+				try
+				{	delete WndUnit[i];WndUnit[i]=NULL;	}
+				catch(...)
+				{
+					GPC.m_ErrReport.GPWriteErrorLog("GPWindow", "DeleteAllObjects","");
+					WndUnit[i]=NULL;
+				}
+			}
+		(*WndUnit)->m_NGPUNIT=1;
+		if (GPC.m_hViewWnd!=NULL) InvalidateWnd();
+	}
+}
+
+GPUnit * GPWindow::GetUnitByHWND(HWND iHWND)
+{
+	GPUnit *ret=NULL;
+	if (iHWND && WndUnit)
+	{
+		UINT i;
+		for(i=0;i<(*WndUnit)->m_NGPUNIT && !ret;i++)
+			if (WndUnit[i] && WndUnit[i]->UnitHWND==iHWND)
+				ret=WndUnit[i];
+	}
+
+	return ret;
+}

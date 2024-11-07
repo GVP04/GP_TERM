@@ -1,0 +1,9 @@
+
+2	0	1	13060	_grp1		 0 027 0 228 0 092	GP.DCCreate
+2	0	1	13061	_grp1		 0 027 0 228 0 093	GP.DCDelete
+2	0	1	13062	_grp1		 0 027 0 228 0 094	GP.DCSub
+2	0	1	13063	_grp1		 0 027 0 228 0 095	GP.DCFn
+2	0	1	00200	_grp1		 0 027 0 228 0 096	GP.ScreenSub
+2	0	1	00201	_grp1		 0 027 0 228 0 097	GP.ScreenFn
+2	0	1	00202	_grp1		 0 027 0 228 0 098	GP.WindowSub
+2	0	1	00203	_grp1		 0 027 0 228 0 099	GP.WindowFn

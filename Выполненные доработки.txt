@@ -1,0 +1,176 @@
+****Режим просмотра загруженных списков изображений
+****Имена объектов когда в буфер из диалога-конструктора
+****Внедренные объекты в combo      
+****Внедренные объекты в comboEx     
+****Определение типа ОС при старте терминала     ----------- (GPC.m_SystemType&0xF)?1:0 
+****Реинициализация ESC-seq.txt
+****множественный файл ESC-seq.txt
+****перегрузка файла ESC-seq.txt
+****terminal type in telnet
+****Реинициализация fontkol
+****File System Functions  .... GetLogicalDrives .....
+****ImageList Dialog
+****Установка из пика текста заголовка подсказки и ошибки
+****Архив прозрачной печати 
+****Дамп простой
+****ExpandEnvironmentStrings
+****InitiateSystemShutdown(
+****InitiateSystemShutdownEx(
+****Selection & Insert/Copy from Screen
+****В меню "Начать новый сеанс" - более подробно описывать сконфигурирированные сеансы и разрешать запуск любого сеанса, а не только другой конфигурации.
+****Вместо дампа - "Вывод в файл" и "Продолжение вывода в файл", которые надо метить "галочкой" для старта и останова вывода; выводить нужно только то, что выдает сервер, кроме того, необходим пункт "Сохранить файл как ..."
+****В экране "Настройки терминала" (а) выделить рамкой блок "Цвета" и добавить в него кнопку "Настройка", (б) сделать движок "Минимальный размер шрифта".
+****В экране "Настройка соединения" переименовать "Инициализационная строка" в "Стартовая последовательность", 
+****"Информация о соединении" в "Краткое  наименование соединения", добавить поле "Полное наименование соединения". 
+****размер табуляции in SepView
+20040107**** Редактор termcap
+20040107**** new messages in STATUSBARCTRL - OnClick,OnDblClick,OnRClick,OnRDblClick,OnSimpleModeChange
+20040107**** new messages in STATUSBAR - OnClick,OnDblClick,OnRClick,OnRDblClick,OnSimpleModeChange
+20040108**** Выбор типа терминала, LOCK, ETCL из статусбара
+20040116**** Статистика сессии
+20040520**** Контекст в ListCtrl без учета регистра
+20040618**** HDF_JUSTIFYMASK
+20040618**** Invalidate bErase
+20040618**** DOC ShellExecuteEx  - PARAM=
+20040628**** RTF .......... SES_ styles , GetEventMask
+20041028**** шрифты,что бы разные
+............... ??????????????????????????????????????
+20050512**** Новые системные методы GetGUIObjectsTypes, GetGUIObjectStyles, GetGUIObjectMethods, GetGUIObjectCommonMethods, GetGUIObjectExStyles, GetWindowsExStyles, GetWindowsStyles, GetWindowsEvents, GetGUIObjectEvents
+20050514**** Новые EDITOR методы GetFindReplaceString FindTextEx ReplaceAll SCFIND_SELECTION
+20050517**** Новые EDITOR lexers SCLEX_ASN1 SCLEX_VHDL SCLEX_CAML SCLEX_BLITZBASIC SCLEX_PUREBASIC SCLEX_HASKELL SCLEX_PHPSCRIPT 
+20050518**** Новые EDITOR OnAutocSelection SC_WRAP_CHAR AutoCSetMaxWidth AutoCGetMaxWidth AutoCSetMaxHeight AutoCGetMaxHeight GetCaretSticky  SetCaretSticky ToggleCaretSticky FindColumn SetLengthForEncode EncodedFromUTF8 TargetAsUTF8  
+20050519**** XPM string ==/* XPM */"16 16 4 1""0   #00FFFF""1   #FF00FF""2   #0000FF""3   #00FF00""1111111111111111""0000000000000000""1122122122122122""0000000000000000""1122122122122122""0000000000000000""1111111111111111""1111111111111111""1111111111111111""0000000000000000""1111111111111111""0000000000000000""1111111111111111""1111111111111111""1122122122122122""1111111111111111";
+20050523**** New common method DoMethods
+20050523**** TREECTRL in method SortChildren Recurse,
+20050524**** OnEnter,OnLockEnter,OnTab,OnBackTab,OnLockTab,OnLockBackTab, with result of GetWindowText
+20050524**** New events OnCtrlEnter OnLockCtrlEnter
+20050524**** Новые EDITOR методы MarkerGetList GetFoldExpandedList SetFoldExpandedList MarkerSetList ReplaceCurWord
+20050530**** Popup menu properties bug fixed
+20050530**** New TREECTRL event  OnHelper
+20050530**** New EDITOR method PointsFromPosition
+........................
+20050726**** BKGMODE property , SetClassStyle and GetClassStyle methods
+20050727**** SetUnicodeFormat GetUnicodeFormat methods for ToolBarCtrl
+20050729**** OnSubItemClick OnSubItemDblclk events updated
+20050802**** BKGSRC property 
+20050803**** Localisation string
+20050810**** OnKeydown for ListCtrl updated
+20050810**** New event for ListCtrl - "OnKeydownOnEnd" "OnKeydownOnBegin"
+20050811**** New methods for ListCtrl - SetAutoSort, GetAutoSort
+20050820**** Slave print and SP chars options in settings dialog
+20050823**** Additional parameter in AddButton method in ToolbarCtrl
+20050825**** SetDirectOutput - new common method
+20050825**** StartCapture, ContinueCapture, StopCapture - new system methods
+20051020**** Hotkeys - fixed
+20051020**** Restore size of terminal - option
+20051020**** Exit w/o waiting - option
+20051020**** AutoHScroll in Editor find
+20051212**** New lexer MVTEXT, SetStyleForText GetStylePositions GotoNextStyle SetStyleByPos 
+20051212**** SSH
+20051219**** Terminal Menu in Sysmenu and HideMenu
+20060309**** DelHotkey now support Hotkey name
+20060311**** Edit new methods SetOnchangeFlag,	SetIgnoreSelChangeOnTAB, SetAutoFocus
+20060312**** GUI login dialog
+20060317**** ComboBox, ComboBoxEx, ListBox, ChListBox, DrListBox new methods SetItemText, AddItem, SetCurSelByItemData, SetAutoFocus
+20060318**** DelHotKey by Hotkey name. 
+20060319**** Fully Unicode GreenScreen. 
+20060320**** Custom message structure
+20060323**** ComboBox, ComboBoxEx, ListBox, ChListBox, DrListBox new methods SetItemDataEx, GetItemDataEx, AddItemEx, SetItemTextEx, SetCurSelByItemDataEx, GetItemText, GetItemTextEx, DeleteItemEx
+20060328**** Autoload ImageLists on first access
+20060410**** SSH memory leaks fixed
+20060410**** Custom ActiveX
+20060411**** Float point BUG in EDIT fixed
+20060417**** Custom Fonts in GUI objects
+20060418**** SCALE property in GUI objects
+20060418**** GUI settings dialog
+20060420**** "SetKeyProc","DeleteKeyProc" for all GUI objects.
+20060420**** OnTimer if negative then count from 0 to Abs(Count). Count added into Event as third (9) attribute
+20060420**** BUG with Kill/Set Focus fixed
+20060424**** "SetCheckPoint", "GetCurrentValue", "GetCurrentValueCRC", "GetChangedValue", "SetValChangeCheckPoint" for all GUI objects.
+20060425**** BUG "twice SetFocus" fixed
+20060425**** OnValChange event added
+20060425**** SetIgnoreSelChangeOnTAB enhanced
+20060426**** QueryPerformance system method
+20060427**** SetAddOnly method for EDIT
+20060428**** GetCommonStyles system method, GetCommonStyle GUI objects method. UCS_CRAM,   UCS_CRVM,   UCS_CRSVM,
+20060428**** GetTextLenght EDIT method
+20060511**** GPFile GetChar BUG fixed. SSH settings enhanced. I/O performance improved.
+20060512**** MoveWindowRelative
+20060516**** Files more than 2GB
+20060517**** SplitFile FileName,PartSize[,BINARY]
+20060522**** Connection manager
+20060522**** OnValChange before OnEnter
+20060531**** COM arrays as VARIANT
+20060621**** SetHScrollMask GetHScrollMask SetScrollTimeout GetDirectOutput SetDirectOutput  
+20060628**** Wyse and vt descriptions
+20060704**** Screen video attributes editor
+20060731**** Forth conversion level
+20060801**** New COM methods added:  ConvertToSubArray2, ExecSUB2, SaveList2, ListMakerSetListAsArray2. These methods are added for compatibility with projects .Net 
+20060811**** New methods SetScrollPosFlag and GetScrollPosFlag. Solved problems: Dropdown in combobox by mouse
+20060811**** Autosizing - binding to window's frame instead client,Create/remove Screen menus from DataBasic, Line object resolved (try TEST.LINES from TCL),
+20060811**** TEXT TEXTBOX FMTTEXT screen objects resolved (try TEST.OBJECTS from TCL),  LINE TEXT TEXTBOX FMTTEXT now printable.
+20060816**** Version of server library for UniVerse.
+20060824**** BUG fixed in BCPTOPC.  All tests in D3 library updated and tested. 
+20060829**** Session start/End, user menu and hotkey sequences now have uniform format and realization. Managed waiting and synchronization was added. Documentation was updated. 
+20060908**** Serious problem with initial settings solved. Windows method for screen enabled. Autosizing for screen objects added. 
+20060910**** LVSCW_AUTOSIZE LVSCW_AUTOSIZE_USEHEADER in SetColumnWidth
+20060917**** Methods lenght now up to 145
+20060921**** New System Methods GetWindowsDir,	GetSystemDir, GetSystemWindowsDir,	GetSystemInfo
+20060926**** New Listctrl Methods ResetVirtualList, SetDefItemImage, GetDefItemImage  vv1.9.9.8-17
+
+20061009**** New progress methods 	SetNextPos, SetNextPosMod
+20061012**** Beep on Alt removed, Delete all screen object repaired, new system mehod DeleteAllScreenObjects, Delete dialogs and objects according to hierarchy.
+20061012**** Solved problem with dragging through empty LISTBOX, DRAGLISTBOX, CHECKLISTBOX
+20061016**** Error/Warnings report system
+20061018**** Can Lock windows shutdown. Can lock, shutdown or logoff the workstation at the end of the session.
+20061019**** OLE GetInput enabled 
+20061021**** EnableThemeDialogTexture in dialog and DLGBAR on XP
+20061021**** SetWindowTheme for objects on XP
+2006.10.23 -  New methods (PROGRESS): "SetNextPos" , "SetNextPosMod". Beep on Hotkey with MOD_ALT removed. Delete dialogs according to hierarchy. Delete objects according to hierarchy. New system mehod "DeleteAllScreenObjects". Solved problem with dragging through empty LISTBOX, DRAGLISTBOX, CHECKLISTBOX Errors/Warnings report system. "Lock windows shutdown" session settings. "Shutdown or logoff the workstation at the end of the session" session settings. OLE GetInput now enabled not only within SUB and TCL. New method "EnableThemeDialogTexture" in dialog and DLGBAR on XP New method "SetWindowTheme" for objects on XP 
+2006.11.01 -  Fixed BUGS of BRIZ beta 1.9.9.8-19. New command-line options. Seriously enhanced COM method GetTerminal. BRIZ can start in hidden view. New system method ParseCommandLine. BUG in reconnect feature fixed. Custom BRIZ settings and options from PC file. 
+2006.11.07 -  Enhanced CommandLine. Documentation updated. New method in EDIT  - SetDefSelMode
+2006.11.14 -  New EDITOR method SetAutoFocus
+2006.11.16 -  New DLGBAR and FRAMEBAR method SetAutoFocus
+2006.11.21 -  SetBitmap "" clears bitmap
+2006.11.22 -  Problem with GUI menu icons solved. ImageList  editor enhanced. Imagelist method AddFromFile and ReplaceFromFile now support most graphic formats. 
+2006.11.26 -  New system methods EnumPrinters DeviceCapabilities EnumDisplayDevices EnumDisplaySettings GetSystemMetrics GetSysColor GetSysColorBrush SetSysColors AddMonitor AddPort AddPrinterConnection AddPrintProcessor ConfigurePort DeleteMonitor DeletePort DeletePrinterConnection DeletePrinterDriver DeletePrinterDriverEx DeletePrintProcessor DeletePrintProvidor GetDefaultPrinter GetPrinterDriverDirectory GetPrintProcessorDirectory SetDefaultPrinter SetPort EnumPorts EnumMonitors EnumPrinterDrivers EnumPrintProcessorDatatypes EnumPrintProcessors AddPrintProvidor AddPrinterDriver AddPrinterDriverEx EnumServicesStatusEx OpenSCManager CloseSCManager
+2006.12.16 -  BUG fixed in GetParents of TREECTRL
+2006.12.19 -  new names of COM methods ConvertToSubArray2 - ConvertToSubArrayNet,ExecSUB2 - ExecSUBNetSaveList2 - SaveListNetListMakerSetListAsArray2 - ListMakerSetListAsArrayNet
+2006.12.19 -  new COM methods : ConvertToSubArrayExNet, SortArray2Net, SortArrayNet
+2007.01.22 -  new File System methods FindFiles, FindFilesR, FindImages, FindImagesR
+2007.01.24 -  default slave print is disabled.
+2007.02.06 -  new system methods SetScript, DeleteScript, DoScript, DeleteVariable, SetVariable, GetWSTime
+2007.02.06 -  fixed getItem in tabctrl
+2007.02.06 -  fixed setitem in listctrl
+2007.02.06 -  fixed GP.COMDoSub GP.COMDoFn
+2007.02.06 -  scripts in events.
+
+2007.02.12 -  documentation updated for GP.DLGMENU....   
+2007.02.12 -  documentation updated for InsertItemEx , SetItem  of LISTCTRL
+2007.02.13 -  documentation updated for File System methods FindFiles, FindFilesR, FindImages, FindImagesR
+2007.02.15 -  documentation updated for System methods ParseCmdLine EnumPrinters DeviceCapabilities EnumDisplayDevices EnumDisplaySettings GetSystemMetrics GetSysColor GetSysColorBrush SetSysColors AddMonitor AddPort AddPrinterConnection AddPrintProcessor ConfigurePort DeleteMonitor DeletePort DeletePrinterConnection DeletePrinterDriver DeletePrinterDriverEx DeletePrintProcessor DeletePrintProvidor GetDefaultPrinter GetPrinterDriverDirectory GetPrintProcessorDirectory SetDefaultPrinter SetPort EnumPorts EnumMonitors EnumPrinterDrivers EnumPrintProcessorDatatypes EnumPrintProcessors AddPrintProvidor AddPrinterDriver AddPrinterDriverEx EnumServicesStatusEx OpenSCManager CloseSCManager SetScript DeleteScript DoScript DeleteVariable SetVariable GetWSTime AddPrinter
+2007.02.19 -  New editor methods SetLine InsertLine DeleteLine
+
+2007.04.04 -  New progress method SetMarquee and style PBS_MARQUEE
+2007.04.04 -  Administrator features LOCK menu
+2007.04.04 -  CRCRLF setting
+2007.04.04 -  New editor methods SetScrollTick, GetScrollTick, SetAutoScrollDelay, GetAutoScrollDelay
+2007.04.04 -  Menu perfomance improved
+2007.04.04 -  "SM_XVIRTUALSCREEN","SM_YVIRTUALSCREEN","SM_CXVIRTUALSCREEN","SM_CYVIRTUALSCREEN","SM_CMONITORS","SM_SAMEDISPLAYFORMAT","SM_IMMENABLED","SM_CXFOCUSBORDER","SM_CYFOCUSBORDER","SM_TABLETPC","SM_MEDIACENTER","SM_STARTER","SM_SERVERR2"
+2007.04.04 -  "BKG=@INT100","FRG=@INT101",
+2007.04.04 -  DUT_ELLIPSER:		case DUT_FOCUSRECTR:	case DUT_RECTR:		"FILLSRECTR=0,@INT100",
+
+2007.07.14 - OWNERDRAW feature
+
+
+SetLayeredWindowAttributes ShowWindowAsync SetDontClick
+GetFileStat
+
+GetInt, GetREAL, GetSting, GetRect, GetPoint, GetColor, GetMatrix 
+
+-LOCKSOUND=
+MOUSEWHEEL for to window widh mouse cursor
+
+FindTextEx COUNTLINES COUNTENT
+
+SetChar HEX

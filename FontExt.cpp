@@ -1,0 +1,27 @@
+// FontExt.cpp: implementation of the CFontExt class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "gp_term.h"
+#include "FontExt.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CFontExt::CFontExt()
+{
+
+}
+
+CFontExt::~CFontExt()
+{
+
+}

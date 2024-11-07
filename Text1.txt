@@ -1,0 +1,64 @@
+      WHO = OCONV("0","U50BB")
+      WHOIS = FIELD(WHO," ",2)
+     PROMPT ""
+      A.SCLEAR = @(-8):@(-12):@(-1);* SCREEN CLEAR     
+      A.SCHOME = @(-2);* HOME     
+      A.SCLEOS = @(-3);* CLEAR FOREGROUND TO END OF SCREEN     
+      A.SCLEOL = @(-4);* CLEAR TO END OF LINE     
+      A.SCLFG  = @(-2):@(-3);* CLEAR FOREGROUND     
+      A.STARTFLASH = @(-5);* BLINK     
+      A.STOPFLASH = @(-6)     
+      A.SCBG   = @(-7);* HALF LIGHT     
+      A.SCFG   = @(-8);* FULL LIGHT     
+      A.SCPRON = @(-11);* PROTECT ON     
+      A.SCPROF = @(-12);* PROTECT OFF     
+      A.SCREV = @(-13);* REVERSE VIDEO     
+      A.SCREVOFF = @(-14);* STOP REVERSE     
+      A.SCUNDON = @(-15);* UNDERLINE ON     
+      A.SCUNDOFF = @(-16);* UNDERLINE OFF     
+      A.TERMPON = @(-17);* TERMINAL PRINTER ON     
+      A.TERMPOFF = @(-18);* TERMINAL PRINTER OFF     
+      A.ERRPOS = @(0,0);* ERROR LINE     
+      A.MESGFLASH = A.STARTFLASH:"MESSAGE":A.STOPFLASH
+      A.BELLS = CHAR(7)     
+9800  CRT A.SCLEAR:A.SCBG
+       CRT @(25,1):"Test A Set Of Field Types":
+       CRT @(1,4):"Key To TEST File":
+       CRT @(1,5):"Numeric":
+       CRT @(1,6):"Decimal":
+       CRT @(1,7):"General Text":
+       CRT @(21,4):' 1 [':@(35,4):']':
+       CRT @(21,5):' 2 [':@(33,5):']':
+       CRT @(21,6):' 3 [':@(33,6):']':
+       CRT @(21,7):' 4 (':@(57,7):')':
+       CRT @(0,23):'Enter Code ':@(35,23):'User ':WHOIS:@(61,23):'ARGOTEST*SCREENCHK':
+       CRT A.SCFG:A.SCPRON:
+A.L = ""
+F = ""
+F<-1> =11
+F<-1> =9
+F<-1> =9
+F<-1> =33
+FOR B = 1 TO 2
+X = 25
+Y = 4
+FOR A = 1 TO 4
+LENIN = F<A>
+     INPUT @(X,Y):GETFLD,LENIN
+     IF LEN(GETFLD) = LENIN THEN 
+         CRT @(20,20):"I WILL NOW CLEAR THE EXTRA CHARACTER HIT RETURN"
+         INPUT FED
+         CRT @(X,Y):GETFLD[1,LENIN-1]:SPACE(1)
+     END
+     GETFLD = ""
+Y += 1
+NEXT A
+IF B = 1 THEN
+CRT @(21,20):"I WILL NOW CLEAR THE FOREGROUND AND START AGAIN HIT RETURN"
+INPUT FED
+    CRT A.SCLFG:A.L:A.ERRPOS:
+END
+NEXT B
+CRT @(22,20):"I WILL NOW CLEAR EVERYTHING HIT RETURN"
+INPUT FED
+CRT @(0,0):A.SCLEAR

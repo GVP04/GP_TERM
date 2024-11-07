@@ -1,0 +1,17 @@
+	MENUITEM	nm1	0		EXIT	Выход	EXIT\r
+	SUBMENU	Snm1	1	0		Операции с файлами PICK 	
+    	MENUITEM	nm2	0		List %CLIP a1 a2 a3 a3 a4 		List %C a1 a2 a3 a3 a4 \r
+    	MENUITEM	nm3	0		istat		istat %c (s\r
+    	END
+	SUBMENU	Snm2	2	0		input	
+    	MENUITEM	nm4	0		login		sample\rparol\r
+    	END
+	SUBMENU		3	0		Счета	
+    	MENUITEM		0		acc1		to acc1\rXXX\r
+    	MENUITEM		0		acc2		to acc2\rXXX\r
+    	END
+	SUBMENU		4	0		Программы	
+    	MENUITEM		0		adm.prg		adm.prg\r
+    	MENUITEM		0		gpedit		gpedit\r
+    	END
+	END

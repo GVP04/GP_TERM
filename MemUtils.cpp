@@ -1,0 +1,27 @@
+// MemUtils.cpp: implementation of the CMemUtils class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "GP_Term.h"
+#include "MemUtils.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+CMemUtils::CMemUtils()
+{
+
+}
+
+CMemUtils::~CMemUtils()
+{
+
+}

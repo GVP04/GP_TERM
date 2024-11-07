@@ -1,0 +1,9 @@
+open 10.100.0.136
+pickvm
+
+bin
+send
+ListMaker.cpp
+/home/pickvm/ListMaker/bin/ListMaker.c
+close
+bye

@@ -1,0 +1,1 @@
+ftp.exe -i -s:ftp7.txt 

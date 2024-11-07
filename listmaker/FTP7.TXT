@@ -1,0 +1,9 @@
+open 10.100.0.7
+tstftp
+tst1
+bin
+send
+ListMaker.cpp
+/usr/pickvm/ListMaker/bin/ListMaker.c
+close
+bye

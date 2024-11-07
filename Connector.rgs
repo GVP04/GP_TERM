@@ -1,0 +1,24 @@
+HKCR
+{
+	GP_Term.Connector.1 = s 'Connector Class'
+	{
+		CLSID = s '{213787A1-BDFC-424A-A8E5-2319ABA9E25D}'
+	}
+	GP_Term.Connector = s 'Connector Class'
+	{
+		CLSID = s '{213787A1-BDFC-424A-A8E5-2319ABA9E25D}'
+		CurVer = s 'GP_Term.Connector.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {213787A1-BDFC-424A-A8E5-2319ABA9E25D} = s 'Connector Class'
+		{
+			ProgID = s 'GP_Term.Connector.1'
+			VersionIndependentProgID = s 'GP_Term.Connector'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{1509E7E2-DD4C-11D3-970D-0080AD863699}'
+			'TypeLib' = s '{1509E7A7-DD4C-11D3-970D-0080AD863699}'
+		}
+	}
+}

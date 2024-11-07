@@ -1,0 +1,368 @@
+// ODContext.h: interface for the CODContextItem class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#if !defined(AFX_ODCONTEXTITEM_H__8D957D42_5A21_4EC9_8A29_327B6377DC4D__INCLUDED_)
+#define AFX_ODCONTEXTITEM_H__8D957D42_5A21_4EC9_8A29_327B6377DC4D__INCLUDED_
+
+#if _MSC_VER > 1000
+#pragma once
+#endif // _MSC_VER > 1000
+
+class GPUnit;  
+class GPMenu;  
+class ODContext;  
+
+
+enum DCUnitType
+{
+	DCUT_NONE=0,				DCUT_BEGINCONTAINER,			DCUT_CLEAR,					DCUT_DRAWARC,
+	DCUT_DRAWBEZIER,			DCUT_DRAWBEZIERS,				DCUT_DRAWCLOSEDCURVE,		DCUT_DRAWCLOSEDCURVET,
+	DCUT_DRAWCURVE,				DCUT_DRAWCURVET,				DCUT_DRAWDRIVERSTRING,		DCUT_DRAWELLIPSE,
+	DCUT_DRAWIMAGE,				DCUT_DRAWIMAGE2,				DCUT_DRAWIMAGE3,			DCUT_DRAWIMAGE4,
+	DCUT_DRAWIMAGE5,			DCUT_DRAWIMAGE6,				DCUT_DRAWLINE,				DCUT_DRAWLINES,
+	DCUT_DRAWPATH,				DCUT_DRAWPIE,					DCUT_DRAWPOLYGON,			DCUT_DRAWRECTANGLE,
+	DCUT_DRAWRECTANGLES,		DCUT_DRAWSTRING,				DCUT_DRAWSTRING2,			DCUT_DRAWSTRING3,
+	DCUT_ENDCONTAINER,			DCUT_EXCLUDECLIPRECT,			DCUT_EXCLUDECLIPREGION,		DCUT_FILLCLOSEDCURVE,
+	DCUT_FILLCLOSEDCURVE2,		DCUT_FILLELLIPSE,				DCUT_FILLPATH,				DCUT_FILLPIE,
+	DCUT_FILLPOLYGON,			DCUT_FILLPOLYGON2,				DCUT_FILLRECTANGLE,			DCUT_FILLRECTANGLES,
+	DCUT_FILLREGION,			DCUT_FLUSH,						DCUT_GETCLIP,				DCUT_GETCLIPBOUNDS,
+	DCUT_GETCOMPOSITINGMODE,	DCUT_GETCOMPOSITINGQUALITY,		DCUT_GETDPIX,				DCUT_GETDPIY,
+	DCUT_GETINTERPOLATIONMODE,	DCUT_GETLASTSTATUS,				DCUT_GETNEARESTCOLOR,		DCUT_GETPAGESCALE,
+	DCUT_GETPAGEUNIT,			DCUT_GETPIXELOFFSETMODE,		DCUT_GETRENDERINGORIGIN,	DCUT_GETSMOOTHINGMODE,
+	DCUT_GETTEXTCONTRAST,		DCUT_GETTEXTRENDERINGHINT,		DCUT_GETTRANSFORM,			DCUT_GETVISIBLECLIPBOUNDS,
+	DCUT_INTERSECTCLIPRECT,		DCUT_INTERSECTCLIPREGION,		DCUT_ISCLIPEMPTY,			DCUT_ISPOINTVISIBLE,
+	DCUT_ISRECTVISIBLE,			DCUT_ISVISIBLECLIPEMPTY,		DCUT_MULTIPLYTRANSFORM,		DCUT_RESETCLIP,
+	DCUT_RESETTRANSFORM,		DCUT_RESTORE,					DCUT_ROTATETRANSFORM,		DCUT_SAVE,
+	DCUT_SCALETRANSFORM,		DCUT_SETCLIPBYRECT,				DCUT_SETCLIPBYREGION,		DCUT_SETCLIPBYPATH,
+	DCUT_SETCOMPOSITINGMODE,	DCUT_SETCOMPOSITINGQUALITY,		DCUT_SETINTERPOLATIONMODE,	DCUT_SETPAGESCALE,
+	DCUT_SETPAGEUNIT,			DCUT_SETPIXELOFFSETMODE,		DCUT_SETRENDERINGORIGIN,	DCUT_SETSMOOTHINGMODE,
+	DCUT_SETTEXTCONTRAST,		DCUT_SETTEXTRENDERINGHINT,		DCUT_SETTRANSFORM,			DCUT_TRANSFORMPOINTS,
+	DCUT_TRANSLATECLIP,			DCUT_TRANSLATETRANSFORM,		DCUT_MEASUREDRIVERSTRING,	DCUT_MEASURESTRING,
+	DCUT_MEASURESTRING2,		DCUT_MEASURESTRING3,			DCUT_MEASURESTRING4,		DCUT_MEASURESTRING5,
+	DCUT_GETSYSTEMMETRICS,		DCUT_GETSYSTEMCOLORS,			DCUT_LABEL,					DCUT_GOTO,
+	DCUT_GOSUB,					DCUT_RETURN,					DCUT_IF,					DCUT_IFGOTO,
+	DCUT_IFGOSUB,				DCUT_ELSE,						DCUT_ENDIF,					DCUT_SET,
+	DCUT_ARITHMETIC,			DCUT_MATH,						DCUT_RECTCONTAINS,			DCUT_RECTEQUALS,
+	DCUT_RECTGETBOTTOM,			DCUT_RECTGETRIGHT,				DCUT_RECTGETLOCATION,		DCUT_RECTGETSIZE,
+	DCUT_RECTINFLATE,			DCUT_RECTINTERSECT,				DCUT_RECTISEMPTYAREA,		DCUT_RECTOFFSET,
+	DCUT_RECTUNION,				DCUT_CLRGETALPHA,				DCUT_CLRSETALPHA,			DCUT_CLRGETRED,
+	DCUT_CLRSETRED,				DCUT_CLRGETGREEN,				DCUT_CLRSETGREEN,			DCUT_CLRGETBLUE,
+	DCUT_CLRSETBLUE,			DCUT_GETWINDOWRECT,				DCUT_GETCLIENTRECT,			DCUT_SCRTOCL,
+	DCUT_CLTOSCR,				DCUT_MOVEWINDOW,				DCUT_STRMID,				DCUT_STRLEFT,
+	DCUT_STRRIGHT,				DCUT_STRFORMAT,					DCUT_OBJSUB,				DCUT_OBJFN,
+	DCUT_CONTEXTSUB,			DCUT_CONTEXTFN,					DCUT_SYSTEMSUB,				DCUT_SYSTEMFN,
+	DCUT_GETFIELD,
+	DCUT_SETFIELD,
+	DCUT_SETMATRIXELEMENT,
+	DCUT_GETMATRIXELEMENT,
+	DCUT_TRANSFORMBRUSH,
+
+
+};
+
+enum DCMathFunction
+{
+	DCMF_NONE,			DCMF_ABS,			DCMF_ACOS,			DCMF_ASIN,			DCMF_ATAN,
+	DCMF_ATAN2,			DCMF_BESSEL_j0,		DCMF_BESSEL_j1,		DCMF_BESSEL_jn,		DCMF_BESSEL_y0,
+	DCMF_BESSEL_y1,		DCMF_BESSEL_yn,		DCMF_CABS,			DCMF_CEIL,			DCMF_CHGSIGN,
+	DCMF_CLEAR87,		DCMF_CLEARFP,		DCMF_CONTROL87,		DCMF_CONTROLFP,		DCMF_COPYSIGN,
+	DCMF_COS,			DCMF_COSH,			DCMF_DIVQUOT,		DCMF_EXP,			DCMF_FABS,
+	DCMF_FINITE,		DCMF_FLOOR,			DCMF_FMOD,			DCMF_FPCLASS,		DCMF_FPRESET,
+	DCMF_FREXPMANT,		DCMF_HYPOT,			DCMF_ISNAN,			DCMF_LABS,			DCMF_LDEXP,
+	DCMF_LDIVQUOT,		DCMF_LOG,			DCMF_LOG10,			DCMF_LOGB,			DCMF_LROTL,
+	DCMF_LROTR,			DCMF_MAX,			DCMF_MIN,			DCMF_MODFFLOAT,		DCMF_NEXTAFTER,
+	DCMF_POW,			DCMF_RAND,			DCMF_ROTL,			DCMF_ROTR,			DCMF_SCALB,
+	DCMF_SIN,			DCMF_SINH,			DCMF_SQRT,			DCMF_SRAND,			DCMF_STATUS87,
+	DCMF_STATUSFP,		DCMF_STRTOD,		DCMF_TAN,			DCMF_TANH,			DCMF_DIVREM,
+	DCMF_FREXPEXP,		DCMF_LDIVREM,		DCMF_MODFINT,
+};
+
+
+enum DCUnitAction
+{
+	DCUA_NONE=0,
+	DCUA_GOTO,
+	DCUA_GOSUB,
+	DCUA_RETURN,
+	DCUA_GOTOELSE,
+	DCUA_GOTOENDIF,
+};
+
+enum DCParamType
+{
+	DCPT_NONE=0,
+
+	DCPT_MININTEGER		=0x0001,
+	DCPT_INTEGER		=0x0002,
+	DCPT_FLAG			=0x0003,
+	DCPT_COLOR			=0x0004,
+	DCPT_GUIOBJECT		=0x0005,
+	DCPT_MAXINTEGER		=0x0006,
+
+	DCPT_MINREAL		=0x0007,
+	DCPT_REAL			=0x0008,
+	DCPT_POINTX			=0x0009,
+	DCPT_POINTY			=0x000A,
+	DCPT_RECTX			=0x000B,
+	DCPT_RECTY			=0x000C,
+	DCPT_RECTW			=0x000D,
+	DCPT_RECTH			=0x000E,
+	DCPT_MAXREAL		=0x000F,
+
+
+	DCPT_MINDESTINTEGER		=0x0010,
+	DCPT_DESTINTEGER		=0x0011,
+	DCPT_DESTCOLOR			=0x0012,
+	DCPT_MAXDESTINTEGER		=0x0013,
+
+	DCPT_MINDESTREAL		=0x0014,
+	DCPT_DESTREAL			=0x0015,
+	DCPT_DESTPOINTX			=0x0016,
+	DCPT_DESTPOINTY			=0x0017,
+	DCPT_DESTRECTX			=0x0018,
+	DCPT_DESTRECTY			=0x0019,
+	DCPT_DESTRECTW			=0x001A,
+	DCPT_DESTRECTH			=0x001B,
+	DCPT_MAXDESTREAL		=0x001C,
+
+	DCPT_DESTRECT			=0x001D,
+	DCPT_DESTPOINT			=0x001E,
+	DCPT_DESTMATRIX			=0x001F,
+	DCPT_DESTSTRING			=0x0020,
+	DCPT_DESTREGION			=0x0021,
+	DCPT_DESTVARTYPE		=0x0022,
+
+	DCPT_VARTYPE			=0x0023,
+	DCPT_STRING				=0x0024,
+	DCPT_RECT				=0x0025,
+	DCPT_POINT				=0x0026,
+	DCPT_PEN				=0x0027,
+	DCPT_FONT				=0x0028,
+	DCPT_BRUSH				=0x0029,
+	DCPT_MATRIX				=0x002A,
+	DCPT_IMAGE				=0x002B,
+	DCPT_IMAGELIST			=0x002C,
+	DCPT_PATH				=0x002D,
+	DCPT_SFORMAT			=0x002E,
+	DCPT_REGION				=0x002F,
+	///////////////////////
+	DCPT_ARRAY				=0x0100,
+	DCPT_ARRAYIDX			=0x0300,
+	DCPT_ARRAYREF			=0x0500,
+	DCPT_TYPEMASK			=0x00FF,
+	DCPT_REFERENCE			=0x1000,
+	DCPT_REFERENCE2			=0x3000,
+    ////////////////////////
+	DCPTF_MASK					=0x00FF0000,
+	DCPTF_DRIVERSTRINGOPTIONS	=0x00010000,
+	DCPTF_UNIT					=0x00020000,
+	DCPTF_FILLMODE				=0x00030000,
+	DCPTF_FLUSHINTENTION		=0x00040000,
+	DCPTF_MATRIXORDER			=0x00050000,
+	DCPTF_COMBINEMODE			=0x00060000,
+	DCPTF_COMPOSITINGMODE		=0x00070000,
+	DCPTF_COMPOSITINGQUALITY	=0x00080000,
+	DCPTF_INTERPOLATIONMODE		=0x00090000,
+	DCPTF_PIXELOFFSETMODE		=0x000A0000,
+	DCPTF_SMOOTHINGMODE			=0x000B0000,
+	DCPTF_TEXTRENDERINGHINT		=0x000C0000,
+	DCPTF_COORDINATESPACE		=0x000D0000,
+	DCPTF_SYTEMMETRICS			=0x000E0000,
+	DCPTF_SYTEMCOLORS			=0x000F0000,
+	DCPTF_COMPAREOPERATIONS		=0x00100000,
+	DCPTF_OPERATORS				=0x00110000,
+	DCPTF_MATH					=0x00120000,
+	DCPTF_NAMEDCOLORS			=0x00130000,
+	DCPTF_BRUSHWRAPMODE			=0x00140000,
+	//////////////
+	DCPTF_SUBTYPEMASK			=0xFF000000,
+	DCPTF_SUBTYPEUSUAL			=0x00000000,
+	DCPTF_ST_CPLACEY			=0x01000000,
+	DCPTF_ST_CPLACEX			=0x02000000,
+	DCPTF_ST_SCRHEIGHT			=0x03000000,
+	DCPTF_ST_SCRWIDTH			=0x04000000,
+	DCPTF_ST_SCRCY				=0x05000000,
+	DCPTF_ST_SCRCX				=0x06000000,
+	DCPTF_ST_SCRSCALEYX			=0x07000000,
+	DCPTF_ST_SCRCLIENTRECT		=0x08000000,
+	DCPTF_ST_SCRWNDRECT			=0x09000000,
+	DCPTF_ST_MOUSEPOINTW		=0x0A000000,
+	DCPTF_ST_MOUSEPOINTS		=0x0B000000,
+	DCPTF_ST_MOUSEPOINTC		=0x0C000000,
+};
+
+//enum DCDestinationType
+//{
+//	DCDT_NONE,	
+//};
+
+enum DCCompareOperation
+{
+	DCCO_EQUAL,
+	DCCO_LESS,
+	DCCO_GREATER,
+	DCCO_LESSEQUAL,
+	DCCO_GREATEREQUAL,
+	DCCO_NOTEQUAL,
+	DCCO_NOTAND,
+	DCCO_AND,
+};
+
+enum DCOperators
+{
+	DCAO_PLUS,
+	DCAO_MINUS,
+	DCAO_MUL,
+	DCAO_DIV,
+	DCAO_OR,
+	DCAO_XOR,
+	DCAO_AND,
+	DCAO_TORIGHT,
+	DCAO_TOLEFT,
+	DCAO_MODULO,
+	DCAO_CENTER,
+};
+
+typedef struct _DCIPARAMETER
+{
+	DWORD dwNElements;
+	DCParamType dwParamType;
+	DWORD m_Reference;
+	union
+	{
+		INT m_int;
+		INT *m_pDestInt;
+		DWORD m_dword;
+		DWORD *m_pDestDword;
+		BYTE m_byte;
+		REAL m_real;
+		REAL *m_pDestReal;
+
+		CString				*m_pCString;
+		CString				*m_pDestCString;
+		Color				*m_pColor;
+		Color				*m_pDestColor;
+		RectF				*m_pRectF;
+		RectF				*m_pDestRectF;
+		PointF				*m_pPointF;
+		PointF				*m_pDestPointF;
+		CPenPlus			*m_pPen;
+		CGraphicsPathPlus	*m_pPath;
+		CBrushPlus			*m_pBrush;
+		CMatrixPlus			*m_pMatrix;
+		CMatrixPlus			*m_pDestMatrix;
+		CBitmapPlus			*m_pBitmap;
+		CFontPlus			*m_pFont;
+		CRgnPlus			*m_pRegion;
+		CRgnPlus			*m_pDestRegion;
+		CStringFormatPlus	*m_pStrFormat;
+		DWORD				*m_dwArray;
+		GPUnit				*m_pGPUnit;
+	};
+	_DCIPARAMETER *pAddParams;
+} DCIPARAMETER, *PDCIPARAMETER;
+
+typedef struct _DCIRESULT :_DCIPARAMETER
+{
+	DWORD dwDestination;
+} DCIRESULT, *PDCIRESULT;
+
+class CODContextItem  
+{
+	friend class CODContext;
+
+public:
+	const static UINT uNMethods;
+	const static char *cArrMethods[];
+	const static char *cArrMethodsParams[];
+
+	const static UINT uNUnitType;
+	const static char *cArrUnitType[];
+	const static DCUnitType uArrUnitType[];
+
+	const static char **ccAFlagNames[];
+	const static char *ccAFlagTypes[];
+	const static DWORD iAFlagStyles[];
+	const static DCParamType iAFlag[];
+	const static DWORD *iAFlagValues[];
+
+	const static char *ccADriverStringOptions[];
+	const static DriverStringOptions iADriverStringOptions[];
+
+	const static char *ccAFlushIntention[];
+	const static FlushIntention iAFlushIntention[];
+
+	const static char *ccACombineMode[];
+	const static CombineMode iACombineMode[];
+
+	const static char *ccACompositingMode[];
+	const static CompositingMode iACompositingMode[];
+
+	const static char *ccACompositingQuality[];
+	const static CompositingQuality iACompositingQuality[];
+
+	const static char *ccAInterpolationMode[];
+	const static InterpolationMode iAInterpolationMode[];
+
+	const static char *ccAPixelOffsetMode[];
+	const static PixelOffsetMode iAPixelOffsetMode[];
+
+	const static char *ccASmoothingMode[];
+	const static SmoothingMode iASmoothingMode[];
+
+	const static char *ccATextRenderingHint[];
+	const static TextRenderingHint iATextRenderingHint[];
+
+	const static char *ccACoordinateSpace[];
+	const static CoordinateSpace iACoordinateSpace[];
+
+	const static char *ccACompareOperation[];
+	const static DCCompareOperation iACompareOperation[];
+
+	const static char *ccAOperators[];
+	const static DCOperators iAOperators[];
+
+	const static char *ccAMathFunction[];
+	const static DCMathFunction iAMathFunction[];
+
+public:
+	virtual ~CODContextItem();
+	void ResetItem();
+	static CODContextItem *SetItem(CODContext *ipContext, DCUnitType iItemType, const char * iStr);
+	static CODContextItem *SetItem(CODContext *ipContext, const char * iStr);
+	static int TranslateParams(const char *ccStr, const DCParamType *pta, CODContext *ipContext, PDCIPARAMETER *iParameters, UINT *ioNParams);
+	static void ResetParameter(PDCIPARAMETER pParam);
+	static void ResetParameters(PDCIPARAMETER *pParam, UINT *ioNParams);
+
+	virtual UINT DoMethod(const char *iStr, char *oStr);
+
+	static void PrepareParameter(CODContext *ipContext, PDCIPARAMETER pParam);
+	static ARGB TranlateColor(const char *iStr);
+	static DWORD CompileVarSubtypeNames(const char *ccName);
+
+//	CString m_InitString;
+
+protected:
+	void PrepareParameters();
+	void ResetResult();
+
+protected:
+	CODContext *pContext;
+	UINT m_NParams;
+	CODContextItem(CODContext *ipContext);
+	DCUnitType m_Type;
+	DCUnitAction m_Action;
+	PDCIPARAMETER m_Parameters;
+	DCIRESULT m_Result;
+	void SetResult();
+
+public:
+	DCUnitType GetItemType() {return m_Type;}
+	DCUnitAction GetItemAction() {return m_Action;}
+	UINT GetParamsCount() {return m_NParams;}
+	DCUnitAction DoAction(Graphics *pGraphics);
+
+};
+
+#endif // !defined(AFX_ODCONTEXTITEM_H__8D957D42_5A21_4EC9_8A29_327B6377DC4D__INCLUDED_)

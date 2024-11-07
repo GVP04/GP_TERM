@@ -1,0 +1,2678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="BRIZDebugXPENGL|Win32">
+      <Configuration>BRIZDebugXPENGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZDebugXPRUS|Win32">
+      <Configuration>BRIZDebugXPRUS</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZRelease2000ENGL|Win32">
+      <Configuration>BRIZRelease2000ENGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZRelease2000|Win32">
+      <Configuration>BRIZRelease2000</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZRelease95ENGL|Win32">
+      <Configuration>BRIZRelease95ENGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZRelease95|Win32">
+      <Configuration>BRIZRelease95</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZRelease98ENGL|Win32">
+      <Configuration>BRIZRelease98ENGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZRelease98|Win32">
+      <Configuration>BRIZRelease98</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZReleaseNTENGL|Win32">
+      <Configuration>BRIZReleaseNTENGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZReleaseNT|Win32">
+      <Configuration>BRIZReleaseNT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZReleaseXPENGL|Win32">
+      <Configuration>BRIZReleaseXPENGL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BRIZReleaseXP|Win32">
+      <Configuration>BRIZReleaseXP</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugNT|Win32">
+      <Configuration>DebugNT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugXP|Win32">
+      <Configuration>DebugXP</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseNT|Win32">
+      <Configuration>ReleaseNT</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseXP|Win32">
+      <Configuration>ReleaseXP</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4594F815-5845-49B5-AAA1-E854847EE57E}</ProjectGuid>
+    <RootNamespace>GP_Term</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.25123.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">
+    <OutDir>.\ReleaseXP\</OutDir>
+    <IntDir>.\ReleaseXP\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">
+    <OutDir>.\BRIZDebugXPENGL\</OutDir>
+    <IntDir>.\BRIZDebugXPENGL\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">
+    <OutDir>.\DebugXP\</OutDir>
+    <IntDir>.\DebugXP\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">
+    <OutDir>.\BRIZRelease2000\</OutDir>
+    <IntDir>.\BRIZRelease2000\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">
+    <OutDir>.\BRIZReleaseNT\</OutDir>
+    <IntDir>.\BRIZReleaseNT\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">
+    <OutDir>.\BRIZReleaseNTENGL\</OutDir>
+    <IntDir>.\BRIZReleaseNTENGL\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">
+    <OutDir>.\BRIZRelease2000ENGL\</OutDir>
+    <IntDir>.\BRIZRelease2000ENGL\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">
+    <OutDir>.\BRIZReleaseXP\</OutDir>
+    <IntDir>.\BRIZReleaseXP\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">
+    <OutDir>.\BRIZReleaseXPENGL\</OutDir>
+    <IntDir>.\BRIZReleaseXPENGL\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">
+    <OutDir>.\BRIZRelease95\</OutDir>
+    <IntDir>.\BRIZRelease95\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">
+    <OutDir>.\BRIZRelease95ENGL\</OutDir>
+    <IntDir>.\BRIZRelease95ENGL\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">
+    <OutDir>.\BRIZRelease98ENGL\</OutDir>
+    <IntDir>.\BRIZRelease98ENGL\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">
+    <OutDir>.\BRIZRelease98\</OutDir>
+    <IntDir>.\BRIZRelease98\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">
+    <OutDir>.\ReleaseNT\</OutDir>
+    <IntDir>.\ReleaseNT\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">
+    <OutDir>.\DebugNT\</OutDir>
+    <IntDir>.\DebugNT\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\ReleaseXP/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_2000;MINFIN;RUS;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\ReleaseXP/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\ReleaseXP/</AssemblerListingLocation>
+      <ObjectFileName>.\ReleaseXP/</ObjectFileName>
+      <ProgramDataBaseFileName>.\ReleaseXP/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;MINFIN;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;UxTheme.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\ReleaseXP/GP_Term.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\ReleaseXP/GP_Term.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\ReleaseXP/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZDebugXPENGL/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_XP;BRIZ;_DEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZDebugXPENGL/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZDebugXPENGL/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZDebugXPENGL/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZDebugXPENGL/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>.\BRIZDebugXPENGL/</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;BRIZENGL;ENGLTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>gdiplus.lib;winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;Secur32.lib;UxTheme.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZDebugXPENGL/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\BRIZDebugXPENGL/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZDebugXPENGL/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\DebugXP/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_2000;MINFIN;RUS;_DEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;CODE_ANALYSIS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\DebugXP/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\DebugXP/</AssemblerListingLocation>
+      <ObjectFileName>.\DebugXP/</ObjectFileName>
+      <ProgramDataBaseFileName>.\DebugXP/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>.\DebugXP/</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;MINFIN;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;UxTheme.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\DebugXP/GP_Term.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\DebugXP/GP_Term.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\DebugXP/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZRelease2000/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_2000;BRIZ;RUS;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZRelease2000/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZRelease2000/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZRelease2000/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZRelease2000/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZRUS;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZRelease2000/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZRelease2000/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZRelease2000/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZReleaseNT/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_NT;BRIZ;RUS;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZReleaseNT/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZReleaseNT/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZReleaseNT/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZReleaseNT/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZRUS;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZReleaseNT/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZReleaseNT/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZReleaseNT/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZReleaseNTENGL/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_NT;BRIZ;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZReleaseNTENGL/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZReleaseNTENGL/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZReleaseNTENGL/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZReleaseNTENGL/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZENGL;ENGLTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZReleaseNTENGL/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZReleaseNTENGL/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZReleaseNTENGL/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZRelease2000ENGL/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_2000;BRIZ;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZRelease2000ENGL/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZRelease2000ENGL/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZRelease2000ENGL/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZRelease2000ENGL/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZENGL;ENGLTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZRelease2000ENGL/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZRelease2000ENGL/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZRelease2000ENGL/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZReleaseXP/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_XP;BRIZ;RUS;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZReleaseXP/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZReleaseXP/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZReleaseXP/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZReleaseXP/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZRUS;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;UxTheme.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZReleaseXP/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZReleaseXP/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZReleaseXP/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZReleaseXPENGL/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_XP;BRIZ;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZReleaseXPENGL/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZReleaseXPENGL/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZReleaseXPENGL/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZReleaseXPENGL/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZENGL;ENGLTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;UxTheme.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZReleaseXPENGL/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZReleaseXPENGL/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZReleaseXPENGL/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZRelease95/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_95;BRIZ;RUS;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZRelease95/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZRelease95/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZRelease95/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZRelease95/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZRUS;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZRelease95/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZRelease95/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZRelease95/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZRelease95ENGL/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_95;BRIZ;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZRelease95ENGL/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZRelease95ENGL/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZRelease95ENGL/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZRelease95ENGL/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZENGL;ENGLTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZRelease95ENGL/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZRelease95ENGL/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZRelease95ENGL/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZRelease98ENGL/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_98;BRIZ;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZRelease98ENGL/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZRelease98ENGL/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZRelease98ENGL/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZRelease98ENGL/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZENGL;ENGLTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZRelease98ENGL/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZRelease98ENGL/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZRelease98ENGL/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZRelease98/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_98;BRIZ;RUS;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZRelease98/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZRelease98/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZRelease98/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZRelease98/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;BRIZRUS;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Secur32.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZRelease98/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\BRIZRelease98/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZRelease98/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\ReleaseNT/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_NT;MINFIN;RUS;NDEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\ReleaseNT/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\ReleaseNT/</AssemblerListingLocation>
+      <ObjectFileName>.\ReleaseNT/</ObjectFileName>
+      <ProgramDataBaseFileName>.\ReleaseNT/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;MINFIN;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\ReleaseNT/GP_Term.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <ProgramDatabaseFile>.\ReleaseNT/GP_Term.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\ReleaseNT/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\DebugNT/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_NT;MINFIN;RUS;_DEBUG;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\DebugNT/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\DebugNT/</AssemblerListingLocation>
+      <ObjectFileName>.\DebugNT/</ObjectFileName>
+      <ProgramDataBaseFileName>.\DebugNT/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>.\DebugNT/</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;MINFIN;RUSTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0419</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;gdiplus.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\DebugNT/GP_Term.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\DebugNT/GP_Term.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\DebugNT/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\BRIZDebugXPENGL/GP_Term.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/D "_CRT_SECURE_NO_DEPRECATE" /J %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>W_XP;BRIZ;_DEBUG;RUS;WIN32;_WINDOWS;_WIN32_WINNT=0x600;_WIN32_IE=0x0700;SCI_LEXER;SECURITY_WIN32;GDIPVER=0x0110;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\BRIZDebugXPENGL/GP_Term.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\BRIZDebugXPENGL/</AssemblerListingLocation>
+      <ObjectFileName>.\BRIZDebugXPENGL/</ObjectFileName>
+      <ProgramDataBaseFileName>.\BRIZDebugXPENGL/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <BrowseInformationFile>.\BRIZDebugXPENGL/</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <EnablePREfast>false</EnablePREfast>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;BRIZENGL;ENGLTABLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>gdiplus.lib;winmm.lib;htmlhelp.lib;Vfw32.Lib;imm32.lib;Iphlpapi.lib;Secur32.lib;UxTheme.lib;Psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>BRIZDebugXPENGL/BRIZ.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalManifestDependencies>type=%27win32%27  name=%27Microsoft.Windows.Common-Controls%27  version=%276.0.0.0%27   processorArchitecture=%27X86%27  publicKeyToken=%276595b64144ccf1df%27   language=%27*%27;%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\BRIZDebugXPENGL/BRIZ.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\BRIZDebugXPENGL/GP_Term.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AutoSizing.cpp" />
+    <ClCompile Include="BitmapPlus.cpp" />
+    <ClCompile Include="BrushExt.cpp" />
+    <ClCompile Include="BrushPlus.cpp" />
+    <ClCompile Include="CntrItem.cpp" />
+    <ClCompile Include="COMImport.cpp" />
+    <ClCompile Include="CommonFunc.cpp" />
+    <ClCompile Include="ComPortSetings.cpp" />
+    <ClCompile Include="COMServer.cpp" />
+    <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="DldTermcapVideo.cpp" />
+    <ClCompile Include="DlgClienFiles.cpp" />
+    <ClCompile Include="DlgCodeco.cpp" />
+    <ClCompile Include="DlgContextMenu.cpp" />
+    <ClCompile Include="DlgCreateImageList.cpp" />
+    <ClCompile Include="DlgDelimiters.cpp" />
+    <ClCompile Include="DlgDrawEdit.cpp" />
+    <ClCompile Include="DlgDumpSettings.cpp" />
+    <ClCompile Include="DlgEditKeywords.cpp" />
+    <ClCompile Include="DlgEditorColor.cpp" />
+    <ClCompile Include="DlgEditorPrintSetup.cpp" />
+    <ClCompile Include="DlgErrors.cpp" />
+    <ClCompile Include="DlgFileItemName.cpp" />
+    <ClCompile Include="DlgFontSet.cpp" />
+    <ClCompile Include="DlgGPScintillaFind.cpp" />
+    <ClCompile Include="DlgGraphCode.cpp" />
+    <ClCompile Include="DlgGUISet.cpp" />
+    <ClCompile Include="DlgImageList.cpp" />
+    <ClCompile Include="DlgImageMask.cpp" />
+    <ClCompile Include="DlgInitComObject.cpp" />
+    <ClCompile Include="DlgKeyEditor.cpp" />
+    <ClCompile Include="DlgLogin.cpp" />
+    <ClCompile Include="DlgMethods.cpp" />
+    <ClCompile Include="DlgNewSession.cpp" />
+    <ClCompile Include="DlgNewSpr.cpp" />
+    <ClCompile Include="DlgNotepadSet.cpp" />
+    <ClCompile Include="DlgRegister.cpp" />
+    <ClCompile Include="DlgScreenSize.cpp" />
+    <ClCompile Include="DlgSeparateView.cpp" />
+    <ClCompile Include="DlgSeparateViewInFrame.cpp" />
+    <ClCompile Include="DlgSetupSSH.cpp" />
+    <ClCompile Include="DlgStatistics.cpp" />
+    <ClCompile Include="DlgTermcap.cpp" />
+    <ClCompile Include="DlgTermcapEsc.cpp" />
+    <ClCompile Include="DlgTermcapEscLine.cpp" />
+    <ClCompile Include="DlgTermcapKbd.cpp" />
+    <ClCompile Include="DlgTermcapTerminal.cpp" />
+    <ClCompile Include="DlgTermSet.cpp" />
+    <ClCompile Include="DlgViewContextMenuMethods.cpp" />
+    <ClCompile Include="DlgViewFSMethods.cpp" />
+    <ClCompile Include="DlgViewInput.cpp" />
+    <ClCompile Include="DlgViewInputAll.cpp" />
+    <ClCompile Include="DlgViewInputSet.cpp" />
+    <ClCompile Include="DlgViewIOFiles.cpp" />
+    <ClCompile Include="DlgViewItem.cpp" />
+    <ClCompile Include="DlgViewOutput.cpp" />
+    <ClCompile Include="DlgViewOutputSet.cpp" />
+    <ClCompile Include="DlgViewRegMethods.cpp" />
+    <ClCompile Include="DlgViewSystemMethods.cpp" />
+    <ClCompile Include="Dlg_OLESet.cpp" />
+    <ClCompile Include="DllImport.cpp" />
+    <ClCompile Include="DllServer.cpp" />
+    <ClCompile Include="EditorPrintSettings.cpp" />
+    <ClCompile Include="ErrReport.cpp" />
+    <ClCompile Include="excel8.cpp" />
+    <ClCompile Include="FilterArray.cpp" />
+    <ClCompile Include="FontExt.cpp" />
+    <ClCompile Include="FontPlus.cpp" />
+    <ClCompile Include="GPAdmIsOn.cpp" />
+    <ClCompile Include="GPAniButton.cpp" />
+    <ClCompile Include="GPAnimate.cpp" />
+    <ClCompile Include="GPAniStatic.cpp" />
+    <ClCompile Include="GPAsyncSocket.cpp" />
+    <ClCompile Include="GPBButton.cpp" />
+    <ClCompile Include="GPButton.cpp" />
+    <ClCompile Include="GPCDAODatabase.cpp" />
+    <ClCompile Include="GPCDAOQueryDef.cpp" />
+    <ClCompile Include="GPCDAORecordset.cpp" />
+    <ClCompile Include="GPCDAOTableDef.cpp" />
+    <ClCompile Include="GPCDAOWorkspace.cpp" />
+    <ClCompile Include="GPCDatabase.cpp" />
+    <ClCompile Include="GPChLBox.cpp" />
+    <ClCompile Include="GPColorDlg.cpp" />
+    <ClCompile Include="GPComboBox.cpp" />
+    <ClCompile Include="GPComboBoxEx.cpp" />
+    <ClCompile Include="GPCommonColorDlg.cpp" />
+    <ClCompile Include="GPCommonDlg.cpp" />
+    <ClCompile Include="GPCommonFontDlg.cpp" />
+    <ClCompile Include="GPContainer.cpp" />
+    <ClCompile Include="GPContextMenu.cpp" />
+    <ClCompile Include="GPCRecordset.cpp" />
+    <ClCompile Include="GPCurrent.cpp" />
+    <ClCompile Include="GPCursor.cpp" />
+    <ClCompile Include="GPCursorArr.cpp" />
+    <ClCompile Include="GPDateTimeCtrl.cpp" />
+    <ClCompile Include="GPDialogBar.cpp" />
+    <ClCompile Include="GPDlgBar.cpp" />
+    <ClCompile Include="GPDlgCommtype.cpp" />
+    <ClCompile Include="GPDlgDebug.cpp" />
+    <ClCompile Include="GPDlgFindReplace.cpp" />
+    <ClCompile Include="GPDlgNewValue.cpp" />
+    <ClCompile Include="GPDlgPageSetup.cpp" />
+    <ClCompile Include="GPDlgTelnetSet.cpp" />
+    <ClCompile Include="GPDlgViewMPVar.cpp" />
+    <ClCompile Include="GPDlgViewSpr.cpp" />
+    <ClCompile Include="GPDlgViewSTable.cpp" />
+    <ClCompile Include="GPDrawWnd.cpp" />
+    <ClCompile Include="GPDrLBox.cpp" />
+    <ClCompile Include="GPEdit.cpp" />
+    <ClCompile Include="GPExcel.cpp" />
+    <ClCompile Include="GPFont.cpp" />
+    <ClCompile Include="GPFontList.cpp" />
+    <ClCompile Include="GPFrameBar.cpp" />
+    <ClCompile Include="GPFrameWnd.cpp" />
+    <ClCompile Include="GPHandleArray.cpp" />
+    <ClCompile Include="GPHeader.cpp" />
+    <ClCompile Include="GPHTMLDocument.cpp" />
+    <ClCompile Include="GPImageList.cpp" />
+    <ClCompile Include="GPInputPool.cpp" />
+    <ClCompile Include="GPIOFile.cpp" />
+    <ClCompile Include="GPIOFileArray.cpp" />
+    <ClCompile Include="GPListBox.cpp" />
+    <ClCompile Include="GPListCtr.cpp" />
+    <ClCompile Include="GPMenu.cpp" />
+    <ClCompile Include="GPMessage.cpp" />
+    <ClCompile Include="GPMonthCalCtrl.cpp" />
+    <ClCompile Include="gpmsflexgrid.cpp" />
+    <ClCompile Include="GPNotifyEdit.cpp" />
+    <ClCompile Include="GPObjDialog.cpp" />
+    <ClCompile Include="GPODBC_Database.cpp" />
+    <ClCompile Include="GPOleDispatchDriver.cpp" />
+    <ClCompile Include="GPOLEExcel1.cpp" />
+    <ClCompile Include="gpolefont.cpp" />
+    <ClCompile Include="GPOLERange.cpp" />
+    <ClCompile Include="gppicture.cpp" />
+    <ClCompile Include="GPProgress.cpp" />
+    <ClCompile Include="GPReBar.cpp" />
+    <ClCompile Include="GPReBarCtrl.cpp" />
+    <ClCompile Include="GPRegion.cpp" />
+    <ClCompile Include="GPRegionArr.cpp" />
+    <ClCompile Include="gprowcursor.cpp" />
+    <ClCompile Include="GPScintilla.cpp" />
+    <ClCompile Include="GPScreen.cpp" />
+    <ClCompile Include="GPScript.cpp" />
+    <ClCompile Include="GPScrollBar.cpp" />
+    <ClCompile Include="GPScroller.cpp" />
+    <ClCompile Include="GPSlider.cpp" />
+    <ClCompile Include="GPSpinButton.cpp" />
+    <ClCompile Include="GPSpr.cpp" />
+    <ClCompile Include="GPSprArray.cpp" />
+    <ClCompile Include="GPStatic.cpp" />
+    <ClCompile Include="GPStatusBar.cpp" />
+    <ClCompile Include="GPStatusBarCtrl.cpp" />
+    <ClCompile Include="GPTabCtrl.cpp" />
+    <ClCompile Include="GPTextArray.cpp" />
+    <ClCompile Include="GPTInterface.cpp" />
+    <ClCompile Include="GPToolBar.cpp" />
+    <ClCompile Include="GPToolBarCtrl.cpp" />
+    <ClCompile Include="GPToolTipCtrl.cpp" />
+    <ClCompile Include="GPTree.cpp" />
+    <ClCompile Include="GPTwain.cpp" />
+    <ClCompile Include="GPUnit.cpp" />
+    <ClCompile Include="GPViewInput.cpp" />
+    <ClCompile Include="GPViewOutput.cpp" />
+    <ClCompile Include="GPwebbrowser2.cpp" />
+    <ClCompile Include="GPWebBrowser2Sink.cpp" />
+    <ClCompile Include="GPWindow.cpp" />
+    <ClCompile Include="GPWndPropertyArray.cpp" />
+    <ClCompile Include="GPWndPropertyArrayItem.cpp" />
+    <ClCompile Include="GPWndSizer.cpp" />
+    <ClCompile Include="GPWndSizerArr.cpp" />
+    <ClCompile Include="GP_AutoSizing.cpp" />
+    <ClCompile Include="GP_comm.cpp" />
+    <ClCompile Include="GP_Control.cpp" />
+    <ClCompile Include="GP_DlgSetting.cpp" />
+    <ClCompile Include="GP_File.cpp" />
+    <ClCompile Include="GP_HotKey.cpp" />
+    <ClCompile Include="GP_RarefiedArr.cpp" />
+    <ClCompile Include="GP_RTF.cpp" />
+    <ClCompile Include="GP_Term.cpp" />
+    <ClCompile Include="GP_TermDoc.cpp" />
+    <ClCompile Include="GP_TermDoc2.cpp" />
+    <ClCompile Include="GP_TermView.cpp" />
+    <ClCompile Include="GP_termView2.cpp" />
+    <ClCompile Include="GP_termView3.cpp" />
+    <ClCompile Include="GP_termView4.cpp" />
+    <ClCompile Include="GraphicsPathPlus.cpp" />
+    <ClCompile Include="IpFrame.cpp" />
+    <ClCompile Include="LexMVItem.cxx" />
+    <ClCompile Include="LexPB.cxx" />
+    <ClCompile Include="LexSepView.cxx" />
+    <ClCompile Include="ListMaker.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MatrixPlus.cpp" />
+    <ClCompile Include="MemUtils.cpp" />
+    <ClCompile Include="MenuCustom.cpp" />
+    <ClCompile Include="MSFlexGridSink.cpp" />
+    <ClCompile Include="ObjectGroupsArray.cpp" />
+    <ClCompile Include="ODBCRecordset.cpp" />
+    <ClCompile Include="ODContext.cpp" />
+    <ClCompile Include="ODContextArray.cpp" />
+    <ClCompile Include="ODContextItem.cpp" />
+    <ClCompile Include="PenExt.cpp" />
+    <ClCompile Include="PenPlus.cpp" />
+    <ClCompile Include="ProcMonitor.cpp" />
+    <ClCompile Include="ProgressDialog.cpp" />
+    <ClCompile Include="RgnExt.cpp" />
+    <ClCompile Include="RgnPlus.cpp" />
+    <ClCompile Include="scintilla\AutoComplete.cxx" />
+    <ClCompile Include="scintilla\CallTip.cxx" />
+    <ClCompile Include="scintilla\CellBuffer.cxx" />
+    <ClCompile Include="scintilla\CharClassify.cxx" />
+    <ClCompile Include="scintilla\ContractionState.cxx" />
+    <ClCompile Include="scintilla\Decoration.cxx" />
+    <ClCompile Include="scintilla\Document.cxx" />
+    <ClCompile Include="scintilla\DocumentAccessor.cxx" />
+    <ClCompile Include="scintilla\Editor.cxx" />
+    <ClCompile Include="scintilla\ExternalLexer.cxx" />
+    <ClCompile Include="scintilla\Indicator.cxx" />
+    <ClCompile Include="scintilla\KeyMap.cxx" />
+    <ClCompile Include="scintilla\KeyWords.cxx" />
+    <ClCompile Include="scintilla\LexAbaqus.cxx" />
+    <ClCompile Include="scintilla\LexAda.cxx" />
+    <ClCompile Include="scintilla\LexAPDL.cxx" />
+    <ClCompile Include="scintilla\LexAsm.cxx" />
+    <ClCompile Include="scintilla\LexAsn1.cxx" />
+    <ClCompile Include="scintilla\LexASY.cxx" />
+    <ClCompile Include="scintilla\LexAU3.cxx" />
+    <ClCompile Include="scintilla\LexAVE.cxx" />
+    <ClCompile Include="scintilla\LexBaan.cxx" />
+    <ClCompile Include="scintilla\LexBash.cxx" />
+    <ClCompile Include="scintilla\LexBasic.cxx" />
+    <ClCompile Include="scintilla\LexBullant.cxx" />
+    <ClCompile Include="scintilla\LexCaml.cxx" />
+    <ClCompile Include="scintilla\LexCLW.cxx" />
+    <ClCompile Include="scintilla\LexCmake.cxx" />
+    <ClCompile Include="scintilla\LexConf.cxx" />
+    <ClCompile Include="scintilla\LexCPP.cxx" />
+    <ClCompile Include="scintilla\LexCrontab.cxx" />
+    <ClCompile Include="scintilla\LexCsound.cxx" />
+    <ClCompile Include="scintilla\LexCSS.cxx" />
+    <ClCompile Include="scintilla\LexD.cxx" />
+    <ClCompile Include="scintilla\LexEiffel.cxx" />
+    <ClCompile Include="scintilla\LexErlang.cxx" />
+    <ClCompile Include="scintilla\LexEScript.cxx" />
+    <ClCompile Include="scintilla\LexFlagship.cxx" />
+    <ClCompile Include="scintilla\LexForth.cxx" />
+    <ClCompile Include="scintilla\LexFortran.cxx" />
+    <ClCompile Include="scintilla\LexGAP.cxx" />
+    <ClCompile Include="scintilla\LexGui4Cli.cxx" />
+    <ClCompile Include="scintilla\LexHaskell.cxx" />
+    <ClCompile Include="scintilla\LexHTML.cxx" />
+    <ClCompile Include="scintilla\LexInno.cxx" />
+    <ClCompile Include="scintilla\LexKix.cxx" />
+    <ClCompile Include="scintilla\LexLisp.cxx" />
+    <ClCompile Include="scintilla\LexLout.cxx" />
+    <ClCompile Include="scintilla\LexLua.cxx" />
+    <ClCompile Include="scintilla\LexMagik.cxx" />
+    <ClCompile Include="scintilla\LexMatlab.cxx" />
+    <ClCompile Include="scintilla\LexMetapost.cxx" />
+    <ClCompile Include="scintilla\LexMMIXAL.cxx" />
+    <ClCompile Include="scintilla\LexMPT.cxx" />
+    <ClCompile Include="scintilla\LexMSSQL.cxx" />
+    <ClCompile Include="scintilla\LexMySQL.cxx" />
+    <ClCompile Include="scintilla\LexNsis.cxx" />
+    <ClCompile Include="scintilla\LexOpal.cxx" />
+    <ClCompile Include="scintilla\LexOthers.cxx" />
+    <ClCompile Include="scintilla\LexPascal.cxx" />
+    <ClCompile Include="scintilla\LexPerl.cxx" />
+    <ClCompile Include="scintilla\LexPLM.cxx" />
+    <ClCompile Include="scintilla\LexPOV.cxx" />
+    <ClCompile Include="scintilla\LexPowerB.cxx" />
+    <ClCompile Include="scintilla\LexPowerShell.cxx" />
+    <ClCompile Include="scintilla\LexProgress.cxx" />
+    <ClCompile Include="scintilla\LexPS.cxx" />
+    <ClCompile Include="scintilla\LexPython.cxx" />
+    <ClCompile Include="scintilla\LexR.cxx" />
+    <ClCompile Include="scintilla\LexRebol.cxx" />
+    <ClCompile Include="scintilla\LexRuby.cxx" />
+    <ClCompile Include="scintilla\LexScriptol.cxx" />
+    <ClCompile Include="scintilla\LexSmalltalk.cxx" />
+    <ClCompile Include="scintilla\LexSpecman.cxx" />
+    <ClCompile Include="scintilla\LexSpice.cxx" />
+    <ClCompile Include="scintilla\LexSQL.cxx" />
+    <ClCompile Include="scintilla\LexTADS3.cxx" />
+    <ClCompile Include="scintilla\LexTCL.cxx" />
+    <ClCompile Include="scintilla\LexTeX.cxx" />
+    <ClCompile Include="scintilla\LexVB.cxx" />
+    <ClCompile Include="scintilla\LexVerilog.cxx" />
+    <ClCompile Include="scintilla\LexVHDL.cxx" />
+    <ClCompile Include="scintilla\LexYAML.cxx" />
+    <ClCompile Include="scintilla\LineMarker.cxx" />
+    <ClCompile Include="scintilla\PlatWin.cxx" />
+    <ClCompile Include="scintilla\PositionCache.cxx" />
+    <ClCompile Include="scintilla\PropSet.cxx" />
+    <ClCompile Include="scintilla\RESearch.cxx" />
+    <ClCompile Include="scintilla\RunStyles.cxx" />
+    <ClCompile Include="scintilla\ScintillaBase.cxx" />
+    <ClCompile Include="scintilla\ScintillaWin.cxx" />
+    <ClCompile Include="scintilla\Style.cxx" />
+    <ClCompile Include="scintilla\StyleContext.cxx" />
+    <ClCompile Include="scintilla\UniConversion.cxx" />
+    <ClCompile Include="scintilla\ViewStyle.cxx" />
+    <ClCompile Include="scintilla\WindowAccessor.cxx" />
+    <ClCompile Include="scintilla\XPM.cxx" />
+    <ClCompile Include="SendPickFlProgress.cpp" />
+    <ClCompile Include="Splash.cpp" />
+    <ClCompile Include="SrvrItem.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StringFormatPlus.cpp" />
+    <ClCompile Include="TableDataContainer.cpp" />
+    <ClCompile Include="TableDataContainerItem.cpp" />
+    <ClCompile Include="TermCap.cpp" />
+    <ClCompile Include="TwainCpp.cpp" />
+    <ClCompile Include="UniSocket.cpp" />
+    <ClCompile Include="WndPrint.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AutoSizing.rgs" />
+    <None Include="COMImport.rgs" />
+    <None Include="Connector.rgs" />
+    <CustomBuild Include="Create.ini">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <None Include="GPTInterface.rgs" />
+    <None Include="GP_Term.reg" />
+    <None Include="GP_Term.rgs" />
+    <CustomBuild Include="hlp\AfxCore.rtf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AfxOleCl.rtf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AfxOleSv.rtf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AfxPrint.rtf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\GP_Term.cnt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\GP_Term.hpj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <None Include="res\cursor1.cur" />
+    <None Include="res\cursor2.cur" />
+    <None Include="res\GP_Term.rc2" />
+    <None Include="res\HO_SIZEB.CUR" />
+    <None Include="res\H_CROSS.CUR" />
+    <None Include="res\H_IBEAM.CUR" />
+    <None Include="res\H_MOVE.CUR" />
+    <None Include="res\H_NE.CUR" />
+    <None Include="res\H_NODROP.CUR" />
+    <None Include="res\H_NS.CUR" />
+    <None Include="res\H_NW.CUR" />
+    <None Include="res\H_POINT.CUR" />
+    <None Include="res\H_WE.CUR" />
+    <None Include="res\Margin.cur" />
+    <CustomBuild Include="scintilla\doc\ScintillaDoc.html">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="GP_Term.odl">
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">Win32</TargetEnvironment>
+      <GenerateStublessProxies Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</GenerateStublessProxies>
+      <HeaderFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">GP_Term_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">GP_Term_i.c</InterfaceIdentifierFileName>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GP_Term.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">$(OUTDIR);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AutoSizing.h" />
+    <ClInclude Include="BitmapPlus.h" />
+    <ClInclude Include="BrushExt.h" />
+    <ClInclude Include="BrushPlus.h" />
+    <ClInclude Include="CntrItem.h" />
+    <ClInclude Include="COMImport.h" />
+    <ClInclude Include="ComPortSetings.h" />
+    <ClInclude Include="COMServer.h" />
+    <ClInclude Include="Connector.h" />
+    <ClInclude Include="DldTermcapVideo.h" />
+    <ClInclude Include="DlgClienFiles.h" />
+    <ClInclude Include="DlgCodeco.h" />
+    <ClInclude Include="DlgContextMenu.h" />
+    <ClInclude Include="DlgCreateImageList.h" />
+    <ClInclude Include="DlgDelimiters.h" />
+    <ClInclude Include="DlgDrawEdit.h" />
+    <ClInclude Include="DlgDumpSettings.h" />
+    <ClInclude Include="DlgEditKeywords.h" />
+    <ClInclude Include="DlgEditorColor.h" />
+    <ClInclude Include="DlgEditorPrintSetup.h" />
+    <ClInclude Include="DlgErrors.h" />
+    <ClInclude Include="DlgFileItemName.h" />
+    <ClInclude Include="DlgFontSet.h" />
+    <ClInclude Include="DlgGPScintillaFind.h" />
+    <ClInclude Include="DlgGraphCode.h" />
+    <ClInclude Include="DlgGUISet.h" />
+    <ClInclude Include="DlgImageList.h" />
+    <ClInclude Include="DlgImageMask.h" />
+    <ClInclude Include="DlgInitComObject.h" />
+    <ClInclude Include="DlgKeyEditor.h" />
+    <ClInclude Include="DlgLogin.h" />
+    <ClInclude Include="DlgMethods.h" />
+    <ClInclude Include="DlgNewSession.h" />
+    <ClInclude Include="DlgNewSpr.h" />
+    <ClInclude Include="DlgNotepadSet.h" />
+    <ClInclude Include="DlgRegister.h" />
+    <ClInclude Include="DlgScreenSize.h" />
+    <ClInclude Include="DlgSeparateView.h" />
+    <ClInclude Include="DlgSeparateViewInFrame.h" />
+    <ClInclude Include="DlgSetupSSH.h" />
+    <ClInclude Include="DlgStatistics.h" />
+    <ClInclude Include="DlgTermcap.h" />
+    <ClInclude Include="DlgTermcapEsc.h" />
+    <ClInclude Include="DlgTermcapEscLine.h" />
+    <ClInclude Include="DlgTermcapKbd.h" />
+    <ClInclude Include="DlgTermcapTerminal.h" />
+    <ClInclude Include="DlgTermSet.h" />
+    <ClInclude Include="DlgViewContextMenuMethods.h" />
+    <ClInclude Include="DlgViewFSMethods.h" />
+    <ClInclude Include="DlgViewInput.h" />
+    <ClInclude Include="DlgViewInputAll.h" />
+    <ClInclude Include="DlgViewInputSet.h" />
+    <ClInclude Include="DlgViewIOFiles.h" />
+    <ClInclude Include="DlgViewItem.h" />
+    <ClInclude Include="DlgViewOutput.h" />
+    <ClInclude Include="DlgViewOutputSet.h" />
+    <ClInclude Include="DlgViewRegMethods.h" />
+    <ClInclude Include="DlgViewSystemMethods.h" />
+    <ClInclude Include="Dlg_OLESet.h" />
+    <ClInclude Include="DllImport.h" />
+    <ClInclude Include="DllServer.h" />
+    <ClInclude Include="EditorPrintSettings.h" />
+    <ClInclude Include="ErrReport.h" />
+    <ClInclude Include="excel8.h" />
+    <ClInclude Include="FilterArray.h" />
+    <ClInclude Include="FontExt.h" />
+    <ClInclude Include="FontPlus.h" />
+    <ClInclude Include="GPAdmIsOn.h" />
+    <ClInclude Include="GPAniButton.h" />
+    <ClInclude Include="GPAnimate.h" />
+    <ClInclude Include="GPAniStatic.h" />
+    <ClInclude Include="GPAsyncSocket.h" />
+    <ClInclude Include="GPBButton.h" />
+    <ClInclude Include="GPButton.h" />
+    <ClInclude Include="GPCDAODatabase.h" />
+    <ClInclude Include="GPCDAOQueryDef.h" />
+    <ClInclude Include="GPCDAORecordset.h" />
+    <ClInclude Include="GPCDAOTableDef.h" />
+    <ClInclude Include="GPCDAOWorkspace.h" />
+    <ClInclude Include="GPCDatabase.h" />
+    <ClInclude Include="GPChLBox.h" />
+    <ClInclude Include="GPColorDlg.h" />
+    <ClInclude Include="GPComboBox.h" />
+    <ClInclude Include="GPComboBoxEx.h" />
+    <ClInclude Include="GPCommonColorDlg.h" />
+    <ClInclude Include="GPCommonFontDlg.h" />
+    <ClInclude Include="GPContainer.h" />
+    <ClInclude Include="GPContextMenu.h" />
+    <ClInclude Include="GPCRecordset.h" />
+    <ClInclude Include="GPCurrent.h" />
+    <ClInclude Include="GPCursor.h" />
+    <ClInclude Include="GPCursorArr.h" />
+    <ClInclude Include="GPDateTimeCtrl.h" />
+    <ClInclude Include="GPDialogBar.h" />
+    <ClInclude Include="GPDlgBar.h" />
+    <ClInclude Include="GPDlgCommtype.h" />
+    <ClInclude Include="GPDlgDebug.h" />
+    <ClInclude Include="GPDlgFindReplace.h" />
+    <ClInclude Include="GPDlgNewValue.h" />
+    <ClInclude Include="GPDlgPageSetup.h" />
+    <ClInclude Include="GPDlgTelnetSet.h" />
+    <ClInclude Include="GPDlgViewMPVar.h" />
+    <ClInclude Include="GPDlgViewSpr.h" />
+    <ClInclude Include="GPDlgViewSTable.h" />
+    <ClInclude Include="GPDrawWnd.h" />
+    <ClInclude Include="GPDrLBox.h" />
+    <ClInclude Include="GPEdit.h" />
+    <ClInclude Include="GPExcel.h" />
+    <ClInclude Include="GPFont.h" />
+    <ClInclude Include="GPFontList.h" />
+    <ClInclude Include="GPFrameBar.h" />
+    <ClInclude Include="GPFrameWnd.h" />
+    <ClInclude Include="GPHandleArray.h" />
+    <ClInclude Include="GPHeader.h" />
+    <ClInclude Include="GPHTMLDocument.h" />
+    <ClInclude Include="GPImageList.h" />
+    <ClInclude Include="GPInputPool.h" />
+    <ClInclude Include="GPIOFile.h" />
+    <ClInclude Include="GPIOFileArray.h" />
+    <ClInclude Include="GPListBox.h" />
+    <ClInclude Include="GPListCtr.h" />
+    <ClInclude Include="GPMenu.h" />
+    <ClInclude Include="GPMessage.h" />
+    <ClInclude Include="GPMonthCalCtrl.h" />
+    <ClInclude Include="gpmsflexgrid.h" />
+    <ClInclude Include="GPNotifyEdit.h" />
+    <ClInclude Include="GPObjDialog.h" />
+    <ClInclude Include="GPODBC_Database.h" />
+    <ClInclude Include="GPOleDispatchDriver.h" />
+    <ClInclude Include="GPOLEExcel1.h" />
+    <ClInclude Include="gpolefont.h" />
+    <ClInclude Include="GPOLERange.h" />
+    <ClInclude Include="gppicture.h" />
+    <ClInclude Include="GPProgress.h" />
+    <ClInclude Include="GPReBar.h" />
+    <ClInclude Include="GPReBarCtrl.h" />
+    <ClInclude Include="GPRegion.h" />
+    <ClInclude Include="GPRegionArr.h" />
+    <ClInclude Include="gprowcursor.h" />
+    <ClInclude Include="GPScintilla.h" />
+    <ClInclude Include="GPScreen.h" />
+    <ClInclude Include="GPScript.h" />
+    <ClInclude Include="GPScrollBar.h" />
+    <ClInclude Include="GPScroller.h" />
+    <ClInclude Include="GPSlider.h" />
+    <ClInclude Include="GPSpinButton.h" />
+    <ClInclude Include="GPSpr.h" />
+    <ClInclude Include="GPSprArray.h" />
+    <ClInclude Include="GPStatic.h" />
+    <ClInclude Include="GPStatusBar.h" />
+    <ClInclude Include="GPStatusBarCtrl.h" />
+    <ClInclude Include="GPTabCtrl.h" />
+    <ClInclude Include="GPTextArray.h" />
+    <ClInclude Include="GPTInterface.h" />
+    <ClInclude Include="GPToolBar.h" />
+    <ClInclude Include="GPToolBarCtrl.h" />
+    <ClInclude Include="GPToolTipCtrl.h" />
+    <ClInclude Include="GPTree.h" />
+    <ClInclude Include="GPTwain.h" />
+    <ClInclude Include="GPUnit.h" />
+    <ClInclude Include="GPViewInput.h" />
+    <ClInclude Include="GPViewOutput.h" />
+    <ClInclude Include="GPwebbrowser2.h" />
+    <ClInclude Include="GPWebBrowser2Sink.h" />
+    <ClInclude Include="GPWindow.h" />
+    <ClInclude Include="GPWndPropertyArray.h" />
+    <ClInclude Include="GPWndPropertyArrayItem.h" />
+    <ClInclude Include="GPWndSizer.h" />
+    <ClInclude Include="GPWndSizerArr.h" />
+    <ClInclude Include="GP_AutoSizing.h" />
+    <ClInclude Include="GP_comm.h" />
+    <ClInclude Include="GP_Control.h" />
+    <ClInclude Include="GP_DlgSetting.h" />
+    <ClInclude Include="GP_File.h" />
+    <ClInclude Include="GP_HotKey.h" />
+    <ClInclude Include="GP_QScroll.h" />
+    <ClInclude Include="GP_QSort.h" />
+    <ClInclude Include="GP_RarefiedArr.h" />
+    <ClInclude Include="GP_RTF.h" />
+    <ClInclude Include="GP_Term.h" />
+    <ClInclude Include="GP_TermDoc.h" />
+    <ClInclude Include="GP_TermView.h" />
+    <ClInclude Include="GraphicsPathPlus.h" />
+    <ClInclude Include="IpFrame.h" />
+    <ClInclude Include="ListMaker.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MatrixPlus.h" />
+    <ClInclude Include="MemUtils.h" />
+    <ClInclude Include="MenuCustom.h" />
+    <ClInclude Include="MSFlexGridSink.h" />
+    <ClInclude Include="MyGDIPlus.h" />
+    <ClInclude Include="ObjectGroupsArray.h" />
+    <ClInclude Include="ODBCRecordset.h" />
+    <ClInclude Include="ODContext.h" />
+    <ClInclude Include="ODContextArray.h" />
+    <ClInclude Include="ODContextItem.h" />
+    <ClInclude Include="PenExt.h" />
+    <ClInclude Include="PenPlus.h" />
+    <ClInclude Include="ProcMonitor.h" />
+    <ClInclude Include="ProgressDialog.h" />
+    <CustomBuild Include="Resource.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="RgnExt.h" />
+    <ClInclude Include="RgnPlus.h" />
+    <ClInclude Include="scintilla\Accessor.h" />
+    <ClInclude Include="scintilla\AutoComplete.h" />
+    <ClInclude Include="scintilla\CallTip.h" />
+    <ClInclude Include="scintilla\CellBuffer.h" />
+    <ClInclude Include="scintilla\CharacterSet.h" />
+    <ClInclude Include="scintilla\CharClassify.h" />
+    <ClInclude Include="scintilla\ContractionState.h" />
+    <ClInclude Include="scintilla\Decoration.h" />
+    <ClInclude Include="scintilla\Document.h" />
+    <ClInclude Include="scintilla\DocumentAccessor.h" />
+    <ClInclude Include="scintilla\Editor.h" />
+    <ClInclude Include="scintilla\ExternalLexer.h" />
+    <ClInclude Include="scintilla\Indicator.h" />
+    <ClInclude Include="scintilla\KeyMap.h" />
+    <ClInclude Include="scintilla\KeyWords.h" />
+    <ClInclude Include="scintilla\LineMarker.h" />
+    <ClInclude Include="scintilla\Partitioning.h" />
+    <ClInclude Include="scintilla\Platform.h" />
+    <ClInclude Include="scintilla\PlatformRes.h" />
+    <ClInclude Include="scintilla\PositionCache.h" />
+    <ClInclude Include="scintilla\PropSet.h" />
+    <ClInclude Include="scintilla\RESearch.h" />
+    <ClInclude Include="scintilla\RunStyles.h" />
+    <ClInclude Include="scintilla\SciLexer.h" />
+    <ClInclude Include="scintilla\Scintilla.h" />
+    <ClInclude Include="scintilla\ScintillaBase.h" />
+    <ClInclude Include="scintilla\ScintillaWidget.h" />
+    <ClInclude Include="scintilla\ScintillaWin.h" />
+    <ClInclude Include="scintilla\SplitVector.h" />
+    <ClInclude Include="scintilla\SString.h" />
+    <ClInclude Include="scintilla\Style.h" />
+    <ClInclude Include="scintilla\StyleContext.h" />
+    <ClInclude Include="scintilla\SVector.h" />
+    <ClInclude Include="scintilla\UniConversion.h" />
+    <ClInclude Include="scintilla\ViewStyle.h" />
+    <ClInclude Include="scintilla\WindowAccessor.h" />
+    <ClInclude Include="scintilla\XPM.h" />
+    <ClInclude Include="SendPickFlProgress.h" />
+    <ClInclude Include="Splash.h" />
+    <ClInclude Include="SrvrItem.h" />
+    <ClInclude Include="ssh\MISC.H" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StringFormatPlus.h" />
+    <ClInclude Include="TableDataContainer.h" />
+    <ClInclude Include="TableDataContainerItem.h" />
+    <ClInclude Include="TermCap.h" />
+    <ClInclude Include="TwainCpp.h" />
+    <ClInclude Include="UniSocket.h" />
+    <ClInclude Include="WndPrint.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="hlp\AppExit.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\Bullet.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\CurArw2.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\CurArw4.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\CurHelp.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditCopy.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditCut.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditPast.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditUndo.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FileNew.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FileOpen.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FilePrnt.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FileSave.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\HlpSBar.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\HlpTBar.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecFirst.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecLast.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecNext.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecPrev.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\Scmax.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\ScMenu.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hlp\Scmin.bmp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <Image Include="res\AUDIO0.ico" />
+    <Image Include="res\AUDIO1.ico" />
+    <Image Include="res\briz.bmp" />
+    <Image Include="res\DevToolBar.bmp" />
+    <Image Include="res\DevToolBar256.bmp" />
+    <Image Include="res\GP_TermDoc.ico" />
+    <Image Include="res\ico00003.ico" />
+    <Image Include="res\ico00003warn.ico" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\idr_main.ico" />
+    <Image Include="res\idr_mainwarn.ico" />
+    <Image Include="res\IToolbar.bmp" />
+    <Image Include="res\mainfram.bmp" />
+    <Image Include="res\SepView256.bmp" />
+    <Image Include="res\SepViewDis256.bmp" />
+    <Image Include="res\Splsh16.bmp" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\Toolbar256.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="LexerColors.txt" />
+    <Text Include="LexKeywords.txt" />
+    <CustomBuild Include="ReadMe.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZDebugXPRUS|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease2000|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease95|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98ENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZRelease98|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNTENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXPENGL|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='BRIZReleaseXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugXP|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNT|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseXP|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <Text Include="termcap.txt" />
+    <Text Include="Text1.txt" />
+    <Text Include="Выполненные доработки.txt" />
+    <Text Include="план доработки.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="GP_Term.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

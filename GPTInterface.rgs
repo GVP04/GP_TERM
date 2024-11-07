@@ -1,0 +1,24 @@
+HKCR
+{
+	GP_Term.GPTInterface.1 = s 'GPTInterface Class'
+	{
+		CLSID = s '{1509E7E4-DD4C-11D3-970D-0080AD863699}'
+	}
+	GP_Term.GPTInterface = s 'GPTInterface Class'
+	{
+		CLSID = s '{1509E7E4-DD4C-11D3-970D-0080AD863699}'
+		CurVer = s 'GP_Term.GPTInterface.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1509E7E4-DD4C-11D3-970D-0080AD863699} = s 'GPTInterface Class'
+		{
+			ProgID = s 'GP_Term.GPTInterface.1'
+			VersionIndependentProgID = s 'GP_Term.GPTInterface'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{1509E7E2-DD4C-11D3-970D-0080AD863699}'
+			'TypeLib' = s '{1509E7A7-DD4C-11D3-970D-0080AD863699}'
+		}
+	}
+}

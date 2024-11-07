@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{1509E7E2-DD4C-11D3-970D-0080AD863699} = s 'GP_Term'
+		'GP_Term.EXE'
+		{
+			val AppID = s {1509E7E2-DD4C-11D3-970D-0080AD863699}
+		}
+	}
+}

@@ -1,0 +1,409 @@
+// GP_Term.odl : type library source for GP_Term.exe
+import "oaidl.idl";
+//import "oaidl.idl";
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (GP_Term.tlb).
+
+[ uuid(1509E7A7-DD4C-11D3-970D-0080AD863699), version(1.0) ]
+library GP_Term
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	//  Primary dispatch interface for CGP_TermDoc
+	
+	[ uuid(1509E7A8-DD4C-11D3-970D-0080AD863699) ]
+ 	dispinterface IGP_Term
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CGP_TermDoc)
+			[id(1), helpstring("method - WaitTimeTCL")] long WaitTimeTCL;
+			[id(2), helpstring("method - WaitTimeSUB")] long WaitTimeSUB;
+			[id(3), helpstring("method - WaitTimeFRead")] long WaitTimeFRead;
+			[id(4), helpstring("method - WaitTimeSystem")] long WaitTimeSystem;
+			[id(5), helpstring("method - WaitTimeMM")] long WaitTimeMM;
+			[id(6), helpstring("method - WaitTimeInput")] long WaitTimeInput;
+			[id(7), helpstring("method - WaitTimeFWrite")] long WaitTimeFWrite;
+			[id(8), helpstring("method - WaitTimeFOther")] long WaitTimeFOther;
+			[id(9), helpstring("method - WaitCountTCL")] long WaitCountTCL;
+			[id(10), helpstring("method - WaitCountSystem")] long WaitCountSystem;
+			[id(11), helpstring("method - WaitCountSUB")] long WaitCountSUB;
+			[id(12), helpstring("method - WaitCountMM")] long WaitCountMM;
+			[id(13), helpstring("method - WaitCountInput")] long WaitCountInput;
+			[id(14), helpstring("method - WaitCountFWrite")] long WaitCountFWrite;
+			[id(15), helpstring("method - WaitCountFRead")] long WaitCountFRead;
+			[id(16), helpstring("method - WaitCountFOther")] long WaitCountFOther;
+			[id(17), helpstring("method - HWND")] OLE_HANDLE HWND;
+			[id(18), helpstring("method - HWNDview")] OLE_HANDLE HWNDview;
+			[id(19), helpstring("method - DelimArray1")] VARIANT DelimArray1;
+			[id(20), helpstring("method - DelimArray2")] VARIANT DelimArray2;
+			[id(21), helpstring("method - DelimArray3")] VARIANT DelimArray3;
+			[id(22), helpstring("method - DelimArray4")] VARIANT DelimArray4;
+			[id(23), helpstring("method - InputEnable")] long InputEnable;
+			[id(178), helpstring("property VariantArrayType")] long VariantArrayType;
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CGP_TermDoc)
+			[id(24), helpstring("method - SendLine")] long SendLine([in] BSTR iStr);
+			[id(25), helpstring("method - Close")] void Close();
+			[id(26), helpstring("method - Connect")] long Connect();
+			[id(27), helpstring("method - IsConnected")] long IsConnected();
+			[id(28), helpstring("method - ExecTCL")] void ExecTCL([in] BSTR TCLLine);
+			[id(29), helpstring("method - GetTCLResult")] long GetTCLResult([out] VARIANT* ResArray,[in] long GetFlag);
+			[id(30), helpstring("method - ResetTCLWait")] void ResetTCLWait();
+			[id(31), helpstring("method - ResetSUBWait")] void ResetSUBWait();
+			[id(32), helpstring("method - ExecTCLCap")] void ExecTCLCap([in] BSTR TCLLine);
+			[id(33), helpstring("method - SendChar")] long SendChar([in] short iChar);
+			[id(34), helpstring("method - SetECHO")] void SetECHO([in] short EchoState);
+			[id(35), helpstring("method - GetInput")] long GetInput([out] VARIANT* ResArray);
+			[id(36), helpstring("method - SetOutputVisibility")] void SetOutputVisibility([in] short VisType);
+			[id(37), helpstring("method - GetSubResult")] long GetSubResult([out] VARIANT* RetArray);
+			[id(38), helpstring("method - ExecSUB")] void ExecSUB([in] BSTR SubName,[in] VARIANT* ParamArray);
+			[id(39), helpstring("method - TermShow")] void TermShow([in] long ShowType);
+			[id(40), helpstring("method - OpenPICKFile")] long OpenPICKFile([in] BSTR FileName);
+			[id(41), helpstring("method - ClosePICKFile")] void ClosePICKFile([in] long FileHandler);
+			[id(42), helpstring("method - ReadFromPICK")] long ReadFromPICK([in] long FileHandler,[in] BSTR Key,[out] VARIANT* RetArray);
+			[id(43), helpstring("method - WriteToPICK")] long WriteToPICK([in] long FileHandler,[in] BSTR Key,[in] VARIANT RecArray);
+			[id(44), helpstring("method - GetActiveList")] long GetActiveList([out] VARIANT* ListArray);
+			[id(45), helpstring("method - GetList")] long GetList([in] BSTR FileName,[in] BSTR ListName,[out] VARIANT* RetArray);
+			[id(46), helpstring("method - SaveList")] long SaveList([in] BSTR FileName,[in] BSTR ListName,[in] VARIANT* ListArray);
+			[id(47), helpstring("method - ReadFromPICKEx")] long ReadFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[out] VARIANT* RetArray);
+			[id(48), helpstring("method - DeleteFromPICKFile")] long DeleteFromPICKFile([in] long FileHandler,[in] BSTR Item); 
+			[id(49), helpstring("method - StringToArray")] long StringToArray([in] BSTR iString,[out] VARIANT* oArray,[in] BSTR DelimString);
+			[id(50), helpstring("method - CountOccur")] long CountOccur([in] BSTR iString,[in] BSTR SubString);
+			[id(51), helpstring("method - IndexSubString")] long IndexSubString([in] BSTR iString,[in] BSTR SubString,[in] long Occurence);
+			[id(52), helpstring("method - ItemExist")] long ItemExist([in] long FileHandler,[in] BSTR ItemKey);
+			[id(53), helpstring("method - GetListEx")] void GetListEx([in] VARIANT TCLLines);
+			[id(54), helpstring("method - EndMessageMap")] void EndMessageMap();
+			[id(55), helpstring("method - IsMessageMapOn")] long IsMessageMapOn();
+			[id(56), helpstring("method - WriteVToPICK")] long WriteVToPICK([in] long FileHandler,[in] BSTR Key,[in] long nAtribute,[in] BSTR vString);
+			[id(57), helpstring("method - WriteVToPICKEx")] long WriteVToPICKEx([in] long FileHandler,[in] VARIANT KeyArray,[in] VARIANT nAttrArray,[in] VARIANT ValuesArray);
+			[id(58), helpstring("method - ArrayToString")] long ArrayToString([in] VARIANT iArray,[out] BSTR* oString,[in] BSTR DelimiterString);
+			[id(59), helpstring("method - WriteToPICKEx")] long WriteToPICKEx([in] long FileHandler,[in] VARIANT KeyArray,[in] VARIANT ItemArray);
+			[id(60), helpstring("method - ReadVFromPICK")] long ReadVFromPICK([in] long FileHandler,[in] BSTR Key,[in] long nAttribute,[out] BSTR* Attribute);
+			[id(61), helpstring("method - ReadVFromPICKEx")] long ReadVFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] long nAttribute,[out] VARIANT* RetArray);
+			[id(62), helpstring("method - WriteUToPICK")] long WriteUToPICK([in] long FileHandler,[in] BSTR Key,[in] VARIANT RecArray);
+			[id(63), helpstring("method - WriteUToPICKEx")] long WriteUToPICKEx([in] long FileHandler,[in] VARIANT KeyArray,[in] VARIANT ItemArray);
+			[id(64), helpstring("method - WriteVUToPICK")] long WriteVUToPICK([in] long FileHandler,[in] BSTR Key,[in] long nAttribute,[in] BSTR vString);
+			[id(65), helpstring("method - WriteVUToPICKEx")] long WriteVUToPICKEx([in] long FileHandler,[in] VARIANT KeyArray,[in] VARIANT nAttrArray,[in] VARIANT ValuesArray);
+			[id(66), helpstring("method - ReadUFromPICK")] long ReadUFromPICK([in] long FileHandler,[in] BSTR Key,[out] VARIANT* RetArray);
+			[id(67), helpstring("method - ReadUFromPICKEx")] long ReadUFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[out] VARIANT* RetArray);
+			[id(68), helpstring("method - ReadVUFromPICK")] long ReadVUFromPICK([in] long FileHandler,[in] BSTR Key,[in] long nAttribute,[out] BSTR* Attribute);
+			[id(69), helpstring("method - ReadVUFromPICKEx")] long ReadVUFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] long nAttribute,[out] VARIANT* RetArray);
+			[id(70), helpstring("method - GetTimeFromPICK")] DATE GetTimeFromPICK([in] VARIANT PICKTime);
+			[id(71), helpstring("method - GetDateFromPICK")] DATE GetDateFromPICK([in] VARIANT PICKDate);
+			[id(72), helpstring("method - SetTimeToPICK")] long SetTimeToPICK([in] DATE iOleDateTime);
+			[id(73), helpstring("method - SetDateToPICK")] long SetDateToPICK([in] DATE iOLEDateTime);
+			[id(74), helpstring("method - ReadKFromPICKEx")] long ReadKFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(75), helpstring("method - ReadKUFromPICKEx")] long ReadKUFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(77), helpstring("method - ReadKVFromPICKEx")] long ReadKVFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] long nAttribute,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(76), helpstring("method - ReadKVUFromPICKEx")] long ReadKVUFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] long nAttribute,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(78), helpstring("method - ResetActiveList")] void ResetActiveList();
+			[id(79), helpstring("method - ConvertToSubArray")] long ConvertToSubArray([in,out] VARIANT* ConvArray,[in] BSTR Delimiter);
+			[id(80), helpstring("method - DoSystem")] void DoSystem([out] VARIANT* RetArray,[in] long nSystem);
+			[id(81), helpstring("method - ConvertToSubArrayEx")] long ConvertToSubArrayEx([in,out] VARIANT* ConvArray,[in] VARIANT DelimiterArray);
+			[id(82), helpstring("method - StringToArrayEx")] long StringToArrayEx([in] BSTR iString,[out] VARIANT* oArray,[in] VARIANT DelimitersArray);
+			[id(83), helpstring("method - ExecSubEx")] void ExecSubEx([in] BSTR SubName,[in] VARIANT ParamArray);
+			[id(84), helpstring("method - ArrayToStringEx")] long ArrayToStringEx([in] VARIANT iArray,[out] BSTR* oString,[in] VARIANT DelimArray);
+			[id(85), helpstring("method - ExecTCLEx")] void ExecTCLEx([in] VARIANT TCLLineArray);
+			[id(86), helpstring("method - ExecTCLCapEx")] void ExecTCLCapEx([in] VARIANT TCLLineArray);
+			[id(87), helpstring("method - SetWindowStyle")] void SetWindowStyle([in] OLE_HANDLE ihWnd,[in] VARIANT RemStyle,[in] VARIANT AddStyle,[in] VARIANT nFlags);
+			[id(88), helpstring("method - SetWindowStyleEx")] void SetWindowStyleEx([in] OLE_HANDLE ihWnd,[in] VARIANT RemStyle,[in] VARIANT AddStyle,[in] VARIANT nFlags);
+			[id(89), helpstring("method - ReleaseLockedItems")] void ReleaseLockedItems([in] long FileHandler,[in] VARIANT Items);
+			[id(90), helpstring("method - ReleaseLockedFile")] void ReleaseLockedFile([in] long FileHandler);
+			[id(91), helpstring("method - ReleaseLocks")] void ReleaseLocks();
+			[id(92), helpstring("method - DumpStart")] void DumpStart();
+			[id(93), helpstring("method - DumpStop")] long DumpStop([out] VARIANT* RetArray);
+			[id(94), helpstring("method - IConv")] void IConv([in] BSTR iString,[in] BSTR iFormat,[out] BSTR* oString);
+			[id(95), helpstring("method - OConv")] void OConv([in] BSTR iString,[in] BSTR iFormat,[out] BSTR* oString);
+			[id(96), helpstring("method - ArrayDelElement")] long ArrayDelElement([in] VARIANT iArray,[in] long DelIndex);
+			[id(97), helpstring("method - ArrayInsElement")] long ArrayInsElement([in] VARIANT iArray,[in] long InsIndex);
+			[id(98), helpstring("method - SelectOpenPickFile")] long SelectOpenPickFile([in] BSTR FileName);
+			[id(99), helpstring("method - SelectPickFile")] void SelectPickFile([in] BSTR FileName);
+			[id(100), helpstring("method - ReadPickFile")] long ReadPickFile([in] BSTR FileName,[out] VARIANT* KeyArray,[out] VARIANT* ItemArray);
+			[id(101), helpstring("method - SortArray")] void SortArray([in,out] VARIANT* inArray,[in] long Flags);
+			[id(102), helpstring("method - SortArray2")] void SortArray2([in,out] VARIANT* iArrayMaster,[in,out] VARIANT* iArraySlave,[in] long Flags);
+			[id(103), helpstring("method - ArrayFindExactly")] long ArrayFindExactly([in] VARIANT iArray,[in] VARIANT FindWhat,[in] long FindFrom);
+			[id(104), helpstring("method - ArrayFind")] long ArrayFind([in] VARIANT iArray,[in] VARIANT FindWhat,[in] long FindFrom);
+			[id(105), helpstring("method - SSelectOpenPickFile")] long SSelectOpenPickFile([in] BSTR FileName);
+			[id(106), helpstring("method - SSelectPickFile")] void SSelectPickFile([in] BSTR FileName);
+			[id(107), helpstring("method - ReadItem")] long ReadItem([in] BSTR FileName,[in] BSTR ItemKey,[out] VARIANT* ItemArray);
+			[id(108), helpstring("method - RegisterInROT")] long RegisterInROT([in] BSTR* iStr);
+			[id(109), helpstring("method - RevokeFromROT")] long RevokeFromROT();
+			[id(110), helpstring("method - ListMakerAddList")] long ListMakerAddList([in] BSTR DestListName,[in] BSTR SrcListName);
+			[id(111), helpstring("method - ListMakerAppendList")] long ListMakerAppendList([in] BSTR DestListName,[in] BSTR SrcList);
+			[id(112), helpstring("method - ListMakerSquiseList")] long ListMakerSquiseList([in] BSTR ListName);
+			[id(113), helpstring("method - ListMakerDuplicateList")] long ListMakerDuplicateList([in] BSTR DestListName,[in] BSTR SrcListName);
+			[id(114), helpstring("method - ListMakerUniqueList")] long ListMakerUniqueList([in] BSTR ListName);
+			[id(115), helpstring("method - ListMakerSortList")] long ListMakerSortList([in] BSTR ListName);
+			[id(116), helpstring("method - ListMakerLoadList")] long ListMakerLoadList([in] BSTR ListName,[in] BSTR FileName);
+			[id(117), helpstring("method - ListMakerLoadPickList")] long ListMakerLoadPickList([in] BSTR ListName,[in] BSTR FileName,[in] BSTR ItemName);
+			[id(118), helpstring("method - ListMakerSavePickList")] long ListMakerSavePickList([in] BSTR ListName,[in] BSTR FileName,[in] BSTR ItemName);
+			[id(119), helpstring("method - ListMakerNBeginCont")] long ListMakerNBeginCont([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(120), helpstring("method - ListMakerBeginCont")] long ListMakerBeginCont([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(121), helpstring("method - ListMakerNEndCont")] long ListMakerNEndCont([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(122), helpstring("method - ListMakerEndCont")] long ListMakerEndCont([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(123), helpstring("method - ListMakerNContList")] long ListMakerNContList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(124), helpstring("method - ListMakerContList")] long ListMakerContList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(125), helpstring("method - ListMakerNMaskList")] long ListMakerNMaskList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(126), helpstring("method - ListMakerMaskList")] long ListMakerMaskList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(127), helpstring("method - ListMakerXORList")] long ListMakerXORList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(128), helpstring("method - ListMakerORList")] long ListMakerORList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(129), helpstring("method - ListMakerANDList")] long ListMakerANDList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(130), helpstring("method - ListMakerNOTList")] long ListMakerNOTList([in] BSTR DestName,[in] BSTR SrcName1,[in] BSTR SrcName2);
+			[id(131), helpstring("method - ListMakerGetListInfo")] long ListMakerGetListInfo([in] BSTR ListName,[out] VARIANT* ListInfo);
+			[id(132), helpstring("method - ListMakerGetListsInfo")] long ListMakerGetListsInfo([out] VARIANT* ListInfo);
+			[id(133), helpstring("method - ListMakerSaveList")] long ListMakerSaveList([in] BSTR ListName,[in] BSTR FileName);
+			[id(134), helpstring("method - ListMakerDeleteList")] long ListMakerDeleteList([in] BSTR ListName);
+			[id(135), helpstring("method - ListMakerCreateList")] long ListMakerCreateList([in] BSTR ListName);
+			[id(136), helpstring("method - ListMakerSetListAsArray")] long ListMakerSetListAsArray([in] BSTR ListName,[in] VARIANT* ListArray);
+			[id(137), helpstring("method - ListMakerGetListAsArray")] long ListMakerGetListAsArray([in] BSTR ListName,[out] VARIANT* ListArray);
+			[id(138), helpstring("method - ListMakerGetList")] long ListMakerGetList([in] BSTR ListName,[out] BSTR* OutListString);
+			[id(139), helpstring("method - ListMakerSetList")] long ListMakerSetList([in] BSTR ListName,[in] BSTR iList,[in] short delimiter);
+			[id(140), helpstring("method - SprGetInfo")] long SprGetInfo([in] BSTR SprName,[out] VARIANT* SprInfo);
+			[id(141), helpstring("method - SprGetInfos")] long SprGetInfos([out] VARIANT* SprInfos);
+			[id(142), helpstring("method - SprCreate")] long SprCreate([in] BSTR SprName,[in] short nFields);
+			[id(143), helpstring("method - SprDelete")] long SprDelete([in] BSTR SprName);
+			[id(144), helpstring("method - SprDoSub")] long SprDoSub([in] BSTR SprName,[in] BSTR MethodName,[in] VARIANT Params);
+			[id(145), helpstring("method - SprDoFn")] long SprDoFn([in] BSTR SprName,[in] BSTR MethodName,[in] VARIANT Params,[out] VARIANT* SprFnResult);
+			[id(146), helpstring("method - SprFillObject")] long SprFillObject([in] BSTR SprName,[in] OLE_HANDLE hWnd,[in] long ObjType,[in] BSTR FillParam,[in] long FillType);
+			[id(147), helpstring("method - SprReplaceObject")] long SprReplaceObject([in] BSTR SprName,[in] OLE_HANDLE hWnd,[in] long ObjType,[in] BSTR FillParam);
+			[id(148), helpstring("method - ListMakerFillObject")] long ListMakerFillObject([in] BSTR ListName,[in] OLE_HANDLE hWnd,[in] long ObjType,[in] long FillType);
+			[id(149), helpstring("method - SprFillByDisp")] long SprFillByDisp([in] BSTR SprName,[in] IDispatch* ObjDispatch,[in] BSTR FillParams,[in] long FillType);
+			[id(150), helpstring("method - SprFillByArray")] long SprFillByArray([in] BSTR SprName,[in] VARIANT KeyArray,[in] long nField,[in] VARIANT* RetArray);
+			[id(151), helpstring("method - SprReplaceObjectEx")] long SprReplaceObjectEx([in] OLE_HANDLE ihWnd,[in] long ObjType,[in] long StartItem,[in] long EndItem,[in] BSTR Params);
+			[id(152), helpstring("method - SprReplaceByDisp")] long SprReplaceByDisp([in] IDispatch* ObjDispatch,[in] long StartItem,[in] long EndItem,[in] BSTR Params);
+			[id(153), helpstring("method - SprGetItem")] long SprGetItem([in] BSTR SprName,[in] long ItemId,[out] VARIANT* SprItem);
+			[id(154), helpstring("method - SprInsertItem")] long SprInsertItem([in] BSTR SprName,[in] long ItemId,[in] VARIANT SprItem);
+			[id(155), helpstring("method - GetMPVars")] long GetMPVars([out] VARIANT* MPVarsArr);
+			[id(156), helpstring("method - Pause")] long Pause([in] long DelayMS);
+			[id(157), helpstring("method - GetCRC16")] long GetCRC16([in] VARIANT inpValue);
+			[id(158), helpstring("method - SprGetValues")] long SprGetValues([in] BSTR SprName,[in] long nField,[out] VARIANT* SprItem);
+			[id(159), helpstring("method - SetNextDlgParent")] void SetNextDlgParent([in] OLE_HANDLE ParentHWND);
+			[id(160), helpstring("method - SprLoadFromPick")] long SprLoadFromPick([in] BSTR SprName,[in] BSTR PickFileName,[in] long bReload,[in] BSTR SelectString);
+			[id(161), helpstring("method - SprSetItem")] long SprSetItem([in] BSTR SprName,[in] long ItemId,[in] VARIANT SprItem);
+			[id(162), helpstring("method - NamedDataSet")] long NamedDataSet([in] BSTR Name,[in] VARIANT Value);
+			[id(163), helpstring("method - NamedDataGet")] long NamedDataGet([in] BSTR Name,[out] VARIANT* Value);
+			[id(164), helpstring("method - NamedDataDelete")] void NamedDataDelete([in] BSTR Name);
+			[id(165), helpstring("method - NamedDataReset")] void NamedDataReset();
+			[id(166), helpstring("method - SprGetValuesEx")] long SprGetValuesEx([in] BSTR SprName,[in] VARIANT FieldsArr,[out] VARIANT* SprItems);
+			[id(167), helpstring("method - DeletePickItem")] void DeletePickItem([in] BSTR FileName,[in] BSTR ItemKey);
+			[id(168), helpstring("method - ReadVCFromPICKEx")] long ReadVCFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] VARIANT Attributes,[out] VARIANT* RetArray);
+			[id(169), helpstring("method - ReadVCUFromPICKEx")] long ReadVCUFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] VARIANT Attributes,[out] VARIANT* RetArray);
+			[id(170), helpstring("method - ReadKVCFromPICKEx")] long ReadKVCFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] VARIANT Attributes,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(171), helpstring("method - ReadKVCUFromPICKEx")] long ReadKVCUFromPICKEx([in] long FileHandler,[in] VARIANT nItem,[in] VARIANT Attributes,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(172), helpstring("method - ReadKADFromPICKEx")] long ReadKADFromPICKEx([in] BSTR FileName,[in] VARIANT nItem,[in] VARIANT Attributes,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(173), helpstring("method - ReadKADUFromPICKEx")] long ReadKADUFromPICKEx([in] BSTR FileName,[in] VARIANT nItem,[in] VARIANT Attributes,[out] VARIANT* RetArray,[out] VARIANT* RetKeyArray);
+			[id(174), helpstring("method - ExecListTab")] long ExecListTab([in] BSTR ListTabParam);
+			[id(175), helpstring("method - GetListTabResult")] long GetListTabResult([out] VARIANT* RetArray,[in] BSTR DelimStr,[in] long RetType);
+			[id(176), helpstring("method - SprFindItem")] long SprFindItem([in] BSTR SprName,[in] BSTR FindWhat,[in] long nField,[in] long FindFlag,[out] VARIANT* FindItem);
+			[id(177), helpstring("method - SprFindNextItem")] long SprFindNextItem([in] BSTR SprNAme,[in] BSTR FindWhat,[in] long nField,[in] long FindFlag,[out] VARIANT* FindItem);
+			[id(179), helpstring("method - ConvertToSubArrayNet")] long ConvertToSubArrayNet([in] VARIANT iConvArray,[out] VARIANT* oConvArray,[in] BSTR Delimiter);
+			[id(180), helpstring("method - ExecSUBNet")] void ExecSUBNet([in] BSTR SubName,[in] VARIANT ParamArray);
+			[id(181), helpstring("method - SaveListNet")] long SaveListNet([in] BSTR FileName,[in] BSTR ListName,[in] VARIANT ListArray);
+			[id(182), helpstring("method - ListMakerSetListAsArrayNet")] long ListMakerSetListAsArrayNet([in] BSTR ListName,[in] VARIANT ListArray);
+			[id(183), helpstring("method - ConnectEx")] long ConnectEx([in] BSTR CmdStr);
+			[id(184), helpstring("method - Parse command line")] long ParseCommandLine([in] BSTR CmdStr);
+			[id(185), helpstring("method - ConvertToSubArrayExNet")] long ConvertToSubArrayExNet([in] VARIANT ConvArrayIn,[out] VARIANT* ConvArrayOut,[in] VARIANT DelimiterArray);
+			[id(186), helpstring("method - SortArray2Net")] void SortArray2Net([in] VARIANT iArrayMasterIn,[out] VARIANT* iArrayMasterOut,[in] VARIANT iArraySlaveIn,[out] VARIANT* iArraySlaveOut,[in] long Flags);
+			[id(187), helpstring("method - SortArrayNet")] void SortArrayNet([in] VARIANT inArrayIn,[out] VARIANT* inArrayOut,[in] long Flags);
+			[id(188), helpstring("method - IsScriptOn")] long IsScriptOn();
+			[id(189), helpstring("method - ExecuteScript")] void ExecuteScript([in] BSTR CmdStr);
+			[id(190), helpstring("method - AbortScript")] void AbortScript();
+			[id(191), helpstring("method - SMMCmd method")] long SMMCmd([in] BSTR SMMCommand, [in] long lFlags, [out] VARIANT* inArrayOut);
+			[id(192), helpstring("method - GetInputString method")] long GetInputString([out] BSTR* oString, [in] long lGetFlag);
+			[id(193), helpstring("method - GetInputBytes method")] long GetInputBytes([out] VARIANT* oArray, [in] long lGetFlag);
+			//}}AFX_ODL_METHOD
+	};
+	[
+		object,
+		uuid(1509E7E3-DD4C-11D3-970D-0080AD863699),
+		dual,
+		helpstring("IGPTInterface Interface"),
+		pointer_default(unique)
+	]
+	interface IGPTInterface : IDispatch
+	{
+		[id(1), helpstring("method ArrayToString")] HRESULT ArrayToString([in] VARIANT* iArray, BSTR* oString,[in] BSTR* DelimiterString);
+		[id(2), helpstring("method StringToArray")] HRESULT StringToArray([in] BSTR *iString, VARIANT *oArray,[in] BSTR *DelimString);
+		[id(3), helpstring("method ConvertToPICK")] HRESULT ConvertToPICK([in,out] BSTR *iString);
+		[id(4), helpstring("method ConvertFromPICK")] HRESULT ConvertFromPICK([in,out] BSTR *iString);
+		[id(5), helpstring("method CountOccur")] HRESULT CountOccur([in] BSTR iString,[in] BSTR SubString,[in,out]  long *COResult);
+		[id(6), helpstring("method IndexSubString")] HRESULT IndexSubString([in] BSTR iString,[in] BSTR SubString,[in] long Occurence, long * Position);
+	};
+
+
+	//  Class information for CGP_TermDoc
+	
+	[ uuid(1509E7A6-DD4C-11D3-970D-0080AD863699) ]
+	coclass Document
+	{
+		[default] dispinterface IGP_Term;
+	};
+
+	//  Primary dispatch interface for CMSFlexGridSink
+	
+	[ uuid(023F1A59-24CA-4585-BAD4-F1C8663A8938) ]
+	dispinterface IMSFlexGridSink
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CMSFlexGridSink)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CMSFlexGridSink)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CMSFlexGridSink
+
+	[ uuid(EC3F7A38-C5FA-4379-92FB-4DEE4B54A247) ]
+	coclass MSFlexGridSink
+	{
+		[default] dispinterface IMSFlexGridSink;
+	};
+
+	//  Primary dispatch interface for CWebBrowser2Sink
+	
+	[ uuid(6B13E51E-75CF-4061-9250-4B2E65BE657F) ]
+	dispinterface IWebBrowser2Sink
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CWebBrowser2Sink)
+			//}}AFX_ODL_PROP
+			
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CWebBrowser2Sink)
+			//}}AFX_ODL_METHOD
+
+	};
+
+	//  Class information for CWebBrowser2Sink
+
+	[ uuid(A772A6D7-1EFD-4CF5-925B-062BBB5DB75A) ]
+	coclass WebBrowser2Sink
+	{
+		[default] dispinterface IWebBrowser2Sink;
+	};
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+	[
+		uuid(1509E7E5-DD4C-11D3-970D-0080AD863699),
+		helpstring("_IGPTInterfaceEvents Interface")
+	]
+	dispinterface _IGPTInterfaceEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		object,
+		uuid(97DC5723-F341-11D3-970D-0080AD863699),
+		dual,
+		helpstring("IAutoSizing Interface"),
+		pointer_default(unique)
+	]
+	interface IAutoSizing : IDispatch
+	{
+		[propget, id(1), helpstring("property nItem")] HRESULT nItem([out, retval] long *pVal);
+		[id(2), helpstring("method AddWnd")] HRESULT AddWnd([in] OLE_HANDLE ihWnd,[in] OLE_HANDLE hWndMain,[in] BSTR iString);
+		[id(3), helpstring("method AddSetMain")] HRESULT AddSetMain([in] OLE_HANDLE ihWndMain);
+		[id(4), helpstring("method DeleteWnd")] HRESULT DeleteWnd([in] OLE_HANDLE ihWnd);
+		[id(5), helpstring("method Reset")] HRESULT Reset();
+		[id(6), helpstring("method UpdateSize")] HRESULT UpdateSize();
+		[id(7), helpstring("method SetMinPos")] HRESULT SetMinPos([in] OLE_HANDLE ihWnd,[in] long MinTop,[in] long MinLeft,[in] long MinBottom,[in] long MinRight);
+		[id(8), helpstring("method SetMaxPos")] HRESULT SetMaxPos([in] OLE_HANDLE ihWnd,[in] long MaxTop,[in] long MaxLeft,[in] long MaxBottom,[in] long MaxRight);
+		[id(9), helpstring("method SetMaxSize")] HRESULT SetMaxSize([in] OLE_HANDLE ihWnd,[in] long iMaxWidth,[in] long iMaxHeight);
+		[id(10), helpstring("method SetMinSize")] HRESULT SetMinSize([in] OLE_HANDLE ihWnd,[in] long iMinWidth,[in] long iMinHeight);
+		[id(11), helpstring("method SetNewStyle")] HRESULT SetNewStyle([in] OLE_HANDLE ihWnd,[in] BSTR NewStyle);
+		[id(12), helpstring("method ReinitSize")] HRESULT ReinitSize([in] OLE_HANDLE ihWnd);
+		[id(13), helpstring("method SetNewSize")] HRESULT SetNewSize([in] OLE_HANDLE ihWnd,[in] long Top,[in] long Left,[in] long Bottom,[in] long Right);
+		[id(14), helpstring("method DeleteWndEx")] HRESULT DeleteWndEx([in] OLE_HANDLE ihWnd,[in] OLE_HANDLE ownerHWND);
+		[id(15), helpstring("method AutoSizingPause")] HRESULT AutoSizingPause();
+		[id(16), helpstring("method AutoSizingResume")] HRESULT AutoSizingResume();
+		[id(17), helpstring("method ReinitAll")] HRESULT ReinitAll();
+	};
+
+	[
+		uuid(1509E7E4-DD4C-11D3-970D-0080AD863699),
+		helpstring("GPTInterface Class")
+	]
+	coclass GPTInterface
+	{
+		[default] interface IGPTInterface;
+		[default, source] dispinterface _IGPTInterfaceEvents;
+	};
+	[
+		uuid(97DC5725-F341-11D3-970D-0080AD863699),
+		helpstring("_IAutoSizingEvents Interface")
+	]
+	dispinterface _IAutoSizingEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		object,
+		uuid(7633D795-5289-4E2E-9652-D4EB8E2CB009),
+		dual,
+		helpstring("IConnector Interface"),
+		pointer_default(unique)
+	]
+	interface IConnector : IDispatch
+	{
+		[id(1), helpstring("method GetTerminal")] HRESULT GetTerminal([in] BSTR* iStr, [out,retval] LPDISPATCH *ppDisp);
+	};
+	[
+		object,
+		uuid(DCCFE5DA-4873-4C23-AB69-5E4DBF1792C6),
+		dual,
+		helpstring("ICOMImport Interface"),
+		pointer_default(unique)
+	]
+	interface ICOMImport : IDispatch
+	{
+	};
+
+	[
+		uuid(97DC5724-F341-11D3-970D-0080AD863699),
+		helpstring("AutoSizing Class")
+	]
+	coclass AutoSizing
+	{
+		[default] interface IAutoSizing;
+		[default, source] dispinterface _IAutoSizingEvents;
+	};
+	[
+		uuid(213787A1-BDFC-424A-A8E5-2319ABA9E25D),
+		helpstring("Connector Class")
+	]
+	coclass Connector
+	{
+		[default] interface IConnector;
+	};
+	[
+		uuid(1FC4AF30-8426-4C47-A9A7-839204386C5E),
+		helpstring("COMImport Class")
+	]
+	coclass COMImport
+	{
+		[default] interface ICOMImport;
+	};
+};

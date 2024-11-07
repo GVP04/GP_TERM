@@ -1,0 +1,16 @@
+basic FG.BP *catalog FG.BP *basic FG.BP.EXAMPLE *catalog FG.BP.EXAMPLE *bcptosrv "C:\myprojects\FlashGui\flashgui2.2.5\UV\FG.BP" TO FG.BP (FObcptosrv "C:\myprojects\FlashGui\flashgui2.2.5\UV\FG.BP.EXA000" TO FG.BP.EXAMPLE (FObcptopc FG.BP TO "C:\myprojects\FlashGui\flashgui2.2.5\UV\FG.BP" (FObcptopc FG.BP.EXAMPLE TO "C:\myprojects\FlashGui\flashgui2.2.5\UV\FG.BP.EXA000" (FObcptopc PEUV TO "C:\myprojects\PE\PEUV" (FOBCPTOPC templates TO "C:\myprojects\FlashGui\flashgui2.2.5\QM\FG.TEMPLATES" (FOBCPTOPC cf.doc TO "C:\myprojects\FlashGui\flashgui2.2.5\QM\FG.DOC" (FOBCPTOPC PEQM TO "C:\myprojects\PE\PEQM" (FOBCPTOPC FG.BP TO "C:\myprojects\FlashGui\flashgui2.2.5\QM\FG.BP" (FOBCPTOPC FG.BP.EXAMPLE TO "C:\myprojects\FlashGui\flashgui2.2.5\QM\FG.BP.EXAMPLE" (FOBCPTOPC FG.TEMPLATES TO "C:\myprojects\FlashGui\flashgui2.2.5\QM\FG.TEMPLATES" (FOBCPTOSRV "C:\myprojects\FlashGui\CUR_UV\FG.BP" TO FG.BP (FOBCPTOSRV "C:\myprojects\FlashGui\CUR_UV\FG.BP.EXAMPLE" TO FG.BP.EXAMPLE (FOBCPTOSRV "C:\myprojects\FlashGui\CUR_UV\DT.EXAMPLE" TO DT.EXAMPLE (FOBCPTOSRV "C:\myprojects\FlashGui\CUR_UV\FG.TEMPLATES" TO FG.TEMPLATES (FOBCPTOPC FG.BP TO "C:\myprojects\FlashGui\CUR_UV\FG.BP" (FOכןכןכ כמן כמןכמןכמ ןכמן כÉÖÓÓÊÅÍÍÃÃØÙÇÉÖÓÊÅÍÃØÙÇÝÆÄËÎÐÏÀÂÛÔ‗×ÑÌÈÒÜÁÞיצףךוםדרשחץפûגאןנמכהז‎ÿקסלטעüב‏.FG.BP           
+FG.BP.EXAMPLE   
+FG.CF.SE        
+FG.DOC          
+FG.RBIN         
+FG.TEMPLATES    
+FG.TESTRUN      
+ÍÃÃØÙÇÉÖÓÊÅÍÃØÙÇÝÆÄËÎÐÏÀÂÛÔ‗×ÑÌÈÒÜÁÞיצףךוםדרDELETE.FILE FG.BP           
+DELETE.FILE FG.BP.EXAMPLE   
+DELETE.FILE FG.CF.SE        
+DELETE.FILE FG.DOC          
+DELETE.FILE FG.RBIN         
+DELETE.FILE FG.TEMPLATES    
+DELETE.FILE FG.TESTRUN      
+DELETE.FILE DT.EXAMPLE   
+DELETE.FILE FG.BP.EXAMPLE.ODELETE.FILE FG.BP.Olu

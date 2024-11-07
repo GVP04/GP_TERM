@@ -1,0 +1,4 @@
+
+
+C:\myprojects\GP_TERM\GP_TermDoc.cpp(6127):	ConvVariantToString(Params,tmpstr,"^]");
+C:\myprojects\GP_TERM\GP_TermDoc.cpp(6141):	ConvVariantToString(Params,tmpstr,"^]");

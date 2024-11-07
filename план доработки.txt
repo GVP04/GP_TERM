@@ -1,0 +1,184 @@
+GPToolBarCtrl и GPToolBar именованные клики (имя для бутонок)
+All - если не указан объект, то выбранный или с фокусом
+"GetObjectsText","[ObjName1[,ObjName2[,....]]]",
+focus в GROUP
+Invalidate  заменить на InvalidateGPUnit
+поставить препроверку наличия сообщения в обработке
+Внедренные объекты в tree     
+Внедренные объекты в listctrl      
+SendInput  WINDOWS
+SendMessage  WINDOWS
+PostMessage  WINDOWS
+GetHwnd
+FindWindow -> hwnd
+WindowFromPos ->hwnd
+Attach <- hwnd
+PIPE in IOFiles
+MAILSLOT in IOFiles
+Преобразование флагов из текста и из числа
+Security  SID ....  AddUsersToEncryptedFile FreeEncryptionCertificateHashList QueryRecoveryAgentsOnEncryptedFile QueryUsersOnEncryptedFile RemoveUsersFromEncryptedFile SetUserFileEncryptionKey SetFileSecurity
+Объект IMAGE
+printer ...... OpenPrinter in IOFiles
+hmod = LoadLibrary("SciLexer.DLL");
+create window  (as object)		
+Установка из пика BREAK code
+установка из пика простоя
+PDX protocol in IOFiles
+Блокировка перехода end to start in editlistctrl
+Настройка тулбаров
+доступ и список объектов MainFrame from PICK-BASIC
+реализация методов SH*  (Shell) интересно
+socket shutdown + connection setup on exit
+в определение событий добавить описание ретурна винпроца
+CInternetSession
+CInternetConnection
+CAsyncSocket & User Datagram Protocol (UDP).
+Mouse Input Functions
+Message and Message Queue Functions
+Combobox & ComboboxEx флаг автовыпадения при фокусе или зависании мыши
+Combobox & ComboboxEx режим контекстного поиска и заливки списка
+Возвращаемый текст при выборе позиции программног меню
+Оптимизация вывода в GPScreen  (пул и отдельный поток)
+Исправить OLE вставка и удаление элемента массива
+SSL
+RPC functions
+Настройки BELL (взять из PuTTY)
+Настройки CURSOR (взять из PuTTY)
+setsockopt(s, IPPROTO_TCP, TCP_NODELAY, (void *) &b, sizeof(b));
+connection.keepalive  "Seconds between &keepalives (0 to turn off)",
+Подобрать иконки ко всем диалогам
+Подобрать иконки ко всем меню
+Заливка TreeCtrl из справочника
+Меню и кнопка GetWindowText
+Настройка termcap с сервера
+SystemFunctions  as GetIpAddrTable GetPerAdapterInfo  .....  #include "Iphlpapi.h"
+Current Dir при запуске сохранить
+В контекстном меню задание полей ввода с запросом через диалог
+Edit с масками неправильно отрабатывает ins нажатый в других окнах
+Выполнение методов SH AssocCreate AssocQueryKey AssocQueryString AssocQueryStringByKey SHCopyKey SHDeleteEmptyKey SHDeleteKey SHDeleteValue SHEnumKeyEx  SHEnumValue SHGetValue SHQueryInfoKey SHQueryValueEx SHRegCloseUSKey SHRegCreateUSKey SHRegDeleteEmptyUSKey SHRegDeleteUSValue SHRegDuplicateHKey SHRegEnumUSKey SHRegEnumUSValue SHRegGetBoolUSValue SHRegGetIntW SHRegGetPath SHRegGetUSValue SHRegOpenUSKey SHRegQueryInfoUSKey SHRegQueryUSValue SHRegSetPath SHRegSetUSValue SHRegWriteUSValue SHSetValue
+Новые методы в RTF
+Инициализационная именованная последовательность методов при создании объекта и/или просто вызов
+Нормально описать термкап
+Установка типа терминала с сервера
+for edit and combo IAutoComplete2 example
+OnItemChanged - ListCtrl
+UNDO on TCL
+RETURN= in init string.
+Переменные в сообщениях доделать.
+CHAR(2) позволяет добавить методы к событию, но только один раз. Если я в программе удаляю событие, а потом добавляю его с тем же синтаксисом, что и в первый раз, то приходит только само событие - методы не выполняются.
+POWER management
+Создание группы объектов и выполнение методов для них.
+Функция терминала ReadUFromPICK в случае если запись заблокирована или не существует возвращает один и тот же текст: ERROR Reading FROM mdId=<item name>Но код возврата оказывается разный!В первом случае -2 во втором -5.Но об этом написано только в описание функции: ReadItem :(
+GetProfileString .... system methods 
+SSH tunelling seems the tunnelling is not working
+Subscript and superscript on screen
+Убрать массивы из обработки оле in StartMessageMap
+wrong ScrData in varibles view dialog
+1. Есть два момента по работе редактора PE:В диалоге открытия записи есть кнопочка, относящаяся к удалению файла. Однако она не работает.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!Printing and Print Spooler Functions
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+FineReader API
+FastReport API
+
+> 
+> 2. combobox
+> Я добавил опцию, чтобы он был редактируемый с клавиатуры, и включил 
+> сообщение OnValChange, но оно не прихдит как в EDIT.
+
+InvokeHelper
+Add pipe to termcap commands from COM
+Заменить буфер вывода в DoMethods на класс с изменяемым размером буфера.
+молчаливые сообщения со скриптом
+add chm help to view methods dialogs
+SystemMethods add and repair. GetAdaptersInfo GetBestInterface GetBestRoute GetFriendlyIfIndex GetIcmpStatistics GetIfEntry ...........
+
+SystemMethods add AddPrinter
+
+CRT UNICODE from PB
+
+Print document through MSWord
+IMAGE property (proportional)
+
+CFtpConnection* pConnect = NULL; pConnect = sess.GetFtpConnection(_T("ftp.microsoft.com"));
+CFtpFileFind finder(pConnect);
+GetLocaleInfoEx .....
+EnumSystem......
+
+
+
+***********documentation
+BROWSEINFO Structure  documentation
+ShellExecute documentation    FLAG
+
+#define LVS_EX_JUSTIFYCOLUMNS   0x00200000  // Icons are lined up in columns that use up the whole view area.
+#define LVS_EX_TRANSPARENTBKGND 0x00400000  // Background is painted by the parent via WM_PRINTCLIENT
+#define LVS_EX_TRANSPARENTSHADOWTEXT 0x00800000  // Enable shadow text on transparent backgrounds only (useful with bitmaps)
+#define LVS_EX_AUTOAUTOARRANGE  0x01000000  // Icons automatically arrange if no icon positions have been set
+#define LVS_EX_HEADERINALLVIEWS 0x02000000  // Display column header in all view modes
+#define LVS_EX_AUTOCHECKSELECT  0x08000000
+#define LVS_EX_AUTOSIZECOLUMNS  0x10000000
+#define LVS_EX_COLUMNSNAPPOINTS 0x40000000
+#define LVS_EX_COLUMNOVERFLOW   0x80000000
+
+ACS_TIMER
+PBS_SMOOTHREVERSE
+CBES_EX_TEXTENDELLIPSIS
+LBS_COMBOBOX
+
+#define BS_USERBUTTON       0x00000008L
+#define BS_PUSHBOX          0x0000000AL
+
+
+#define MCS_NOTRAILINGDATES  0x0040
+#define MCS_SHORTDAYSOFWEEK  0x0080
+#define MCS_NOSELCHANGEONNAV 0x0100
+TBS_NOTIFYBEFOREMOVE
+#define HDS_CHECKBOXES          0x0400
+#define HDS_NOSIZING            0x0800
+#define HDS_OVERFLOW            0x1000
+
+TVS_EX_MULTISELECT,TVS_EX_DOUBLEBUFFER,TVS_EX_NOINDENTSTATE,TVS_EX_RICHTOOLTIP,TVS_EX_AUTOHSCROLL,TVS_EX_FADEINOUTEXPANDOS,TVS_EX_PARTIALCHECKBOXES,TVS_EX_EXCLUSIONCHECKBOXES,TVS_EX_DIMMEDCHECKBOXES,TVS_EX_DRAWIMAGEASYNC,
+TTS_USEVISUALSTYLE
+
+#define PBM_GETSTEP             (WM_USER+13)
+#define PBM_GETBKCOLOR          (WM_USER+14)
+#define PBM_GETBARCOLOR         (WM_USER+15)
+#define PBM_SETSTATE            (WM_USER+16) // wParam = PBST_[State] (NORMAL, ERROR, PAUSED)
+#define PBM_GETSTATE            (WM_USER+17)
+*************
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!
+SystemParametersInfo
+ChangeDisplaySettingsEx
+EnumDisplaySettingsExA
+MonitorFromPoint
+APPCOMMAND_BROWSER_FORWARD
+!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+Start VM or D3NT of other program if connection failed
+
+
+Поиск русских букв в EDITOR
+Загрузка списков изображений из картинки
+Сохранение экрана в файл (как текстовый так и картинку)
+Изменение цвета и стиля символов экрана(окна) по маске
+
+
+doc for   m_uPixelPerPoint  PPP    
+
+//	case  5: //GetCustomEndCap
+//	case  6: //GetCustomStartCap
+
+
+    dsl=\E[2$~\r\E[1$}\E[K\E[$}, tsl=\E[2$~\E[1$}, fsl=\E[$},
+ExecuteScript"Filename[,WorkingFolder]
