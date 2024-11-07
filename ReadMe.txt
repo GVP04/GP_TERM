@@ -1,4 +1,5 @@
 Terminal with full control PC from server
+See *.chm as doc
 Server can create and manage GUI at PC and works with messages
 Supports all standart windows objects
 Supports Chinese
