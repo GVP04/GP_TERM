@@ -6,7 +6,7 @@ Supports Chinese
 Any resolution and smooth resize
 Graphic and symbol layers 
 Many other features
-Has server libraryes for Pick DR, OpenQM, Universe, DB2 + easy create any other server libs
+Has server libraryes for Pick D3, OpenQM, Universe,  + easy to create any other server libs
 
 Your feedback is  I M P O R T A N T.
 
